@@ -1,4 +1,9 @@
-function PopupConnexion() {
+import PropTypes from "prop-types";
+
+function PopupConnexion({ setShowPopupConnexion }) {
+  const close = () => {
+    setShowPopupConnexion(false);
+  };
   return (
     <>
       <h2>Vous voulez vous connecter?</h2>
@@ -14,9 +19,13 @@ function PopupConnexion() {
       <label htmlFor="pass">Password (8 characters minimum):</label>
       <input type="password" id="pass" name="password" required />
 
-      <input type="submit" value="Connexion" />
+      <input type="submit" value="Connexion" onClick={() => close()} />
     </>
   );
 }
 
 export default PopupConnexion;
+
+PopupConnexion.propTypes = {
+  setShowPopupConnexion: PropTypes.bool.isRequired,
+};

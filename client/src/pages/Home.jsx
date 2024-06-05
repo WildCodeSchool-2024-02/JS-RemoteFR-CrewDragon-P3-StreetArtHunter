@@ -36,8 +36,16 @@ function Home() {
         {" "}
         Connexion
       </button>
-      {showPopupInscription ? <PopupInscription /> : ""}
-      {showPopupConnexion ? <PopupConnexion /> : ""}
+      {showPopupInscription ? (
+        <PopupInscription setShowPopupInscription={setShowPopupInscription} />
+      ) : (
+        ""
+      )}
+      {showPopupConnexion ? (
+        <PopupConnexion setShowPopupConnexion={setShowPopupConnexion} />
+      ) : (
+        ""
+      )}
     </>
   );
 }

@@ -1,4 +1,9 @@
-function PopupInscription() {
+import PropTypes from "prop-types";
+
+function PopupInscription({ setShowPopupInscription }) {
+  const close = () => {
+    setShowPopupInscription(false);
+  };
   return (
     <>
       <h2>Vous voulez vous inscrire?</h2>
@@ -31,9 +36,13 @@ function PopupInscription() {
       <label htmlFor="pass">Password (8 characters minimum):</label>
       <input type="password" id="pass" name="password" required />
 
-      <input type="submit" value="Inscription" />
+      <input type="submit" value="Inscription" onClick={() => close()} />
     </>
   );
 }
 
 export default PopupInscription;
+
+PopupInscription.propTypes = {
+  setShowPopupInscription: PropTypes.bool.isRequired,
+};
