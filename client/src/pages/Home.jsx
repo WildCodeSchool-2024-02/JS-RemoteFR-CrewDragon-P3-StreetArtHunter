@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import PopupConnexion from "../components/PopupConnexion";
 import PopupInscription from "../components/PopupInscription";
+import Map from "../components/Map";
 
 function Home() {
   const [showPopupConnexion, setShowPopupConnexion] = useState(false);
@@ -21,7 +22,7 @@ function Home() {
         Partez à l&apos;aventure pour découvrir les œuvres d&apos;art autour de
         chez vous !
       </h2>
-      <p>map</p> {/* import de la map */}
+      <Map />
       <button type="button"> Regles</button>
       <p>
         Pour se faire, aidez-vous de la carte afin de chercher des Street Art
