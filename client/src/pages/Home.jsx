@@ -1,4 +1,20 @@
+import { useState } from "react";
+
+import PopupConnexion from "../components/PopupConnexion";
+import PopupInscription from "../components/PopupInscription";
+
 function Home() {
+  const [showPopupConnexion, setShowPopupConnexion] = useState(false);
+  const [showPopupInscription, setShowPopupInscription] = useState(false);
+
+  const inscription = () => {
+    setShowPopupInscription(true);
+  };
+
+  const connexion = () => {
+    setShowPopupConnexion(true);
+  };
+
   return (
     <>
       <h2>
@@ -12,8 +28,16 @@ function Home() {
         dans les rues et vous émerveiller de la créativité d&apos;artistes
         talentueux.
       </p>
-      <button type="button"> S'inscrire</button>
-      <button type="button"> Connexion</button>
+      <button type="button" onClick={() => inscription()}>
+        {" "}
+        S'inscrire
+      </button>
+      <button type="button" onClick={() => connexion()}>
+        {" "}
+        Connexion
+      </button>
+      {showPopupInscription ? <PopupInscription /> : ""}
+      {showPopupConnexion ? <PopupConnexion /> : ""}
     </>
   );
 }
