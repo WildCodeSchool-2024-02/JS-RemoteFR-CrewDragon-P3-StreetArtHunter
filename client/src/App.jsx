@@ -1,7 +1,8 @@
+import Nav from "./components/Nav";
 import "./main.scss";
 
 function App() {
-  return <p>coucou</p>;
+  return <Nav />;
 }
 
 export default App;
