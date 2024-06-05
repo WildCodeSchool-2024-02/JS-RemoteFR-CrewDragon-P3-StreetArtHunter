@@ -1,4 +1,6 @@
 @import "./style/galery.scss";
+@import "./style/Footer.scss";
+@import "./style/Header.scss";
 
 * {
   margin: 0;
@@ -17,6 +19,7 @@ button {
 }
 
 body {
+  height: 100vh;
   background-color: #f4ac45;
   background-image: url("./assets/Blue-Gradient.svg"),
     url("./assets/Orange-Gradient.svg");
