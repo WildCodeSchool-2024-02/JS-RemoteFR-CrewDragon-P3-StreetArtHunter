@@ -6,6 +6,7 @@ import App from "./App";
 import Home from "./pages/Home";
 import Galery from "./pages/Galery";
 import Map from "./components/Map";
+import Instruction from "./pages/Insctruction";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
       {
         path: "/map",
         element: <Map />,
+      },
+      {
+        path: "/instruction",
+        element: <Instruction />,
       },
     ],
   },

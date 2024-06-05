@@ -10,6 +10,9 @@ function Nav() {
         <Link to="/galery">
           <p>Galery</p>
         </Link>
+        <Link to="/instruction">
+          <p>Insctructions</p>
+        </Link>
       </nav>
       <main>
         <Outlet />
