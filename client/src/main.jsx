@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App";
 import Home from "./pages/Home";
 import Galery from "./pages/Galery";
+import Map from "./components/Map";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
       {
         path: "/galery",
         element: <Galery />,
+      },
+      {
+        path: "/map",
+        element: <Map />,
       },
     ],
   },
