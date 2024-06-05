@@ -4,12 +4,16 @@ function Galery() {
   return (
     <>
       <p>Les oeuvres trouvées par la communauté !</p>
-      <section>
+      <section className="galery">
         {workArt.map((art) => (
-          <div key={art.id}>
-            <p>{art.name}</p>
-            <img src={art.picture} alt="oeuvre de street art" />
-            <p>{art.artist}</p>
+          <div key={art.id} className="cardGalery">
+            <p className="name">{art.name}</p>
+            <img
+              src={art.picture}
+              alt="oeuvre de street art"
+              className="picture"
+            />
+            <p className="artist">{art.artist}</p>
           </div>
         ))}
       </section>

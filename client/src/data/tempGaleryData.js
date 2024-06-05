@@ -6,7 +6,7 @@ import streetWoman from "../assets/streetWoman.jpg";
 const workArt = [
   {
     id: 1,
-    name: "pic1",
+    name: "Avenue",
     city: "",
     latitude: 300,
     longitude: 300,
@@ -15,7 +15,7 @@ const workArt = [
   },
   {
     id: 2,
-    name: "pic2",
+    name: "Elephant",
     city: "",
     latitude: 300,
     longitude: 300,
@@ -24,7 +24,7 @@ const workArt = [
   },
   {
     id: 3,
-    name: "pic3",
+    name: "Whaser",
     city: "",
     latitude: 300,
     longitude: 300,
@@ -33,7 +33,7 @@ const workArt = [
   },
   {
     id: 4,
-    name: "pic4",
+    name: "Woman",
     city: "",
     latitude: 300,
     longitude: 300,
