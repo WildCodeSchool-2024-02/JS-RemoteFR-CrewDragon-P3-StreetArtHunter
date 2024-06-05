@@ -18,13 +18,13 @@ function Home() {
 
   return (
     <>
-      <h2>
+      <h2 className="h2">
         Partez à l&apos;aventure pour découvrir les œuvres d&apos;art autour de
         chez vous !
       </h2>
-      <Map />
+      <Map className="map" />
       <button type="button"> Regles</button>
-      <p>
+      <p className="p">
         Pour se faire, aidez-vous de la carte afin de chercher des Street Art
         dans les rues et vous émerveiller de la créativité d&apos;artistes
         talentueux.
