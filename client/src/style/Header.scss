@@ -1,0 +1,149 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #1f4f6e;
+  color: #fff;
+
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+
+    ul {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      li {
+        margin-left: 1rem;
+
+        a {
+          color: #fff;
+          text-decoration: none;
+          transition: color 0.3s;
+
+          &:hover {
+            color: #ff6347;
+          }
+        }
+      }
+    }
+
+    &.open {
+      display: block;
+    }
+  }
+
+  .burger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    div {
+      width: 25px;
+      height: 3px;
+      background-color: #fff;
+      margin: 4px 0;
+      transition: all 0.3s ease;
+    }
+
+    &.open .line1 {
+      transform: rotate(-45deg) translate(-5px, 6px);
+    }
+
+    &.open .line2 {
+      opacity: 0;
+    }
+
+    &.open .line3 {
+      transform: rotate(45deg) translate(-5px, -6px);
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .nav {
+    ul {
+      li {
+        margin-left: 0.5rem;
+
+        a {
+          font-size: 0.9rem;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .nav {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: #333;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    padding: 1rem 0;
+
+    ul {
+      flex-direction: column;
+      align-items: center;
+
+      li {
+        margin: 1rem 0;
+
+        a {
+          font-size: 1.2rem;
+        }
+      }
+    }
+
+    &.open {
+      display: flex;
+    }
+  }
+
+  .burger {
+    display: flex;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+
+    .logo {
+      margin-bottom: 1rem;
+    }
+
+    .nav {
+      top: 50px;
+
+      ul {
+        li {
+          margin: 0.5rem 0;
+
+          a {
+            font-size: 1rem;
+          }
+        }
+      }
+    }
+  }
+
+  .burger {
+    align-self: flex-end;
+  }
+}
