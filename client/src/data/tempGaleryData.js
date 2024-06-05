@@ -1,3 +1,8 @@
+import streetAve from "../assets/streetAve.jpg";
+import streetElephant from "../assets/streetElephant.jpg";
+import streetWash from "../assets/streetWash.jpg";
+import streetWoman from "../assets/streetWoman.jpg";
+
 const workArt = [
   {
     id: 1,
@@ -5,7 +10,7 @@ const workArt = [
     city: "",
     latitude: 300,
     longitude: 300,
-    picture: "",
+    picture: streetAve,
     artist: "unknow",
   },
   {
@@ -14,7 +19,7 @@ const workArt = [
     city: "",
     latitude: 300,
     longitude: 300,
-    picture: "",
+    picture: streetElephant,
     artist: "unknow",
   },
   {
@@ -23,7 +28,7 @@ const workArt = [
     city: "",
     latitude: 300,
     longitude: 300,
-    picture: "",
+    picture: streetWash,
     artist: "unknow",
   },
   {
@@ -32,7 +37,7 @@ const workArt = [
     city: "",
     latitude: 300,
     longitude: 300,
-    picture: "",
+    picture: streetWoman,
     artist: "unknow",
   },
 ];
