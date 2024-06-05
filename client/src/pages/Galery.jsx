@@ -13,7 +13,7 @@ function Galery() {
               alt="oeuvre de street art"
               className="picture"
             />
-            <p className="artist">{art.artist}</p>
+            <p className="city">{art.city}</p>
           </div>
         ))}
       </section>

@@ -7,7 +7,7 @@ const workArt = [
   {
     id: 1,
     name: "Avenue",
-    city: "",
+    city: "Berlin",
     latitude: 300,
     longitude: 300,
     picture: streetAve,
