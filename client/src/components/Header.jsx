@@ -5,10 +5,12 @@ import "../style/Header.scss";
 function Header() {
   return (
     <header className="header">
+
       <div className="logo">
         <img src={graffiti} alt="Logo" />
-        <div className="text">Street Art Hunter</div>
-      </div>
+        <h1 className="text">Street Art Hunter</h1>
+      </div>     
+
     </header>
   );
 }

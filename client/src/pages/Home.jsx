@@ -19,7 +19,7 @@ function Home() {
 
   return (
     <>
-      <h2>
+      <h2 className="h2">
         Partez à l&apos;aventure pour découvrir les œuvres d&apos;art autour de
         chez vous !
       </h2>
