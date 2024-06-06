@@ -2,7 +2,7 @@ function Header() {
   return (
     <header className="header">
       {/* insert logo later */}
-      <div className="logo">Street Art Hunter</div>
+      <h1 className="logo">Street Art Hunter</h1>
     </header>
   );
 }
