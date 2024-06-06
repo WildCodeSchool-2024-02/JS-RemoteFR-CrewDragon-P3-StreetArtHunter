@@ -4,12 +4,26 @@
 @import "./style/Map.scss";
 @import "./style/instruction.scss";
 
+@font-face {
+  font-family: "Press Start 2P";
+  src: url("./assets/fonts/PressStart2P-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "VT323";
+  src: url("./assets/fonts/VT323-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Athiti";
+  src: url("./assets/fonts/Athiti-Regular.ttf") format("truetype");
+}
+
 :root {
   --backColor: #a4c2a5;
   --border: rgba(0, 0, 0, 0.8);
   --shadow: 8px 8px 19px -1px rgba(0, 0, 0, 0.41);
 }
-
 
 * {
   margin: 0;
