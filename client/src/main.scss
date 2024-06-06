@@ -2,14 +2,21 @@
 @import "./style/Footer.scss";
 @import "./style/Header.scss";
 
+:root {
+  --backColor: #a4c2a5;
+  --border: rgba(0, 0, 0, 0.8);
+  --shadow: 8px 8px 19px -1px rgba(0, 0, 0, 0.41);
+}
+
 * {
   margin: 0;
   font-size: 1.25rem;
 }
 
 main {
-  border: 4px solid rgba(0, 0, 0, 0.8);
-  background-color: #a4c2a5;
+  border: 4px solid var(--border);
+  background-color: var(--backColor);
+  margin: 15px;
 }
 
 button {
