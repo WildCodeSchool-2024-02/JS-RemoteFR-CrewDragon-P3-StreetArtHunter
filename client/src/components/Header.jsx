@@ -1,8 +1,16 @@
+
+import graffiti from "../assets/graffiti.2.png";
+import "../style/Header.scss";
+
 function Header() {
   return (
     <header className="header">
-      {/* insert logo later */}
-      <h1 className="logo">Street Art Hunter</h1>
+
+      <div className="logo">
+        <img src={graffiti} alt="Logo" />
+        <h1 className="text">Street Art Hunter</h1>
+      </div>     
+
     </header>
   );
 }
