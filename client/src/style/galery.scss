@@ -12,7 +12,7 @@
     padding: 5px;
     border: 2px solid var(--border);
     border-radius: 10px 10px 10px 10px;
-    box-shadow: 8px 8px 19px -1px rgba(0, 0, 0, 0.41);
+    box-shadow: var(--shadow);
     .picture {
       width: 40vw;
       height: auto;
