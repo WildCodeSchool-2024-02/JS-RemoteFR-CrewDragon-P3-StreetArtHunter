@@ -4,6 +4,7 @@
 
 :root {
   --backColor: #a4c2a5;
+  --border: rgba(0, 0, 0, 0.8);
 }
 
 * {
@@ -12,7 +13,7 @@
 }
 
 main {
-  border: 4px solid rgba(0, 0, 0, 0.8);
+  border: 4px solid var(--border);
   background-color: var(--backColor);
   margin: 15px;
 }
