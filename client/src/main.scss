@@ -2,6 +2,10 @@
 @import "./style/Footer.scss";
 @import "./style/Header.scss";
 
+:root {
+  --backColor: #a4c2a5;
+}
+
 * {
   margin: 0;
   font-size: 1.25rem;
@@ -9,7 +13,8 @@
 
 main {
   border: 4px solid rgba(0, 0, 0, 0.8);
-  background-color: #a4c2a5;
+  background-color: var(--backColor);
+  margin: 15px;
 }
 
 button {
