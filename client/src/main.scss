@@ -1,12 +1,15 @@
 @import "./style/galery.scss";
 @import "./style/Footer.scss";
 @import "./style/Header.scss";
+@import "./style/Map.scss";
+@import "./style/instruction.scss";
 
 :root {
   --backColor: #a4c2a5;
   --border: rgba(0, 0, 0, 0.8);
   --shadow: 8px 8px 19px -1px rgba(0, 0, 0, 0.41);
 }
+
 
 * {
   margin: 0;
@@ -34,4 +37,23 @@ body {
   background-position:
     left 0 bottom 0,
     left 0 top 0;
+}
+h1 {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  padding: 20px 50px;
+}
+
+h2 {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  padding: 20px 50px;
+  color: white;
+}
+
+p {
+  padding: 20px 100px;
+  color: white;
 }
