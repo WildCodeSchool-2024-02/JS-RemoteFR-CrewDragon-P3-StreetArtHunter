@@ -16,7 +16,7 @@ main {
 button {
   border: 2px solid #bf3100;
   background-color: #330d00;
-  color: white;
+  color: rgb(255, 255, 255);
 }
 
 body {
@@ -36,15 +36,18 @@ h1 {
   padding: 20px 50px;
 }
 
-h2 {
+.h2-map {
   display: flex;
   flex-direction: column;
-  text-align: left;
-  padding: 20px 50px;
+  text-align: center;
+  padding: 20px 100px;
   color: white;
 }
 
-p {
+.p-map {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
   padding: 20px 100px;
   color: white;
 }
