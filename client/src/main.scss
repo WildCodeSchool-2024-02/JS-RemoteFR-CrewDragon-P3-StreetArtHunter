@@ -62,16 +62,19 @@ h1 {
   font-family: "Press Start 2P", monospace;
 }
 
-h2 {
+.h2-map {
   display: flex;
   flex-direction: column;
-  text-align: left;
-  padding: 20px 50px;
+  text-align: center;
+  padding: 20px 100px;
   color: white;
   font-family: "VT323", monospace;
 }
 
-p {
+.p-map {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
   padding: 20px 100px;
   color: white;
 }

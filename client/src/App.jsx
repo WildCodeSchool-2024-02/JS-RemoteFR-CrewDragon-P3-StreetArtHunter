@@ -1,8 +1,7 @@
 import Nav from "./components/Nav";
-
-import "./main.scss";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
+import "./main.scss";
 
 function App() {
   return (
