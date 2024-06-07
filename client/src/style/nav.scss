@@ -1,0 +1,17 @@
+.menu-open {
+  position: fixed;
+  background-color: var(--backColor);
+  width: 100%;
+  z-index: 1;
+  transition: all 1s ease-in-out;
+  transform: translate(0%);
+}
+
+.menu-close {
+  position: fixed;
+  background-color: var(--backColor);
+  width: 100%;
+  z-index: 1;
+  transition: all 0.5s ease-in-out;
+  transform: translate(100%);
+}
