@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import graffiti from "../assets/graffiti.2.png";
-import "../style/Header.scss";
 import Burger from "./Burger";
+import graffiti from "../assets/graffiti.2.png";
 
 function Header({ openMenu }) {
   return (

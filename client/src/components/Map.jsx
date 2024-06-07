@@ -1,22 +1,24 @@
 import { MapContainer, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
+import LocationMarker from "./LocationMarker";
 
-const position = [48.8566, 2.3522];
 function Map() {
   return (
     <div className="div-map">
       <MapContainer
-        center={position}
+        className="map-container"
+        center={[48.8566, 2.3522]}
         zoom={13}
         style={{
           height: "40vh",
           width: "80vw",
-          borderBlockStyle: "solid",
-          borderBlockColor: "white",
         }}
-        className="map-container"
       >
-        <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+        <TileLayer
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
+        <LocationMarker />
       </MapContainer>
     </div>
   );

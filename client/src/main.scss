@@ -1,7 +1,7 @@
 @import "./style/galery.scss";
 @import "./style/Footer.scss";
 @import "./style/Header.scss";
-@import "./style/Map.scss";
+@import "./style/map.scss";
 @import "./style/instruction.scss";
 @import "./style/nav.scss";
 
@@ -33,7 +33,7 @@
 }
 
 main {
-  border: 4px solid var(--border);
+  border: 7px solid var(--border);
   background-color: var(--backColor);
   margin: 15px;
 }
@@ -59,20 +59,23 @@ h1 {
   display: flex;
   flex-direction: column;
   text-align: left;
-  padding: 20px 50px;
+  padding: 20px 20px;
   font-family: "Press Start 2P", monospace;
 }
 
-h2 {
+.h2-map {
   display: flex;
   flex-direction: column;
-  text-align: left;
-  padding: 20px 50px;
+  text-align: center;
+  padding: 20px 100px;
   color: white;
   font-family: "VT323", monospace;
 }
 
-p {
+.p-map {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
   padding: 20px 100px;
   color: white;
 }
