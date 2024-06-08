@@ -38,11 +38,43 @@
   font-family: "Athiti", sans-serif;
   color: var(--darkColor);
 }
+/*
+body {
+  background-color: #f4ac45;
+  background-image: url("./assets/Blue-Gradient.svg"),
+    url("./assets/Orange-Gradient.svg");
+  background-repeat: repeat-x;
+  background-position:
+    left 0 bottom 0,
+    left 0 top 0;
+}
+    */
+
+.App {
+  width: 100vw;
+  height: calc(100vh - 2rem);
+  padding: 1rem 0;
+  position: absolute;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  gap: 1rem;
+  background-color: #f4ac45;
+  background-image: url("./assets/Blue-Gradient.svg"),
+    url("./assets/Orange-Gradient.svg");
+  background-repeat: repeat-x;
+  background-position:
+    left 0 bottom 0,
+    left 0 top 0;
+}
 
 main {
-  border: 7px solid var(--border);
+  border: 7px solid var(--darkColor);
   background-color: var(--backColor);
-  margin: 15px;
+  margin: auto;
+  width: 90vw;
+  height: 100%;
+  overflow-y: auto;
 }
 
 button {
@@ -52,16 +84,6 @@ button {
   font-family: "VT323", monospace;
 }
 
-body {
-  height: 100vh;
-  background-color: #f4ac45;
-  background-image: url("./assets/Blue-Gradient.svg"),
-    url("./assets/Orange-Gradient.svg");
-  background-repeat: repeat-x;
-  background-position:
-    left 0 bottom 0,
-    left 0 top 0;
-}
 h1 {
   display: flex;
   flex-direction: column;
