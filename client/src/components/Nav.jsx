@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import { Link, Outlet } from "react-router-dom";
+import Footer from "./Footer";
 
 function Nav({ isMenuOpen }) {
   return (
@@ -16,6 +17,7 @@ function Nav({ isMenuOpen }) {
         </Link>
       </nav>
       <Outlet />
+      <Footer />
     </main>
   );
 }
