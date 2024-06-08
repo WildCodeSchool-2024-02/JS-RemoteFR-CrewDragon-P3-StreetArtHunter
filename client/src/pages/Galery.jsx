@@ -2,12 +2,12 @@ import workArt from "../data/tempGaleryData";
 
 function Galery() {
   return (
-    <>
-      <p>Les oeuvres trouvées par la communauté !</p>
-      <section className="galery">
+    <section className="galery-section">
+      <h2>Les oeuvres trouvées par la communauté !</h2>
+      <div className="galery">
         {workArt.map((art) => (
           <div key={art.id} className="cardGalery">
-            <p className="name">{art.name}</p>
+            <h3 className="name">{art.name}</h3>
             <img
               src={art.picture}
               alt="oeuvre de street art"
@@ -16,8 +16,8 @@ function Galery() {
             <p className="city">{art.city}</p>
           </div>
         ))}
-      </section>
-    </>
+      </div>
+    </section>
   );
 }
 

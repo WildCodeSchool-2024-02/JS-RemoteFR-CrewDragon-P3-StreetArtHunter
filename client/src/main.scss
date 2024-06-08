@@ -20,6 +20,12 @@
   src: url("./assets/fonts/Athiti-Regular.ttf") format("truetype");
 }
 
+@font-face {
+  font-family: "Athiti";
+  src: url("./assets/fonts/Athiti-Medium.ttf") format("truetype");
+  font-weight: medium;
+}
+
 :root {
   --backColor: #a4c2a5;
   --darkColor: #020122;
@@ -111,6 +117,12 @@ h1 {
 h2 {
   font-family: "VT323", monospace;
   font-size: 1.5rem;
+}
+
+h3 {
+  font-family: "Athiti", sans-serif;
+  font-weight: medium;
+  font-size: 1rem;
 }
 
 p {
