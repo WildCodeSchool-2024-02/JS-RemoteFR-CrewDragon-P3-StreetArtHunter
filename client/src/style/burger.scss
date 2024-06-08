@@ -7,3 +7,11 @@
     height: auto;
   }
 }
+
+.burger-button::before {
+  content: none;
+}
+
+.burger-button:hover:before {
+  content: none;
+}
