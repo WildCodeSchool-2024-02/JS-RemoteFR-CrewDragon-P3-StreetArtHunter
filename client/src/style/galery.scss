@@ -28,3 +28,19 @@
     }
   }
 }
+
+@media screen and (min-width: 768px) {
+  .galery-section {
+    .galery {
+      column-gap: 3rem;
+      row-gap: 2rem;
+      .cardGalery {
+        gap: 0.5rem;
+        padding: 0.5rem;
+        .picture {
+          width: 25vw;
+        }
+      }
+    }
+  }
+}

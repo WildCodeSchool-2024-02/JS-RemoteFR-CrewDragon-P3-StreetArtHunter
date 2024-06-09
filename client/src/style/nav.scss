@@ -60,3 +60,13 @@
 .order-start {
   justify-content: start;
 }
+
+@media screen and (min-width: 768px) {
+  .order-end {
+    justify-content: start;
+  }
+
+  .show-content {
+    gap: 3rem;
+  }
+}

@@ -36,8 +36,7 @@ function Home() {
       </section>
       <section>
         <h2>
-          Connectez-vous pour scanner de nouvelles oeuvres et gagner des points
-          !
+          Connectez-vous pour scanner de nouvelles œuvres et gagner des points !
         </h2>
         <div className="log-buttons">
           <button type="button" onClick={() => connexion()}>
