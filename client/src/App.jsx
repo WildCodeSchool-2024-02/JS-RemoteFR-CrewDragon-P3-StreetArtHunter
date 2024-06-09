@@ -11,7 +11,7 @@ function App() {
   return (
     <div className="App">
       <Header openMenu={openMenu} />
-      <Nav isMenuOpen={isMenuOpen} />
+      <Nav openMenu={openMenu} isMenuOpen={isMenuOpen} />
     </div>
   );
 }

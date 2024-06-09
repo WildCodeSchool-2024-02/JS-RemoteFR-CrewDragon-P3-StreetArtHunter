@@ -70,9 +70,6 @@ main {
   width: calc(90vw - 2rem);
   height: 100%;
   overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
 }
 
 button {
@@ -85,15 +82,6 @@ button {
   align-items: center;
   gap: 1rem;
   padding: 0.25rem 1rem;
-
-  span {
-    color: transparent;
-    content: url(./assets/Light-Button.svg);
-  }
-  span:hover {
-    color: transparent;
-    content: url(./assets/Light-Button_hover.svg);
-  }
 }
 button::before {
   content: url(./assets/Light-Button.svg);
