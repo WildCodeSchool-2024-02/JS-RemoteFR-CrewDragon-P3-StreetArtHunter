@@ -153,3 +153,10 @@ section {
     gap: 1.5rem;
   }
 }
+
+@media screen and (min-width: 1024px) {
+  main {
+    padding: 1rem 2rem;
+    width: calc(90vw - 4rem);
+  }
+}

@@ -44,3 +44,16 @@
     }
   }
 }
+
+@media screen and (min-width: 1024px) {
+  .galery-section {
+    .galery {
+      column-gap: 2rem;
+      .cardGalery {
+        .picture {
+          width: 20vw;
+        }
+      }
+    }
+  }
+}
