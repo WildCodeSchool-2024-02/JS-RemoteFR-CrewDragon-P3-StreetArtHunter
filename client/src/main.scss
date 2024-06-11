@@ -1,0 +1,162 @@
+@import "./style/galery.scss";
+@import "./style/Footer.scss";
+@import "./style/Header.scss";
+@import "./style/map.scss";
+@import "./style/nav.scss";
+@import "./style/burger.scss";
+
+@font-face {
+  font-family: "Press Start 2P";
+  src: url("./assets/fonts/PressStart2P-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "VT323";
+  src: url("./assets/fonts/VT323-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Athiti";
+  src: url("./assets/fonts/Athiti-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Athiti";
+  src: url("./assets/fonts/Athiti-Medium.ttf") format("truetype");
+  font-weight: medium;
+}
+
+:root {
+  --backColor: #a4c2a5;
+  --darkColor: #020122;
+  --blueColor: #6153cc;
+  --orangeColor: #bf3100;
+  --yellowColor: #f4ac45;
+  --brownColor: #330d00;
+  --border: rgba(0, 0, 0, 0.8);
+  --shadow: 8px 8px 19px -1px rgba(0, 0, 0, 0.41);
+}
+
+* {
+  margin: 0;
+  font-size: 1.25rem;
+  font-family: "Athiti", sans-serif;
+  color: var(--darkColor);
+}
+
+.App {
+  width: 100vw;
+  height: calc(100vh - 2rem);
+  padding: 1rem 0;
+  position: absolute;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  gap: 1rem;
+  background-color: #f4ac45;
+  background-image: url("./assets/Blue-Gradient.svg"),
+    url("./assets/Orange-Gradient.svg");
+  background-repeat: repeat-x;
+  background-position:
+    left 0 bottom 0,
+    left 0 top 0;
+}
+
+main {
+  border: 7px solid var(--darkColor);
+  background-color: var(--backColor);
+  margin: auto;
+  padding: 1rem;
+  width: calc(90vw - 2rem);
+  height: 100%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  cursor: pointer;
+  border: 2px solid #bf3100;
+  background-color: #330d00;
+  color: white;
+  font-family: "VT323", monospace;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.25rem 1rem;
+}
+button::before {
+  content: url(./assets/Light-Button.svg);
+  display: inline-block;
+  padding-top: 0.25rem;
+}
+button:hover:before {
+  content: url(./assets/Light-Button_hover.svg);
+  display: inline-block;
+  padding-top: 0.25rem;
+}
+
+h1 {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  font-family: "Press Start 2P", monospace;
+  font-size: 1rem;
+}
+
+h2 {
+  font-family: "VT323", monospace;
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-family: "Athiti", sans-serif;
+  font-weight: medium;
+  font-size: 1rem;
+}
+
+p {
+  font-size: 1rem;
+}
+
+.p-map {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 20px 100px;
+  color: white;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.log-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+@media screen and (min-width: 768px) {
+  .App {
+    flex-direction: column;
+  }
+
+  h1 {
+    font-size: 1.25rem;
+  }
+
+  .log-buttons {
+    flex-direction: row;
+    gap: 1.5rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  main {
+    padding: 1rem 2rem;
+    width: calc(90vw - 4rem);
+  }
+}
