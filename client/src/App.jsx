@@ -1,6 +1,5 @@
 import { useState } from "react";
 import Nav from "./components/Nav";
-import Footer from "./components/Footer";
 import Header from "./components/Header";
 import "./main.scss";
 
@@ -12,8 +11,7 @@ function App() {
   return (
     <div className="App">
       <Header openMenu={openMenu} />
-      <Nav isMenuOpen={isMenuOpen} />
-      <Footer />
+      <Nav openMenu={openMenu} isMenuOpen={isMenuOpen} />
     </div>
   );
 }

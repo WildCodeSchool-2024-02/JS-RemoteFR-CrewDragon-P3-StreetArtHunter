@@ -19,27 +19,36 @@ function Home() {
 
   return (
     <>
-      <h2 className="h2-map">
-        Partez à l&apos;aventure pour découvrir les œuvres d&apos;art autour de
-        chez vous !
-      </h2>
-      <Map />
-      <Link to="/instruction">
-        <button type="button"> Regles</button>
-      </Link>
-      <p>
-        Pour se faire, aidez-vous de la carte afin de chercher des Street Art
-        dans les rues et vous émerveiller de la créativité d&apos;artistes
-        talentueux.
-      </p>
-      <button type="button" onClick={() => inscription()}>
-        {" "}
-        S'inscrire
-      </button>
-      <button type="button" onClick={() => connexion()}>
-        {" "}
-        Connexion
-      </button>
+      <section>
+        <h2>
+          Partez à l&apos;aventure pour découvrir les œuvres d&apos;art autour
+          de chez vous !
+        </h2>
+        <Map />
+        <p>
+          Pour se faire, aidez-vous de la carte afin de chercher des Street Art
+          dans les rues et vous émerveiller de la créativité d&apos;artistes
+          talentueux.
+        </p>
+        <Link to="/instruction">
+          <button type="button"> Règles</button>
+        </Link>
+      </section>
+      <section>
+        <h2>
+          Connectez-vous pour scanner de nouvelles œuvres et gagner des points !
+        </h2>
+        <div className="log-buttons">
+          <button type="button" onClick={() => connexion()}>
+            {" "}
+            Connexion
+          </button>
+          <button type="button" onClick={() => inscription()}>
+            {" "}
+            S'inscrire
+          </button>
+        </div>
+      </section>
       {showPopupInscription ? (
         <PopupInscription setShowPopupInscription={setShowPopupInscription} />
       ) : (

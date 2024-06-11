@@ -1,0 +1,17 @@
+.burger-button {
+  border: none;
+  background-color: transparent;
+  margin: 0.5rem;
+  .burger-button img {
+    width: 5rem;
+    height: auto;
+  }
+}
+
+.burger-button::before {
+  content: none;
+}
+
+.burger-button:hover:before {
+  content: none;
+}

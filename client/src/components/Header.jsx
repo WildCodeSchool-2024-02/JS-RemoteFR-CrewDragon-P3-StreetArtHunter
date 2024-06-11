@@ -7,9 +7,9 @@ function Header({ openMenu }) {
     <header className="header">
       <div className="logo">
         <img src={graffiti} alt="Logo" />
-        <h1 className="text">Street Art Hunter</h1>
-        <Burger openMenu={openMenu} />
+        <h1>Street Art Hunter</h1>
       </div>
+      <Burger openMenu={openMenu} />
     </header>
   );
 }

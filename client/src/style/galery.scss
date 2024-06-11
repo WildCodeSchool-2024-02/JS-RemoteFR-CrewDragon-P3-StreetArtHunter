@@ -1,22 +1,59 @@
-.galery {
-  display: grid;
-  grid-template-columns: auto auto;
-  align-items: center;
-  justify-items: center;
-  gap: 15px 0;
-  margin: 25px 0;
-  .cardGalery {
+.galery-section {
+  height: 100%;
+  .galery {
+    background-color: #00000010;
+    height: 100%;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 5px;
-    border: 2px solid var(--border);
-    border-radius: 10px 10px 10px 10px;
-    box-shadow: var(--shadow);
-    .picture {
-      width: 40vw;
-      height: auto;
-      border: 1px solid var(--border);
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    overflow-y: auto;
+    border-style: solid;
+    border-width: 3px 0;
+    border-color: var(--darkColor);
+    .cardGalery {
+      background-color: var(--backColor);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.25rem;
+      padding: 0.25rem;
+      border: 2px solid var(--darkColor);
+      box-shadow: var(--shadow);
+      .picture {
+        width: 50vw;
+        height: auto;
+        border: 1px solid var(--darkColor);
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .galery-section {
+    .galery {
+      column-gap: 3rem;
+      row-gap: 2rem;
+      .cardGalery {
+        gap: 0.5rem;
+        padding: 0.5rem;
+        .picture {
+          width: 25vw;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .galery-section {
+    .galery {
+      column-gap: 2rem;
+      .cardGalery {
+        .picture {
+          width: 20vw;
+        }
+      }
     }
   }
 }
