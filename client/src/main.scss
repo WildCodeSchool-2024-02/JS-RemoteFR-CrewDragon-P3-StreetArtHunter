@@ -1,3 +1,4 @@
+@import "./style/home.scss";
 @import "./style/galery.scss";
 @import "./style/Footer.scss";
 @import "./style/Header.scss";
@@ -160,5 +161,8 @@ section {
   main {
     padding: 1rem 2rem;
     width: calc(85vw - 4rem);
+  }
+  section {
+    gap: 1.5rem;
   }
 }

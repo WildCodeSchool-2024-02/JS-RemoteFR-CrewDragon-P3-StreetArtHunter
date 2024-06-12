@@ -1,0 +1,42 @@
+.intro-section {
+  .desktop-intro {
+    display: none;
+  }
+  a {
+    text-decoration: none;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .intro-section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    h2 {
+      grid-column-start: 1;
+      grid-column-end: -1;
+      order: 0;
+    }
+    .mobile-intro {
+      display: none;
+    }
+    .desktop-intro {
+      display: inline;
+      grid-row-start: 2;
+      order: 1;
+    }
+    .desktop-intro,
+    a {
+      grid-column-start: 1;
+      grid-column-end: 2;
+    }
+    a {
+      order: 3;
+    }
+    .map-component {
+      grid-column-start: 2;
+      grid-column-end: -1;
+      order: 2;
+    }
+  }
+}
