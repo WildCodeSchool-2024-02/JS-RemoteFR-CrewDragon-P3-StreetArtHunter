@@ -38,78 +38,83 @@ function PopupInscription({ setShowPopupInscription }) {
   return (
     <section className="popup">
       <h2>Vous voulez vous inscrire?</h2>
+      <fieldset>
+        <legend>Info Perso</legend>
+        <label htmlFor="firstname">Entrer votre prenom:</label>
+        <input
+          type="text"
+          id="firstname"
+          name="name"
+          required
+          onChange={firstnameChange}
+          value={firstname}
+        />
 
-      <label htmlFor="firstname">Entrer votre prenom:</label>
-      <input
-        type="text"
-        id="firstname"
-        name="name"
-        required
-        onChange={firstnameChange}
-        value={firstname}
-      />
+        <label htmlFor="lastname">Entrer votre nom de famille:</label>
+        <input
+          type="text"
+          id="lastname"
+          name="name"
+          required
+          onChange={lastnameChange}
+          value={lastname}
+        />
 
-      <label htmlFor="lastname">Entrer votre nom de famille:</label>
-      <input
-        type="text"
-        id="lastname"
-        name="name"
-        required
-        onChange={lastnameChange}
-        value={lastname}
-      />
+        <label htmlFor="email">Entrer votre email:</label>
+        <input
+          type="email"
+          id="email"
+          pattern=".+@example\.com"
+          required
+          onChange={mailChange}
+          value={mail}
+        />
+      </fieldset>
+      <fieldset>
+        <legend>Adresse</legend>
+        <label htmlFor="postalcode">Code postal:</label>
+        <input
+          type="number"
+          id="postalcode"
+          name="name"
+          required
+          onChange={postalChange}
+          value={postal}
+        />
 
-      <label htmlFor="pseudo">Choissisez un pseudo:</label>
-      <input
-        type="text"
-        id="pseudo"
-        name="name"
-        required
-        minLength="4"
-        maxLength="15"
-        onChange={pseudoChange}
-        value={pseudo}
-      />
-
-      <label htmlFor="email">Entrer votre email:</label>
-      <input
-        type="email"
-        id="email"
-        pattern=".+@example\.com"
-        required
-        onChange={mailChange}
-        value={mail}
-      />
-
-      <label htmlFor="postalcode">Code postal:</label>
-      <input
-        type="number"
-        id="postalcode"
-        name="name"
-        required
-        onChange={postalChange}
-        value={postal}
-      />
-
-      <label htmlFor="city">Ville:</label>
-      <input
-        type="text"
-        id="city"
-        name="name"
-        required
-        onChange={cityChange}
-        value={city}
-      />
-
-      <label htmlFor="pass">Password (8 characters minimum):</label>
-      <input
-        type="password"
-        id="pass"
-        name="password"
-        required
-        onChange={passwordChange}
-        value={password}
-      />
+        <label htmlFor="city">Ville:</label>
+        <input
+          type="text"
+          id="city"
+          name="name"
+          required
+          onChange={cityChange}
+          value={city}
+        />
+      </fieldset>
+      <fieldset>
+        <legend>Perso</legend>
+        <label htmlFor="pseudo">Choissisez un pseudo:</label>
+        <input
+          type="text"
+          id="pseudo"
+          name="name"
+          required
+          minLength="4"
+          maxLength="15"
+          onChange={pseudoChange}
+          value={pseudo}
+        />
+        <label htmlFor="pass">Password (8 characters minimum):</label>
+        <input
+          type="password"
+          id="pass"
+          name="password"
+          required
+          onChange={passwordChange}
+          value={password}
+        />
+      </fieldset>
 
       <button type="submit" value="Inscription" onClick={() => close()}>
         soumettre
