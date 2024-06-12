@@ -111,7 +111,9 @@ function PopupInscription({ setShowPopupInscription }) {
         value={password}
       />
 
-      <input type="submit" value="Inscription" onClick={() => close()} />
+      <button type="submit" value="Inscription" onClick={() => close()}>
+        soumettre
+      </button>
     </section>
   );
 }

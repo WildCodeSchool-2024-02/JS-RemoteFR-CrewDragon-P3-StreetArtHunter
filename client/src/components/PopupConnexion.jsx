@@ -40,7 +40,9 @@ function PopupConnexion({ setShowPopupConnexion }) {
         value={password}
       />
 
-      <input type="submit" value="Connexion" onClick={() => close()} />
+      <button type="submit" value="Connexion" onClick={() => close()}>
+        soumettre
+      </button>
     </section>
   );
 }
