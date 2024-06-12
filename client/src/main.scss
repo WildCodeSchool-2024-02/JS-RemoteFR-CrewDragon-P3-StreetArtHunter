@@ -80,20 +80,22 @@ button {
   background-color: #330d00;
   color: white;
   font-family: "VT323", monospace;
+  font-size: 1.5rem;
+  letter-spacing: 0.25rem;
   display: flex;
   align-items: center;
   gap: 1rem;
-  padding: 0.25rem 1rem;
+  padding: 0.5rem 1rem;
 }
 button::before {
   content: url(./assets/Light-Button.svg);
-  display: inline-block;
-  padding-top: 0.25rem;
+  padding-top: 0.5rem;
+  padding-right: 0.25rem;
 }
 button:hover:before {
   content: url(./assets/Light-Button_hover.svg);
-  display: inline-block;
-  padding-top: 0.25rem;
+  padding-top: 0.5rem;
+  padding-right: 0.25rem;
 }
 
 h1 {
