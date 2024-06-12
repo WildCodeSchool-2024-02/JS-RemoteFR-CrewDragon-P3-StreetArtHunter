@@ -1,0 +1,15 @@
+.popup {
+  position: fixed;
+  font-size: 0.5rem;
+  bottom: 5%;
+  left: 10%;
+  right: 10%;
+  margin: 1rem;
+  padding: 1rem;
+  background-color: var(--backColor);
+  border: 7px solid var(--darkColor);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: justify;
+}

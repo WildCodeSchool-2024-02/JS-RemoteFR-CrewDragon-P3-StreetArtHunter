@@ -5,7 +5,7 @@ function PopupInscription({ setShowPopupInscription }) {
     setShowPopupInscription(false);
   };
   return (
-    <>
+    <section className="popup">
       <h2>Vous voulez vous inscrire?</h2>
 
       <label htmlFor="firstname">Entrer votre prenom:</label>
@@ -37,7 +37,7 @@ function PopupInscription({ setShowPopupInscription }) {
       <input type="password" id="pass" name="password" required />
 
       <input type="submit" value="Inscription" onClick={() => close()} />
-    </>
+    </section>
   );
 }
 
