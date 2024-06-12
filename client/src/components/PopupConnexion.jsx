@@ -5,7 +5,7 @@ function PopupConnexion({ setShowPopupConnexion }) {
     setShowPopupConnexion(false);
   };
   return (
-    <>
+    <section className="popup">
       <h2>Vous voulez vous connecter?</h2>
       <label htmlFor="pseudo">Choissisez un pseudo:</label>
       <input
@@ -20,7 +20,7 @@ function PopupConnexion({ setShowPopupConnexion }) {
       <input type="password" id="pass" name="password" required />
 
       <input type="submit" value="Connexion" onClick={() => close()} />
-    </>
+    </section>
   );
 }
 
