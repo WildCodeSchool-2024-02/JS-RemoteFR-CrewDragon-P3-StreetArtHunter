@@ -1,7 +1,6 @@
 .burger-button {
   border: none;
   background-color: transparent;
-  margin: 0.5rem;
   .burger-button img {
     width: 5rem;
     height: auto;
@@ -14,4 +13,10 @@
 
 .burger-button:hover:before {
   content: none;
+}
+
+@media screen and (min-width: 1024px) {
+  .burger-button {
+    padding: 0.5rem 2rem;
+  }
 }

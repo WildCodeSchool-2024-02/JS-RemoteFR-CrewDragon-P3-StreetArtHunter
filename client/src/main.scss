@@ -67,7 +67,7 @@ main {
   background-color: var(--backColor);
   margin: auto;
   padding: 1rem;
-  width: calc(90vw - 2rem);
+  width: calc(85vw - 2rem);
   height: 100%;
   overflow-y: auto;
   display: flex;
@@ -159,6 +159,6 @@ section {
 @media screen and (min-width: 1024px) {
   main {
     padding: 1rem 2rem;
-    width: calc(90vw - 4rem);
+    width: calc(85vw - 4rem);
   }
 }
