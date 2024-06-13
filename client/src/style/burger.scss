@@ -1,3 +1,14 @@
+.burger {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.burger:focus {
+  outline: 3px solid #00f;
+}
+
 .burger-button {
   border: none;
   background-color: transparent;
@@ -14,4 +25,7 @@
 
 .burger-button:hover:before {
   content: none;
+}
+:focus {
+  outline: 2px solid #bf3100;
 }
