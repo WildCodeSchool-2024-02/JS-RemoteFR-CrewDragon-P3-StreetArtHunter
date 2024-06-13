@@ -1,3 +1,14 @@
+.burger {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.burger:focus {
+  outline: 3px solid #00f;
+}
+
 .burger-button {
   border: none;
   background-color: transparent;
@@ -19,4 +30,8 @@
   .burger-button {
     padding: 0.5rem 2rem;
   }
+
+:focus {
+  outline: 2px solid #bf3100;
+
 }
