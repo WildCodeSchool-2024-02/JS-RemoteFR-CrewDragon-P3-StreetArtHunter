@@ -42,8 +42,8 @@ function Home() {
           dans les rues et vous émerveiller de la créativité d&apos;artistes
           talentueux.
         </p>
-        <Link to="/instruction">
-          <button type="button"> Règles</button>
+        <Link to="/instruction" className="rules-btn">
+          Règles
         </Link>
       </section>
       <section>

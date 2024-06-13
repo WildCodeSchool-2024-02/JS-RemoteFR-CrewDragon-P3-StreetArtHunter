@@ -22,7 +22,8 @@
   content: none;
 }
 
-.burger-button:hover:before {
+.burger-button:hover:before,
+.burger-button:focus:before {
   content: none;
 }
 

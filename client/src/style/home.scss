@@ -5,6 +5,32 @@
   a {
     text-decoration: none;
   }
+  .rules-btn {
+    width: fit-content;
+    cursor: pointer;
+    border: 2px solid #bf3100;
+    background-color: #330d00;
+    color: white;
+    font-family: "VT323", monospace;
+    font-size: 1.5rem;
+    letter-spacing: 0.25rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .rules-btn::before {
+    content: url(./assets/Light-Button.svg);
+    padding-top: 0.5rem;
+    padding-right: 0.25rem;
+  }
+  .rules-btn:hover:before,
+  .rules-btn:focus:before {
+    content: url(./assets/Light-Button_hover.svg);
+    padding-top: 0.5rem;
+    padding-right: 0.25rem;
+  }
 }
 
 @media screen and (min-width: 1024px) {

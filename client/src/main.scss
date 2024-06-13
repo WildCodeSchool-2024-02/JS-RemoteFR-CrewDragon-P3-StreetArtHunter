@@ -94,7 +94,8 @@ button::before {
   padding-top: 0.5rem;
   padding-right: 0.25rem;
 }
-button:hover:before {
+button:hover:before,
+button:focus:before {
   content: url(./assets/Light-Button_hover.svg);
   padding-top: 0.5rem;
   padding-right: 0.25rem;
