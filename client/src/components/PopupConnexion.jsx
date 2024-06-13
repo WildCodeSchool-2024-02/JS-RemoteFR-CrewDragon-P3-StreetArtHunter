@@ -19,7 +19,7 @@ function PopupConnexion({ setShowPopupConnexion }) {
   return (
     <section className="popup">
       <h2>Vous voulez vous connecter?</h2>
-      <label htmlFor="pseudo">Choissisez un pseudo:</label>
+      <label htmlFor="pseudo">Rentrez votre pseudo:</label>
       <input
         type="text"
         id="pseudo"
@@ -30,7 +30,7 @@ function PopupConnexion({ setShowPopupConnexion }) {
         onChange={pseudoChange}
         value={pseudo}
       />
-      <label htmlFor="pass">Password (8 characters minimum):</label>
+      <label htmlFor="pass">Password:</label>
       <input
         type="password"
         id="pass"

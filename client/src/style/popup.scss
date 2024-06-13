@@ -1,7 +1,6 @@
 .popup {
   position: fixed;
   font-size: 0.5rem;
-  bottom: 5%;
   left: 10%;
   right: 10%;
   margin: 1rem;
@@ -12,4 +11,9 @@
   flex-direction: column;
   align-items: center;
   text-align: justify;
+}
+
+fieldset {
+  display: grid;
+  width: 75%;
 }
