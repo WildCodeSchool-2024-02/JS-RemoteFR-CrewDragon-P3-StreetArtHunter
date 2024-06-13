@@ -139,6 +139,30 @@ section {
   flex-direction: column;
   gap: 0.75rem;
 }
+a,
+button,
+input[type="button"],
+input[type="submit"],
+select,
+textarea,
+[tabindex] {
+  outline: none;
+}
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: #bf3100;
+  box-shadow: 0 0 0 2px #bf3100;
+}
+
+.nav-button:focus {
+  background-color: #bf3100;
+  color: white;
+}
+
+:focus {
+  outline: 2px solid #bf3100;
+}
 
 @media screen and (min-width: 768px) {
   .App {
