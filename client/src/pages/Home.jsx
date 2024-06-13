@@ -19,13 +19,25 @@ function Home() {
 
   return (
     <>
-      <section>
+      <section className="intro-section">
         <h2>
           Partez à l&apos;aventure pour découvrir les œuvres d&apos;art autour
           de chez vous !
         </h2>
+        <p className="desktop-intro">
+          Pour se faire, aidez-vous de la carte afin de chercher des Street Art
+          dans les rues et vous émerveiller de la créativité d&apos;artistes
+          talentueux.
+          <br />
+          En effet, le paysage urbain regorge de sublimes créations qui
+          n'attendent que d'être admirées ! Les œuvres déjà trouvées par la
+          communauté sont indiquées sur la carte et exposées dans la page
+          galerie du site. Pour vous aussi participer à cette aventure et gagner
+          des points pour vos découvertes, vous pouvez vous connecter et les
+          prendre en photo !
+        </p>
         <Map />
-        <p>
+        <p className="mobile-intro">
           Pour se faire, aidez-vous de la carte afin de chercher des Street Art
           dans les rues et vous émerveiller de la créativité d&apos;artistes
           talentueux.
