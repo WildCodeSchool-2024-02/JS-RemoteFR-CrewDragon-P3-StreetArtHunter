@@ -1,13 +1,8 @@
 .popup {
-  z-index: 1;
-  position: fixed;
+  width: 100%;
   font-size: 0.5rem;
-  left: 10%;
-  right: 10%;
-  margin: 1rem;
   padding: 1rem;
   background-color: var(--backColor);
-  border: 7px solid var(--darkColor);
   display: flex;
   flex-direction: column;
   align-items: center;
