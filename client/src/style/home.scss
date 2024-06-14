@@ -1,9 +1,19 @@
+.hide-home {
+  display: none;
+}
+
+.show-home,
+.intro-section {
+  display: flex;
+}
+
 .intro-section {
   .desktop-intro {
     display: none;
   }
   a {
     text-decoration: none;
+    width: fit-content;
   }
 }
 

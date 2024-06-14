@@ -19,7 +19,13 @@ function Home() {
 
   return (
     <>
-      <section className="intro-section">
+      <section
+        className={
+          showPopupConnexion || showPopupInscription
+            ? "hide-home"
+            : "intro-section"
+        }
+      >
         <h2>
           Partez à l&apos;aventure pour découvrir les œuvres d&apos;art autour
           de chez vous !
@@ -42,11 +48,15 @@ function Home() {
           dans les rues et vous émerveiller de la créativité d&apos;artistes
           talentueux.
         </p>
-        <Link to="/instruction">
-          <button type="button"> Règles</button>
+        <Link to="/instruction" className="rules-btn">
+          Règles
         </Link>
       </section>
-      <section>
+      <section
+        className={
+          showPopupConnexion || showPopupInscription ? "hide-home" : "show-home"
+        }
+      >
         <h2>
           Connectez-vous pour scanner de nouvelles œuvres et gagner des points !
         </h2>
