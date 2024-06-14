@@ -117,7 +117,10 @@ function PopupInscription({ setShowPopupInscription }) {
       </fieldset>
 
       <button type="submit" value="Inscription" onClick={() => close()}>
-        soumettre
+        Soumettre
+      </button>
+      <button type="button" onClick={() => close()}>
+        Fermer
       </button>
     </section>
   );

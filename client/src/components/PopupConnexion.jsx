@@ -41,7 +41,10 @@ function PopupConnexion({ setShowPopupConnexion }) {
       />
 
       <button type="submit" value="Connexion" onClick={() => close()}>
-        soumettre
+        Soumettre
+      </button>
+      <button type="button" onClick={() => close()}>
+        Fermer
       </button>
     </section>
   );
