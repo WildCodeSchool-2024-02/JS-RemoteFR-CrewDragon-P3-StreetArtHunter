@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
+import closePopup from "../assets/Close-Button.svg";
 
 function PopupConnexion({ setShowPopupConnexion }) {
   const close = () => {
@@ -18,6 +19,13 @@ function PopupConnexion({ setShowPopupConnexion }) {
 
   return (
     <section className="popup">
+      <input
+        type="image"
+        src={closePopup}
+        alt="Fermer"
+        onClick={() => close()}
+        className="close-btn"
+      />
       <h2>Vous voulez vous connecter?</h2>
       <label htmlFor="pseudo">Rentrez votre pseudo:</label>
       <input

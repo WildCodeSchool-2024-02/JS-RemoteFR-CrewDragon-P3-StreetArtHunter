@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
+import closePopup from "../assets/Close-Button.svg";
 
 function PopupInscription({ setShowPopupInscription }) {
   const [firstname, setFirstname] = useState("");
@@ -37,6 +38,13 @@ function PopupInscription({ setShowPopupInscription }) {
   };
   return (
     <section className="popup">
+      <input
+        type="image"
+        src={closePopup}
+        alt="Fermer"
+        onClick={() => close()}
+        className="close-btn"
+      />
       <h2>Vous voulez vous inscrire?</h2>
       <fieldset>
         <legend>Info Perso</legend>
