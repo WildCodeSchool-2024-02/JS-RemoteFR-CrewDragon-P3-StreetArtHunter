@@ -1,20 +1,26 @@
 .popup {
   width: 100%;
-  font-size: 0.5rem;
-  padding: 1rem;
   background-color: var(--backColor);
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: justify;
   .close-btn {
-    position: fixed;
-    right: 10vw;
+    position: relative;
     padding: 0rem 1rem;
+    margin-left: 90%;
+  }
+  fieldset {
+    display: grid;
+    grid-template-columns: 1fr;
   }
 }
 
-fieldset {
-  display: grid;
-  width: 75%;
+@media screen and (min-width: 1024px) {
+  .popup {
+    .close-btn {
+      position: fixed;
+      right: 10vw;
+    }
+  }
 }
