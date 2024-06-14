@@ -11,8 +11,12 @@
     margin-left: 90%;
   }
   fieldset {
+    width: 75%;
     display: grid;
     grid-template-columns: 1fr;
+    input {
+      width: 100%;
+    }
   }
 }
 
