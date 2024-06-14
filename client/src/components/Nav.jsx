@@ -37,10 +37,10 @@ function Nav({ openMenu, isMenuOpen }) {
           <button type="button">Inscription</button>
         </ul>
       </nav>
-      <div className={isMenuOpen ? "hide-content" : "show-content"}>
+      <section className={isMenuOpen ? "hide-content" : "show-content"}>
         <Outlet />
         <Footer />
-      </div>
+      </section>
     </main>
   );
 }
