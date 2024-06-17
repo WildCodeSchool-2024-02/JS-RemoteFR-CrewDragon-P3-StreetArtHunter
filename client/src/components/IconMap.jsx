@@ -1,9 +1,12 @@
 import L from "leaflet";
+import markerIcon from "../assets/Logo_SAH_P3_IF.png";
 
 export default L.icon({
-  iconSize: [25, 41],
-  iconAnchor: [10, 41],
-  popupAnchor: [2, -40],
-  iconUrl: "https://unpkg.com/leaflet@1.6/dist/images/marker-icon.png",
-  shadowUrl: "https://unpkg.com/leaflet@1.6/dist/images/marker-shadow.png",
+  iconUrl: `${markerIcon}`,
+  iconSize: [35, 60],
+  iconAnchor: [-14, 55],
+  popupAnchor: [-3, -76],
+  shadowUrl: "",
+  shadowSize: [39, 51],
+  shadowAnchor: [20, 46],
 });

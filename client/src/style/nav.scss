@@ -22,7 +22,8 @@
       display: inline-block;
       padding-top: 0.25rem;
     }
-    button:hover:before {
+    button:hover:before,
+    button:focus:before {
       content: url(./assets/Dark-Button_hover.svg);
       display: inline-block;
       padding-top: 0.25rem;
@@ -69,4 +70,7 @@
   .show-content {
     gap: 3rem;
   }
+}
+:focus {
+  outline: 2px solid #bf3100;
 }

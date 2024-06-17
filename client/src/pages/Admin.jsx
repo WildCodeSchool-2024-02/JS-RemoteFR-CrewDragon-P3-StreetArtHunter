@@ -1,5 +1,5 @@
 function Admin() {
-  return <p>Admin</p>;
+  return <p>La page admin est actuellent en maintenance</p>;
 }
 
 export default Admin;

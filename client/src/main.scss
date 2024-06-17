@@ -1,9 +1,11 @@
+@import "./style/home.scss";
 @import "./style/galery.scss";
 @import "./style/Footer.scss";
 @import "./style/Header.scss";
 @import "./style/map.scss";
 @import "./style/nav.scss";
 @import "./style/burger.scss";
+@import "./style/popup.scss";
 
 @font-face {
   font-family: "Press Start 2P";
@@ -46,8 +48,8 @@
 
 .App {
   width: 100vw;
-  height: calc(100vh - 2rem);
-  padding: 1rem 0;
+  height: calc(100vh - 4rem);
+  padding: 2rem 0;
   position: absolute;
   display: flex;
   flex-direction: column-reverse;
@@ -67,33 +69,40 @@ main {
   background-color: var(--backColor);
   margin: auto;
   padding: 1rem;
-  width: calc(90vw - 2rem);
+  width: calc(85vw - 2rem);
   height: 100%;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
 }
 
-button {
+button,
+.rules-btn {
   cursor: pointer;
   border: 2px solid #bf3100;
   background-color: #330d00;
   color: white;
   font-family: "VT323", monospace;
+  font-size: 1.5rem;
+  letter-spacing: 0.25rem;
   display: flex;
   align-items: center;
   gap: 1rem;
-  padding: 0.25rem 1rem;
+  padding: 0.5rem 1rem;
 }
-button::before {
+button::before,
+.rules-btn::before {
   content: url(./assets/Light-Button.svg);
-  display: inline-block;
-  padding-top: 0.25rem;
+  padding-top: 0.5rem;
+  padding-right: 0.25rem;
 }
-button:hover:before {
+button:hover:before,
+.rules-btn:hover:before,
+button:focus:before,
+.rules-btn:focus:before {
   content: url(./assets/Light-Button_hover.svg);
-  display: inline-block;
-  padding-top: 0.25rem;
+  padding-top: 0.5rem;
+  padding-right: 0.25rem;
 }
 
 h1 {
@@ -101,7 +110,7 @@ h1 {
   flex-direction: column;
   text-align: left;
   font-family: "Press Start 2P", monospace;
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 
 h2 {
@@ -138,6 +147,30 @@ section {
   flex-direction: column;
   gap: 0.75rem;
 }
+a,
+button,
+input[type="button"],
+input[type="submit"],
+select,
+textarea,
+[tabindex] {
+  outline: none;
+}
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: #bf3100;
+  box-shadow: 0 0 0 2px #bf3100;
+}
+
+.nav-button:focus {
+  background-color: #bf3100;
+  color: white;
+}
+
+:focus {
+  outline: 2px solid #bf3100;
+}
 
 @media screen and (min-width: 768px) {
   .App {
@@ -157,6 +190,9 @@ section {
 @media screen and (min-width: 1024px) {
   main {
     padding: 1rem 2rem;
-    width: calc(90vw - 4rem);
+    width: calc(85vw - 4rem);
+  }
+  section {
+    gap: 1.5rem;
   }
 }
