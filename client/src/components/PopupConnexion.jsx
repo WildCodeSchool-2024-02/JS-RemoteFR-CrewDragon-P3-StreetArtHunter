@@ -18,7 +18,7 @@ function PopupConnexion({ setShowPopupConnexion }) {
   };
 
   return (
-    <section className="popup">
+    <section id="log-in" className="popup">
       <input
         type="image"
         src={closePopup}

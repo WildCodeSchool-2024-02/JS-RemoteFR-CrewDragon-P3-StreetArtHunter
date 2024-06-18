@@ -37,7 +37,7 @@ function PopupInscription({ setShowPopupInscription }) {
     setShowPopupInscription(false);
   };
   return (
-    <section className="popup">
+    <section id="sign-in" className="popup">
       <input
         type="image"
         src={closePopup}
