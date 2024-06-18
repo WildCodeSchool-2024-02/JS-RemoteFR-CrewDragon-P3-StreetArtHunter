@@ -169,7 +169,8 @@ select:focus {
 }
 
 :focus {
-  outline: 2px solid #bf3100;
+  border: 4px solid var(--blueColor);
+  outline: 4px solid var(--darkColor);
 }
 
 @media screen and (min-width: 768px) {
