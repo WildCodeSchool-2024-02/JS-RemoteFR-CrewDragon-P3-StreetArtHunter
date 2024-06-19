@@ -7,9 +7,11 @@ const router = express.Router();
 /* ************************************************************************* */
 
 const itemsRouter = require("./items/router");
+const ArtistsRouter = require("./artist/router");
+
 
 router.use("/items", itemsRouter);
-
+router.use("/artists",ArtistsRouter);
 /* ************************************************************************* */
 
 module.exports = router;
