@@ -2,7 +2,7 @@ function Inscruction() {
   return (
     <>
       <section>
-        <h2>Comment jouer ?</h2>
+        <h2 id="target-rules">Comment jouer ?</h2>
 
         <p>
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae

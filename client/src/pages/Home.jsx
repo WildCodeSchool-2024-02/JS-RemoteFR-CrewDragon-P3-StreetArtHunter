@@ -48,7 +48,11 @@ function Home() {
           dans les rues et vous émerveiller de la créativité d&apos;artistes
           talentueux.
         </p>
-        <Link to="/instruction" className="home-btn">
+        <Link
+          to="/instruction"
+          className="home-btn"
+          onClick="scroll('target-rules')"
+        >
           Règles
         </Link>
       </section>
