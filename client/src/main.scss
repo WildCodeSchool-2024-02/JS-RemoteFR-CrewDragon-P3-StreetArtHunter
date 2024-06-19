@@ -77,8 +77,9 @@ main {
 }
 
 button,
-.rules-btn {
+.home-btn {
   cursor: pointer;
+  text-decoration: none;
   border: 2px solid #bf3100;
   background-color: #330d00;
   color: white;
@@ -91,15 +92,15 @@ button,
   padding: 0.5rem 1rem;
 }
 button::before,
-.rules-btn::before {
+.home-btn::before {
   content: url(./assets/Light-Button.svg);
   padding-top: 0.5rem;
   padding-right: 0.25rem;
 }
 button:hover:before,
-.rules-btn:hover:before,
+.home-btn:hover:before,
 button:focus:before,
-.rules-btn:focus:before {
+.home-btn:focus:before {
   content: url(./assets/Light-Button_hover.svg);
   padding-top: 0.5rem;
   padding-right: 0.25rem;

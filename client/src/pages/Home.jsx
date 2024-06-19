@@ -48,7 +48,11 @@ function Home() {
           dans les rues et vous émerveiller de la créativité d&apos;artistes
           talentueux.
         </p>
-        <Link to="/instruction" className="rules-btn">
+        <Link
+          to="/instruction"
+          className="home-btn"
+          onClick="scroll('target-rules')"
+        >
           Règles
         </Link>
       </section>
@@ -61,14 +65,14 @@ function Home() {
           Connectez-vous pour scanner de nouvelles œuvres et gagner des points !
         </h2>
         <div className="log-buttons">
-          <button type="button" onClick={() => connexion()}>
+          <a href="#log-in" className="home-btn" onClick={() => connexion()}>
             {" "}
             Connexion
-          </button>
-          <button type="button" onClick={() => inscription()}>
+          </a>
+          <a href="#sign-in" className="home-btn" onClick={() => inscription()}>
             {" "}
             S'inscrire
-          </button>
+          </a>
         </div>
       </section>
       {showPopupInscription ? (
