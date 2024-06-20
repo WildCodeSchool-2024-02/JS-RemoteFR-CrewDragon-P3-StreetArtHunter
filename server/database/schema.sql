@@ -50,5 +50,6 @@ CREATE TABLE artwork_artist (
   artwork-id int,
   artist-id int,
   foreign key(artwork-id) references artwork(id),
-  foreign key(artist-id) references artist(id)
+  foreign key(artist-id) references artist(id),
+  primary key(artwork-id,artist-id)
 )
