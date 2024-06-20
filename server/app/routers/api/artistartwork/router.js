@@ -2,10 +2,7 @@ const express = require("express");
 
 const router = express.Router();
 
-const {
-  browse,
-  read,
-} = require("../../../controllers/ArtistArtworkAction");
+const { browse, read } = require("../../../controllers/ArtistArtworkAction");
 
 router.get("/", browse);
 
