@@ -47,8 +47,10 @@ CREATE TABLE artwork (
   description TEXT NULL,
 )
 CREATE TABLE artwork_artist (
+<
   artwork_id INT,
   artist_id INT,
   FOREIGN KEY (artwork_id) REFERENCES artwork(id),
   FOREIGN KEY (artist_id) REFERENCES artist(id)
+  PRIMARY KEY(artwork_id,artist_id)
 )
