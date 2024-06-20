@@ -7,12 +7,14 @@ const router = express.Router();
 /* ************************************************************************* */
 
 const itemsRouter = require("./items/router");
-const ArtistsRouter = require("./artist/router");
-const rolesRouter = require('./roles/router');
+const artistsRouter = require("./artist/router");
+const rolesRouter = require("./roles/router");
+const personsRouter = require("./persons/router");
 
 router.use("/items", itemsRouter);
 router.use("/roles", rolesRouter);
-router.use("/artists",ArtistsRouter);
+router.use("/artists", artistsRouter);
+router.use("/persons", personsRouter);
 /* ************************************************************************* */
 
 module.exports = router;
