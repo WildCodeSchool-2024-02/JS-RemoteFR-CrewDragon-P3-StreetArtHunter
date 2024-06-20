@@ -8,7 +8,6 @@ const itemsRouter = require("./items/router");
 const rolesRouter = require("./roles/router");
 const artworkRouter = require("./artworks/router");
 const artistsRouter = require("./artist/router");
-const rolesRouter = require("./roles/router");
 const artistArtworkRouter = require("./artistartwork/router");
 
 // Utilisation des routeurs importés
