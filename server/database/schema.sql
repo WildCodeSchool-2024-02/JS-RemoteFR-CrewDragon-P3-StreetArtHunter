@@ -1,55 +1,55 @@
 CREATE TABLE user (
-  id int unsigned primary key auto_increment not null,
-  email varchar(255) not null unique,
-  password varchar(255) not null
+  id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  email VARCHAR(255) NOT NULL UNIQUE,
+  password VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE item (
-  id INT unsigned primary key auto_increment not null,
-  title varchar(255) not null,
-  user_id int unsigned not null,
-  foreign key(user_id) references user(id)
+  id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  title VARCHAR(255) NOT NULL,
+  user_id INT UNSIGNED NOT NULL,
+  FOREIGN KEY(user_id) REFERENCES user(id)
 );
 CREATE TABLE role (
-  id INT  primary key auto_increment not null,
-  name varchar(20) not null
-)
+  id INT  PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  name VARCHAR(20) NOT NULL
+);
 CREATE TABLE person (
-  id INT  primary key auto_increment not null,
-  firstname varchar(50) not null,
-  lastname varchar(50) not null,
-  email varchar(100) not null,  
-  password varchar (50) not null,
-  pseudo varchar(20) not null,
-  postal-code int null,
-  city varchar(50) not null,
-  role-id varchar(50),
-  foreign key(role-id) references role(id)
-)
+  id INT  PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  firstname VARCHAR(50) NOT NULL,
+  lastname VARCHAR(50) NOT NULL,
+  email VARCHAR(100) NOT NULL UNIQUE,  
+  password VARCHAR(50) NOT NULL,
+  pseudo VARCHAR(20) NOT NULL,
+  postal_code INT NULL,
+  city VARCHAR(50) NOT NULL,
+  role_id VARCHAR(50),
+  FOREIGN KEY (role_id) REFERENCES role(id)
+);
 CREATE TABLE picture (
-  id int  primary key auto_increment not null,
-  person-id int,
-  art-work int,
-  foreign key(person-id) references person(id),
-  foreign key(art-work) references art-work(id)
-)
+  id INT  PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  person_id INT,
+  art_work INT,
+  FOREIGN KEY (person_id) REFERENCES person(id),
+  FOREIGN KEY (art_work) REFERENCES art_work(id)
+);
 CREATE TABLE artist (
-  id int  primary key auto_increment not null,
-  firstname varchar(50),
-  lastname varchar(50),
-  pseudo varchar(202) not null,
-)
+  id INT  PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  firstname VARCHAR(50),
+  lastname VARCHAR(50),
+  pseudo VARCHAR(202) NOT NULL,
+);
 CREATE TABLE artwork (
-  id int  primary key auto_increment not null,
-  title varchar(50) not null,
-  lattitude decimal (9,6+)not null,
-  longitude decimal (9,6+)not null,
-  description text  null,
-)
+  id INT  PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  title VARCHAR(50) NOT NULL,
+  lattitude DECIMAL(9,6+) NOT NULL,
+  longitude DECIMAL(9,6+) NOT NULL,
+  description TEXT NULL,
+);
 CREATE TABLE artwork_artist (
-  artwork-id int,
-  artist-id int,
-  foreign key(artwork-id) references artwork(id),
-  foreign key(artist-id) references artist(id),
-  primary key(artwork-id,artist-id)
-)
+  artwork_id INT,
+  artist_id INT,
+  FOREIGN KEY (artwork_id) REFERENCES artwork(id),
+  FOREIGN KEY (artist_id) REFERENCES artist(id)
+  PRIMARY KEY(artwork_id,artist_id)
+);

@@ -6,15 +6,21 @@ const router = express.Router();
 const itemsRouter = require("./items/router");
 
 const rolesRouter = require("./roles/router");
-const artworkRouter = require("./artworks/router");
-const artistsRouter = require("./artist/router");
-const artistArtworkRouter = require("./artistartwork/router");
+
+const personsRouter = require("./persons/router");
+
+const artworksRouter = require("./artworks/router");
+
+const artistsRouter = require("./artists/router");
+
+const artistArtworkRouter = require("./artistArtwork/router");
 
 // Utilisation des routeurs importés
 router.use("/items", itemsRouter);
 router.use("/roles", rolesRouter);
-router.use("/artworks", artworkRouter);
+router.use("/artworks", artworksRouter);
 router.use("/artists", artistsRouter);
-router.use("/artist-artworks", artistArtworkRouter);
+router.use("/persons", personsRouter);
+router.use("/artistArtwork", artistArtworkRouter);
 
 module.exports = router;
