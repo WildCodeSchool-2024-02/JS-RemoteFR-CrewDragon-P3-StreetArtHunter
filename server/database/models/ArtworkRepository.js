@@ -12,7 +12,7 @@ class AtrworkRepository extends AbstractRepository {
   async create(artwork) {
     // Execute the SQL INSERT query to add a new artwork to the "artwork" table
     const [result] = await this.database.query(
-      `insert into ${this.table} (title, lattitude, longitude, description) values (?, ?)`,
+      `insert into ${this.table} (title, lattitude, longitude, description) values (?, ?, ?, ?)`,
       [artwork.title, artwork.lattitude, artwork.longitude, artwork.description]
     );
 
