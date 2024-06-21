@@ -8,7 +8,7 @@ const {
   add,
   edit,
   destroy,
-} = require("../../../controllers/artistAction");
+} = require("../../../controllers/ArtistAction");
 
 router.get("/", browse);
 

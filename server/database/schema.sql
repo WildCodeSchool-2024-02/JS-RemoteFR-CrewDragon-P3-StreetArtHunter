@@ -26,30 +26,30 @@ CREATE TABLE person (
   role_id INT,
   FOREIGN KEY (role_id) REFERENCES role(id)
 );
-CREATE TABLE picture (
-  id INT  PRIMARY KEY AUTO_INCREMENT NOT NULL,
-  person_id INT,
-  art_work INT,
-  FOREIGN KEY (person_id) REFERENCES person(id),
-  FOREIGN KEY (art_work) REFERENCES art_work(id)
-);
 CREATE TABLE artist (
   id INT  PRIMARY KEY AUTO_INCREMENT NOT NULL,
   firstname VARCHAR(50),
   lastname VARCHAR(50),
-  pseudo VARCHAR(202) NOT NULL,
+  pseudo VARCHAR(202) NOT NULL
 );
 CREATE TABLE artwork (
-  id INT  PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
   title VARCHAR(50) NOT NULL,
-  lattitude DECIMAL(9,6+) NOT NULL,
-  longitude DECIMAL(9,6+) NOT NULL,
-  description TEXT NULL,
+  lattitude DECIMAL(9,6) NOT NULL,
+  longitude DECIMAL(9,6) NOT NULL,
+  description TEXT NULL
+);
+CREATE TABLE picture (
+  id INT  PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  person_id INT,
+  artwork_id INT,
+  FOREIGN KEY (person_id) REFERENCES person(id),
+  FOREIGN KEY (artwork_id) REFERENCES artwork(id)
 );
 CREATE TABLE artwork_artist (
   artwork_id INT,
   artist_id INT,
   FOREIGN KEY (artwork_id) REFERENCES artwork(id),
-  FOREIGN KEY (artist_id) REFERENCES artist(id)
+  FOREIGN KEY (artist_id) REFERENCES artist(id),
   PRIMARY KEY(artwork_id,artist_id)
 );
