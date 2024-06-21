@@ -13,7 +13,7 @@ const artworksRouter = require("./artworks/router");
 
 const artistsRouter = require("./artists/router");
 
-const artistArtworkRouter = require("./artistArtwork/router");
+const artistArtworkRouter = require("./artistartwork/router");
 
 // Utilisation des routeurs importés
 router.use("/items", itemsRouter);
