@@ -23,7 +23,7 @@ CREATE TABLE person (
   pseudo VARCHAR(20) NOT NULL,
   postal_code INT NULL,
   city VARCHAR(50) NOT NULL,
-  role_id VARCHAR(50),
+  role_id INT,
   FOREIGN KEY (role_id) REFERENCES role(id)
 );
 CREATE TABLE picture (
