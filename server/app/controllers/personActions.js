@@ -64,12 +64,25 @@ const destroy = async (req, res, next) => {
   }
 };
 
+const login = async (req, res, next) => {
+  const log = req.body;
+  try {
+    const user = await tables.person.readLogin(log.pseudo, log.password);
+    if(user === undefined){
+      res.status(404);
+    }
+    res.send(user);
+  } catch (err) {
+    next(err);
+  }
+}
+
 // Ready to export the controller functions
 module.exports = {
   browse,
   read,
   // edit,
   add,
-  // destroy,
   destroy,
+  login,
 };
