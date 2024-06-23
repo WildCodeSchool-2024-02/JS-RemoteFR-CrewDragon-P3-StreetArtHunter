@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import Footer from "./Footer";
 import PopupConnexion from "./PopupConnexion";
@@ -8,14 +8,17 @@ import PopupInscription from "./PopupInscription";
 function Nav({ openMenu, isMenuOpen }) {
   const [showPopupConnexion, setShowPopupConnexion] = useState(false);
   const [showPopupInscription, setShowPopupInscription] = useState(false);
+  const navigate = useNavigate();
 
   const togglePopupConnexion = () => {
-    setShowPopupConnexion(!showPopupConnexion);
+    navigate("/");
+    setShowPopupConnexion(true);
     openMenu();
   };
 
   const togglePopupInscription = () => {
-    setShowPopupInscription(!showPopupInscription);
+    navigate("/");
+    setShowPopupInscription(true);
     openMenu();
   };
 
