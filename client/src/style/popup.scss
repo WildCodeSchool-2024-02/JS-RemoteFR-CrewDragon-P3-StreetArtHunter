@@ -1,9 +1,8 @@
-/* Styles pour les popups */
 .popup {
-  width: 80%;
-  max-width: 400px;
-  max-height: 90vh; /* Limite la hauteur du popup à 90% de la hauteur de la vue */
-  overflow-y: auto; /* Ajoute un défilement vertical si le contenu dépasse la hauteur maximale */
+  width: 90%;
+  max-width: 80%;
+  max-height: 72vh;
+  overflow-y: auto;
   background-color: var(--backColor);
   display: flex;
   flex-direction: column;
@@ -67,7 +66,8 @@
 }
 
 .popup button {
-  width: 100%;
+  justify-content: center;
+
   padding: 0.5rem;
   margin-top: 0.75rem;
   background-color: #330d00;
