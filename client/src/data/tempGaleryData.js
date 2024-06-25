@@ -1,7 +1,7 @@
-import streetAve from "../assets/streetAve.jpg";
-import streetElephant from "../assets/streetElephant.jpg";
-import streetWash from "../assets/streetWash.jpg";
-import streetWoman from "../assets/streetWoman.jpg";
+import streetAve from "../assets/pictures/streetAve.jpg";
+import streetElephant from "../assets/pictures/streetElephant.jpg";
+import streetWash from "../assets/pictures/streetWash.jpg";
+import streetWoman from "../assets/pictures/streetWoman.jpg";
 
 const workArt = [
   {

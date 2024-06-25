@@ -18,13 +18,13 @@
       font-size: 1.5rem;
     }
     button::before {
-      content: url(./assets/Dark-Button.svg);
+      content: url(./assets/patterns/Dark-Button.svg);
       display: inline-block;
       padding-top: 0.25rem;
     }
     button:hover:before,
     button:focus:before {
-      content: url(./assets/Dark-Button_hover.svg);
+      content: url(./assets/patterns/Dark-Button_hover.svg);
       display: inline-block;
       padding-top: 0.25rem;
     }
@@ -52,6 +52,7 @@
   height: 100%;
   display: flex;
   flex-direction: column;
+  margin-top: 0.5rem;
   gap: 2rem;
 }
 
@@ -68,7 +69,7 @@
   }
 
   .show-content {
-    gap: 3rem;
+    gap: 2rem;
   }
 }
 :focus {

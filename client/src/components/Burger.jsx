@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import burgerMenu from "../assets/Burger-Menu.svg";
+import burgerMenu from "../assets/patterns/Burger-Menu.svg";
 
 function Burger({ openMenu }) {
   return (

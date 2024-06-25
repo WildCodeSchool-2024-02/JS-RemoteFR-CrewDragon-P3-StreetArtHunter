@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
-import closePopup from "../assets/Close-Button.svg";
+import closePopup from "../assets/patterns/Close-Button.svg";
 
 function PopupConnexion({ setShowPopupConnexion }) {
   const close = () => {

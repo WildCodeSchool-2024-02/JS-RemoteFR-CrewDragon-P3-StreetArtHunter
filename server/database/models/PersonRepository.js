@@ -9,7 +9,7 @@ class PersonRepository extends AbstractRepository {
   async create(person) {
     // Exécuter la requête SQL INSERT pour ajouter une nouvelle personne à la table "person"
     const [result] = await this.database.query(
-      `INSERT INTO ${this.table} (firstname, lastname, email, password, pseudo, postal_code, city, role_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
+      `INSERT INTO ${this.table} (firstname, lastname, email, password, pseudo, postal_code, city, role_id) VALUES (?, ?, ?, sha(?), ?, ?, ?, ?)`,
       [
         person.firstname,
         person.lastname,

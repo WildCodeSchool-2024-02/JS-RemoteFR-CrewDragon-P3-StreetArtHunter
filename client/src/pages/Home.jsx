@@ -26,7 +26,7 @@ function Home() {
             : "intro-section"
         }
       >
-        <h2>
+        <h2 className="title-map">
           Partez à l&apos;aventure pour découvrir les œuvres d&apos;art autour
           de chez vous !
         </h2>
@@ -48,9 +48,13 @@ function Home() {
           dans les rues et vous émerveiller de la créativité d&apos;artistes
           talentueux.
         </p>
+        <h2 className="title-rules">
+          Suivez les règles afin d'améliorer votre expérience
+        </h2>
         <Link
           to="/instruction"
           className="home-btn"
+          id="btn_rules"
           onClick="scroll('target-rules')"
         >
           Règles
@@ -61,15 +65,25 @@ function Home() {
           showPopupConnexion || showPopupInscription ? "hide-home" : "show-home"
         }
       >
-        <h2>
+        <h2 className="title-connect">
           Connectez-vous pour scanner de nouvelles œuvres et gagner des points !
         </h2>
         <div className="log-buttons">
-          <a href="#log-in" className="home-btn" onClick={() => connexion()}>
+          <a
+            href="#log-in"
+            className="home-btn"
+            id="btn_log"
+            onClick={() => connexion()}
+          >
             {" "}
             Connexion
           </a>
-          <a href="#sign-in" className="home-btn" onClick={() => inscription()}>
+          <a
+            href="#sign-in"
+            className="home-btn"
+            id="btn_sign"
+            onClick={() => inscription()}
+          >
             {" "}
             S'inscrire
           </a>
