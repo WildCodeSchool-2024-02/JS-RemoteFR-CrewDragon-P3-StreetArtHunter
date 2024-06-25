@@ -61,5 +61,5 @@ function PopupConnexion({ setShowPopupConnexion }) {
 export default PopupConnexion;
 
 PopupConnexion.propTypes = {
-  setShowPopupConnexion: PropTypes.bool.isRequired,
+  setShowPopupConnexion: PropTypes.func.isRequired,
 };

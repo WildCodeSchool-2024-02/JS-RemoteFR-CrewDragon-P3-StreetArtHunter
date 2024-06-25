@@ -137,5 +137,5 @@ function PopupInscription({ setShowPopupInscription }) {
 export default PopupInscription;
 
 PopupInscription.propTypes = {
-  setShowPopupInscription: PropTypes.bool.isRequired,
+  setShowPopupInscription: PropTypes.func.isRequired,
 };
