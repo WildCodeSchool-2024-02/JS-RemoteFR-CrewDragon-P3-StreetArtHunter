@@ -44,6 +44,17 @@ class PersonRepository extends AbstractRepository {
     return rows;
   }
 
+  async readLogin(pseudo, password) { // readOne
+    // Execute the SQL SELECT query to retrieve a specific person by its ID
+    const [rows] = await this.database.query(
+      `select * from ${this.table} where pseudo = ? and password = ?`,
+      [pseudo, password]
+    );
+  
+    // Return the first row of the result, which represents the item
+    return rows[0];
+  }
+
   // Opération U de CRUD - Mettre à jour
   async update(person) {
     const {
@@ -80,5 +91,7 @@ class PersonRepository extends AbstractRepository {
     await this.database.query(`DELETE FROM ${this.table} WHERE id = ?`, [id]);
   }
 }
+
+
 
 module.exports = PersonRepository;
