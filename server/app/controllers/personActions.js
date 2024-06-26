@@ -65,13 +65,15 @@ const destroy = async (req, res, next) => {
 };
 
 const login = async (req, res, next) => {
-  const log = req.body;
+  const {email, password} = req.body;
   try {
+
     const person = await tables.person.readLogin(log.email, log.password);
     if (person === undefined) {
       res.status(404);
     }
-    res.send(person);
+    res.status(200).send(person);
+
   } catch (err) {
     next(err);
   }
