@@ -53,3 +53,5 @@ CREATE TABLE artwork_artist (
   FOREIGN KEY (artist_id) REFERENCES artist(id),
   PRIMARY KEY(artwork_id,artist_id)
 );
+
+INSERT INTO role (name) VALUES ('admin'), ('moderateur'), ('joueur');
