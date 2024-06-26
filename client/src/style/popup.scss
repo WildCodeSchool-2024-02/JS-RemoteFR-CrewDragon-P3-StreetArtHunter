@@ -10,8 +10,8 @@
 .popup .close-btn {
   position: relative;
   margin-left: calc(100% - 1.5rem);
-  width: 1.5rem;
-  height: 1.5rem;
+  width: fit-content;
+  height: 2rem;
   cursor: pointer;
   background: none;
   border: none;

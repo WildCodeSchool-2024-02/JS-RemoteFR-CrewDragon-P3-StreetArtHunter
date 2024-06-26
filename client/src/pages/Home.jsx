@@ -1,31 +1,11 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 
-import PopupConnexion from "../components/PopupConnexion";
-import PopupInscription from "../components/PopupInscription";
 import Map from "../components/Map";
 
 function Home() {
-  const [showPopupConnexion, setShowPopupConnexion] = useState(false);
-  const [showPopupInscription, setShowPopupInscription] = useState(false);
-
-  const inscription = () => {
-    setShowPopupInscription(true);
-  };
-
-  const connexion = () => {
-    setShowPopupConnexion(true);
-  };
-
   return (
     <>
-      <section
-        className={
-          showPopupConnexion || showPopupInscription
-            ? "hide-home"
-            : "intro-section"
-        }
-      >
+      <section className="intro-section">
         <h2 className="title-map">
           Partez à l&apos;aventure pour découvrir les œuvres d&apos;art autour
           de chez vous !
@@ -60,45 +40,29 @@ function Home() {
           Règles
         </Link>
       </section>
-      <section
-        className={
-          showPopupConnexion || showPopupInscription ? "hide-home" : "show-home"
-        }
-      >
+      <section>
         <h2 className="title-connect">
           Connectez-vous pour scanner de nouvelles œuvres et gagner des points !
         </h2>
         <div className="log-buttons">
-          <a
-            href="#log-in"
+          <Link
+            to="/connexion"
             className="home-btn"
             id="btn_log"
-            onClick={() => connexion()}
+            onClick="scroll('log-in')"
           >
-            {" "}
             Connexion
-          </a>
-          <a
-            href="#sign-in"
+          </Link>
+          <Link
+            to="/inscription"
             className="home-btn"
             id="btn_sign"
-            onClick={() => inscription()}
+            onClick="scroll('sign-in')"
           >
-            {" "}
-            S'inscrire
-          </a>
+            Inscription
+          </Link>
         </div>
       </section>
-      {showPopupInscription ? (
-        <PopupInscription setShowPopupInscription={setShowPopupInscription} />
-      ) : (
-        ""
-      )}
-      {showPopupConnexion ? (
-        <PopupConnexion setShowPopupConnexion={setShowPopupConnexion} />
-      ) : (
-        ""
-      )}
     </>
   );
 }
