@@ -17,9 +17,8 @@
 }
 
 .popup .close-btn {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
+  position: relative;
+  margin-left: calc(100% - 1.5rem);
   width: 1.5rem;
   height: 1.5rem;
   cursor: pointer;
@@ -69,7 +68,6 @@
   background-color: #330d00;
   color: white;
   border: solid #bf3100;
-  border-radius: 6px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
@@ -93,9 +91,14 @@
 
 @media screen and (min-width: 1024px) {
   .popup .close-btn {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
+    position: fixed;
+    top: 11rem;
+    right: calc(7.5vw + 2rem);
+  }
+
+  .popup {
+    width: 80%;
+    margin: auto;
   }
 }
 
