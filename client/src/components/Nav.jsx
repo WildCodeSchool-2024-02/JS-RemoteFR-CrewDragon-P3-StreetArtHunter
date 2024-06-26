@@ -52,7 +52,13 @@ function Nav({ openMenu, isMenuOpen }) {
           </button>
         </ul>
       </nav>
-      <section className={isMenuOpen ? "hide-content" : "show-content"}>
+      <section
+        className={
+          isMenuOpen || showPopupConnexion || showPopupInscription
+            ? "hide-content"
+            : "show-content"
+        }
+      >
         <Outlet />
         <Footer />
       </section>
