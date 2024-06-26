@@ -27,7 +27,7 @@ router.post("/", add);
 // Route to delete a person
 router.delete("/:id", destroy);
 
-// Route to log an user
+// Route to log an person
 router.post("/login", login);
 
 /* ************************************************************************* */

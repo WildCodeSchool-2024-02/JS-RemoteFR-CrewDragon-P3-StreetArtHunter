@@ -67,15 +67,15 @@ const destroy = async (req, res, next) => {
 const login = async (req, res, next) => {
   const log = req.body;
   try {
-    const user = await tables.person.readLogin(log.pseudo, log.password);
-    if(user === undefined){
+    const person = await tables.person.readLogin(log.email, log.password);
+    if (person === undefined) {
       res.status(404);
     }
-    res.send(user);
+    res.send(person);
   } catch (err) {
     next(err);
   }
-}
+};
 
 // Ready to export the controller functions
 module.exports = {

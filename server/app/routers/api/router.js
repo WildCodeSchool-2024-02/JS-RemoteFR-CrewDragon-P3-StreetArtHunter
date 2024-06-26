@@ -13,7 +13,9 @@ const artworksRouter = require("./artworks/router");
 
 const artistsRouter = require("./artists/router");
 
-const artistArtworkRouter = require("./artistartwork/router");
+const artistArtworkRouter = require("./artistArtwork/router");
+
+const authRouter = require("./auths/router");
 
 // Utilisation des routeurs importés
 router.use("/items", itemsRouter);
@@ -22,5 +24,6 @@ router.use("/artworks", artworksRouter);
 router.use("/artists", artistsRouter);
 router.use("/persons", personsRouter);
 router.use("/artistArtwork", artistArtworkRouter);
+router.use("/auths", authRouter);
 
 module.exports = router;
