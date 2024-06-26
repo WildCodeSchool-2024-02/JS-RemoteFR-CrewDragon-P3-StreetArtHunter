@@ -1,6 +1,6 @@
 .popup {
   width: calc(85vw - 3rem);
-  max-height: 65vh;
+  max-height: 61vh;
   overflow-y: auto;
   background-color: var(--backColor);
   display: flex;
@@ -10,7 +10,7 @@
   padding: 1.5rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   position: absolute;
-  bottom: calc(2rem + 7px);
+  bottom: calc(2rem + 6px);
   right: 7.5vw;
   z-index: 1000;
   transition: all 0.3s ease;
