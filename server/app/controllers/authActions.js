@@ -5,8 +5,8 @@ const tables = require("../../database/tables");
 
 const login = async (req, res, next) => {
   try {
-    // Fetch a specific person from the database based on the provided email and password
-    const person = await tables.person.login(req.body.email);
+    // Fetch a specific person from the database based on the provided pseudo and password
+    const person = await tables.person.readLogin(req.body.pseudo);
 
     if (person == null) {
       res.sendStatus(422);
@@ -14,17 +14,17 @@ const login = async (req, res, next) => {
     }
 
     const verified = await argon2.verify(
-      person.hashed_password,
+      person.password,
       req.body.password
     );
 
     if (verified) {
       // Respond with the user in JSON format (but without the hashed password)
-      delete person.hashed_password;
+      delete person.password;
 
       res.json(person);
     } else {
-      res.sendStatus(422);
+      res.sendStatus(403);
     }
   } catch (err) {
     // Pass any errors to the error-handling middleware

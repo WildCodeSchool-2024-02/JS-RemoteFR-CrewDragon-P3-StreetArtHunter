@@ -9,7 +9,7 @@ class PersonRepository extends AbstractRepository {
   async create(person) {
     // Exécuter la requête SQL INSERT pour ajouter une nouvelle personne à la table "person"
     const [result] = await this.database.query(
-      `INSERT INTO ${this.table} (firstname, lastname, email, hashed_password, pseudo, postal_code, city, role_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
+      `INSERT INTO ${this.table} (firstname, lastname, email, password, pseudo, postal_code, city, role_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
       [
         person.firstname,
         person.lastname,
@@ -44,12 +44,12 @@ class PersonRepository extends AbstractRepository {
     return rows;
   }
 
-  async readLogin(email, password) {
+  async readLogin(pseudo) {
     // readOne
     // Execute the SQL SELECT query to retrieve a specific person by its ID
     const [rows] = await this.database.query(
-      `select * from ${this.table} where email = ? and password = ?`,
-      [email, password]
+      `select * from ${this.table} where pseudo = ?`,
+      [pseudo]
     );
     // Return the first row of the result, which represents the item
     return rows[0];

@@ -19,11 +19,11 @@ CREATE TABLE person (
   firstname VARCHAR(50) NOT NULL,
   lastname VARCHAR(50) NOT NULL,
   email VARCHAR(100) NOT NULL UNIQUE,  
-  hashed_password VARCHAR(50) NOT NULL,
+  password VARCHAR(255) NOT NULL,
   pseudo VARCHAR(20) NOT NULL,
   postal_code INT NULL,
   city VARCHAR(50) NOT NULL,
-  role_id INT,
+  role_id INT UNSIGNED,
   FOREIGN KEY (role_id) REFERENCES role(id)
 );
 CREATE TABLE artist (
@@ -41,14 +41,14 @@ CREATE TABLE artwork (
 );
 CREATE TABLE picture (
   id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT NOT NULL,
-  person_id INT,
-  artwork_id INT,
+  person_id INT UNSIGNED,
+  artwork_id INT UNSIGNED,
   FOREIGN KEY (person_id) REFERENCES person(id),
   FOREIGN KEY (artwork_id) REFERENCES artwork(id)
 );
 CREATE TABLE artwork_artist (
-  artwork_id INT,
-  artist_id INT,
+  artwork_id INT UNSIGNED,
+  artist_id INT UNSIGNED,
   FOREIGN KEY (artwork_id) REFERENCES artwork(id),
   FOREIGN KEY (artist_id) REFERENCES artist(id),
   PRIMARY KEY(artwork_id,artist_id)
