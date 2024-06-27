@@ -3,10 +3,10 @@ const { app, request } = require("../config");
 describe('Test de connexion utilisateur', () => {
   it('doit répondre avec un statut HTTP 200 pour une connexion réussie', async () => {
     const response = await request(app)
-      .post('/api/persons/login') 
+      .post('/api/auths/login') 
       .send({
-        pseudo: 'Fab', // Remplacez par un nom d'utilisateur valide
-        password: 'fabien' // Remplacez par un mot de passe valide
+        pseudo: 'Dav', // Remplacez par un nom d'utilisateur valide
+        password: 'david' // Remplacez par un mot de passe valide
       });
     expect(response.status).toBe(200);
   });
