@@ -1,11 +1,8 @@
-import PropTypes from "prop-types";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import closePopup from "../assets/patterns/Close-Button.svg";
 
-function PopupConnexion({ setShowPopupConnexion }) {
-  const close = () => {
-    setShowPopupConnexion(false);
-  };
+function PopupConnexion() {
   const [pseudo, setPseudo] = useState("");
   const [password, setPassword] = useState("");
 
@@ -19,13 +16,9 @@ function PopupConnexion({ setShowPopupConnexion }) {
 
   return (
     <section id="log-in" className="popup">
-      <input
-        type="image"
-        src={closePopup}
-        alt="Fermer"
-        onClick={() => close()}
-        className="close-btn"
-      />
+      <Link to="/" className="close-btn">
+        <img src={closePopup} alt="Fermer" />
+      </Link>
       <h2>Vous voulez vous connecter?</h2>
       <label htmlFor="pseudo">Rentrez votre pseudo:</label>
       <input
@@ -48,18 +41,14 @@ function PopupConnexion({ setShowPopupConnexion }) {
         value={password}
       />
 
-      <button type="submit" value="Connexion" onClick={() => close()}>
+      <button type="submit" value="Connexion">
         Soumettre
       </button>
-      <button type="button" onClick={() => close()}>
+      <Link to="/" className="home-btn">
         Fermer
-      </button>
+      </Link>
     </section>
   );
 }
 
 export default PopupConnexion;
-
-PopupConnexion.propTypes = {
-  setShowPopupConnexion: PropTypes.func.isRequired,
-};

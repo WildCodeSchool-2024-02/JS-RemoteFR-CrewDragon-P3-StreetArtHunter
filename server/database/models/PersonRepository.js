@@ -9,12 +9,12 @@ class PersonRepository extends AbstractRepository {
   async create(person) {
     // Exécuter la requête SQL INSERT pour ajouter une nouvelle personne à la table "person"
     const [result] = await this.database.query(
-      `INSERT INTO ${this.table} (firstname, lastname, email, password, pseudo, postal_code, city, role_id) VALUES (?, ?, ?, sha(?), ?, ?, ?, ?)`,
+      `INSERT INTO ${this.table} (firstname, lastname, email, password, pseudo, postal_code, city, role_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
       [
         person.firstname,
         person.lastname,
         person.email,
-        person.password,
+        person.hashedPassword,
         person.pseudo,
         person.postal_code,
         person.city,
@@ -44,13 +44,13 @@ class PersonRepository extends AbstractRepository {
     return rows;
   }
 
-  async readLogin(pseudo, password) { // readOne
+  async readLogin(pseudo) {
+    // readOne
     // Execute the SQL SELECT query to retrieve a specific person by its ID
     const [rows] = await this.database.query(
-      `select * from ${this.table} where pseudo = ? and password = ?`,
-      [pseudo, password]
+      `select * from ${this.table} where pseudo = ?`,
+      [pseudo]
     );
-  
     // Return the first row of the result, which represents the item
     return rows[0];
   }
@@ -91,7 +91,5 @@ class PersonRepository extends AbstractRepository {
     await this.database.query(`DELETE FROM ${this.table} WHERE id = ?`, [id]);
   }
 }
-
-
 
 module.exports = PersonRepository;

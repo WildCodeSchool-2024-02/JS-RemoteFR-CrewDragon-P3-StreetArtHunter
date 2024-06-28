@@ -8,34 +8,36 @@
     display: flex;
     flex-direction: column;
     gap: 0.25em;
-    button {
+
+    a {
+      font-family: "VT323", monospace;
+      letter-spacing: 0.25rem;
+      text-decoration: none;
       width: 100%;
+      display: flex;
       justify-content: space-between;
+      align-items: center;
       background: transparent;
       border: none;
       color: var(--darkColor);
       padding: 0;
       font-size: 1.5rem;
     }
-    button::before {
-      content: url(./assets/patterns/Dark-Button.svg);
-      display: inline-block;
+    a::before {
+      content: url(./src/assets/patterns/Dark-button.svg);
       padding-top: 0.25rem;
+      padding-left: 0.25rem;
     }
-    button:hover:before,
-    button:focus:before {
-      content: url(./assets/patterns/Dark-Button_hover.svg);
-      display: inline-block;
+    a:hover:before,
+    a:focus:before {
+      content: url(./src/assets/patterns/Dark-Button_hover.svg);
       padding-top: 0.25rem;
+      padding-left: 0.25rem;
     }
   }
   .log-nav {
     border-top: solid 3px var(--darkColor);
     padding: 1rem 0 0 0;
-  }
-
-  a {
-    text-decoration: none;
   }
 }
 
@@ -71,7 +73,4 @@
   .show-content {
     gap: 2rem;
   }
-}
-:focus {
-  outline: 2px solid #bf3100;
 }

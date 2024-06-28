@@ -46,7 +46,7 @@
   color: var(--darkColor);
 }
 
-.App {
+#root {
   width: 100vw;
   height: calc(100% - 7rem);
   padding: 3.5rem 0;
@@ -107,8 +107,6 @@ button:focus:before,
 }
 
 h1 {
-  display: flex;
-  flex-direction: column;
   text-align: left;
   font-family: "Press Start 2P", monospace;
   font-size: 0.9rem;
@@ -156,17 +154,6 @@ textarea,
 [tabindex] {
   outline: none;
 }
-input:focus,
-textarea:focus,
-select:focus {
-  border-color: #bf3100;
-  box-shadow: 0 0 0 2px #bf3100;
-}
-
-.nav-button:focus {
-  background-color: #bf3100;
-  color: white;
-}
 
 :focus {
   border: 4px solid var(--blueColor);
@@ -174,7 +161,7 @@ select:focus {
 }
 
 @media screen and (min-width: 768px) {
-  .App {
+  #root {
     flex-direction: column;
   }
 
