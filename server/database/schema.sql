@@ -54,4 +54,14 @@ CREATE TABLE artwork_artist (
   PRIMARY KEY(artwork_id,artist_id)
 );
 
+CREATE TABLE review(
+  id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  picture BLOB,
+  person_id INT UNSIGNED,
+  lattitude DECIMAL(9,6) NOT NULL,
+  longitude DECIMAL(9,6) NOT NULL,
+  FOREIGN KEY (person_id) REFERENCES person(id)
+);
+
+
 INSERT INTO role (name) VALUES ('admin'), ('moderateur'), ('joueur');
