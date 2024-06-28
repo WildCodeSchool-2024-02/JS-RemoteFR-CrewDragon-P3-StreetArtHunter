@@ -50,6 +50,9 @@ const edit = async (req, res, next) => {
 const add = async (req, res, next) => {
   // Extract the artwork data from the request body
   const artwork = req.body;
+  if(artwork.lattitude!==+(artwork.lattitude) || artwork.longitude!==+(artwork.longitude)){
+    res.status(404);
+  }
 
   try {
     // Insert the artwork into the database
