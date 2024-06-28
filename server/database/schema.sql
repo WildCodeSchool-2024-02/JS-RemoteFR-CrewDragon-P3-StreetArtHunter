@@ -41,6 +41,7 @@ CREATE TABLE artwork (
 );
 CREATE TABLE picture (
   id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  picture BLOB,
   person_id INT UNSIGNED,
   artwork_id INT UNSIGNED,
   FOREIGN KEY (person_id) REFERENCES person(id),
