@@ -4,7 +4,7 @@ import axios from "axios";
 
 import closePopup from "../assets/patterns/Close-Button.svg";
 
-// import.meta.env.VITE_API_URL;
+const url = import.meta.env.VITE_API_URL;
 
 function PopupConnexion() {
   const [pseudo, setPseudo] = useState("");
@@ -21,7 +21,7 @@ function PopupConnexion() {
   const submit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(`http://localhost:3310/api/auths/login`, {
+      await axios.post(`${url}/api/auths/login`, {
         pseudo,
         password,
       });
