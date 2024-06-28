@@ -9,6 +9,7 @@ import Map from "./components/Map";
 import Instruction from "./pages/Insctruction";
 import PopupConnexion from "./pages/PopupConnexion";
 import PopupInscription from "./pages/PopupInscription";
+import User from "./pages/User";
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
       {
         path: "/inscription",
         element: <PopupInscription />,
+      },
+      {
+        path: "/user",
+        element: <User />,
       },
     ],
   },

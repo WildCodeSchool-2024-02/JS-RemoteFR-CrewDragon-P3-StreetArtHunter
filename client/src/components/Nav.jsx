@@ -28,6 +28,11 @@ function Nav({ openMenu, isMenuOpen }) {
             Inscription
           </Link>
         </ul>
+        <ul>
+          <Link to="/user" onClick={openMenu}>
+            Dashboard
+          </Link>
+        </ul>
       </nav>
       <section className={isMenuOpen ? "hide-content" : "show-content"}>
         <Outlet />
