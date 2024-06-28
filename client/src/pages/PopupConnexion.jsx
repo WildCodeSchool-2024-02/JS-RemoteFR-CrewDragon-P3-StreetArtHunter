@@ -1,6 +1,10 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
+
 import closePopup from "../assets/patterns/Close-Button.svg";
+
+// import.meta.env.VITE_API_URL;
 
 function PopupConnexion() {
   const [pseudo, setPseudo] = useState("");
@@ -12,6 +16,20 @@ function PopupConnexion() {
 
   const passwordChange = (e) => {
     setPassword(e.target.value);
+  };
+
+  const submit = async (e) => {
+    e.preventDefault();
+    try {
+      await axios.post(`http://localhost:3310/api/auths/login`, {
+        pseudo,
+        password,
+      });
+      setPassword("");
+      setPseudo("");
+    } catch (error) {
+      console.error(error.message);
+    }
   };
 
   return (
@@ -41,7 +59,7 @@ function PopupConnexion() {
         value={password}
       />
 
-      <button type="submit" value="Connexion">
+      <button type="submit" value="Connexion" onClick={submit}>
         Soumettre
       </button>
       <Link to="/" className="home-btn">
