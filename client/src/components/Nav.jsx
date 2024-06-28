@@ -10,34 +10,22 @@ function Nav({ openMenu, isMenuOpen }) {
         aria-label="Navigation"
       >
         <ul>
-          <Link to="/" tabIndex={isMenuOpen ? -1 : 0} onClick={openMenu}>
-            <button type="button">Accueil</button>
+          <Link to="/" onClick={openMenu}>
+            Accueil
           </Link>
-          <Link to="/galery" tabIndex={isMenuOpen ? -1 : 0} onClick={openMenu}>
-            <button type="button">Galerie</button>
+          <Link to="/galery" onClick={openMenu}>
+            Galerie
           </Link>
-          <Link
-            to="/instruction"
-            tabIndex={isMenuOpen ? -1 : 0}
-            onClick={openMenu}
-          >
-            <button type="button">Règles</button>
+          <Link to="/instruction" onClick={openMenu}>
+            Règles
           </Link>
         </ul>
         <ul className="log-nav">
-          <Link
-            to="/connexion"
-            tabIndex={isMenuOpen ? -1 : 0}
-            onClick={openMenu}
-          >
-            <button type="button">Connexion</button>
+          <Link to="/connexion" onClick={openMenu}>
+            Connexion
           </Link>
-          <Link
-            to="/inscription"
-            tabIndex={isMenuOpen ? -1 : 0}
-            onClick={openMenu}
-          >
-            <button type="button">Inscription</button>
+          <Link to="/inscription" onClick={openMenu}>
+            Inscription
           </Link>
         </ul>
       </nav>
