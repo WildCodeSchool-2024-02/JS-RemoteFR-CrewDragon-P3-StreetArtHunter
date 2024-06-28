@@ -1,27 +1,8 @@
-import { useState } from "react";
-import { Link, Outlet, useNavigate } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import PropTypes from "prop-types";
 import Footer from "./Footer";
-import PopupConnexion from "./PopupConnexion";
-import PopupInscription from "./PopupInscription";
 
 function Nav({ openMenu, isMenuOpen }) {
-  const [showPopupConnexion, setShowPopupConnexion] = useState(false);
-  const [showPopupInscription, setShowPopupInscription] = useState(false);
-  const navigate = useNavigate();
-
-  const togglePopupConnexion = () => {
-    navigate("/");
-    setShowPopupConnexion(true);
-    openMenu();
-  };
-
-  const togglePopupInscription = () => {
-    navigate("/");
-    setShowPopupInscription(true);
-    openMenu();
-  };
-
   return (
     <main className={isMenuOpen ? "order-end" : "order-start"}>
       <nav
@@ -29,49 +10,29 @@ function Nav({ openMenu, isMenuOpen }) {
         aria-label="Navigation"
       >
         <ul>
-          <Link to="/" tabIndex={isMenuOpen ? -1 : 0} onClick={openMenu}>
-            <button type="button">Accueil</button>
+          <Link to="/" onClick={openMenu}>
+            Accueil
           </Link>
-          <Link to="/galery" tabIndex={isMenuOpen ? -1 : 0} onClick={openMenu}>
-            <button type="button">Galerie</button>
+          <Link to="/galery" onClick={openMenu}>
+            Galerie
           </Link>
-          <Link
-            to="/instruction"
-            tabIndex={isMenuOpen ? -1 : 0}
-            onClick={openMenu}
-          >
-            <button type="button">Règles</button>
+          <Link to="/instruction" onClick={openMenu}>
+            Règles
           </Link>
         </ul>
         <ul className="log-nav">
-          <button type="button" onClick={togglePopupConnexion}>
+          <Link to="/connexion" onClick={openMenu}>
             Connexion
-          </button>
-          <button type="button" onClick={togglePopupInscription}>
+          </Link>
+          <Link to="/inscription" onClick={openMenu}>
             Inscription
-          </button>
+          </Link>
         </ul>
       </nav>
-      <section
-        className={
-          isMenuOpen || showPopupConnexion || showPopupInscription
-            ? "hide-content"
-            : "show-content"
-        }
-      >
+      <section className={isMenuOpen ? "hide-content" : "show-content"}>
         <Outlet />
         <Footer />
       </section>
-
-      {/* Popup de connexion */}
-      {showPopupConnexion && (
-        <PopupConnexion setShowPopupConnexion={setShowPopupConnexion} />
-      )}
-
-      {/* Popup d'inscription */}
-      {showPopupInscription && (
-        <PopupInscription setShowPopupInscription={setShowPopupInscription} />
-      )}
     </main>
   );
 }

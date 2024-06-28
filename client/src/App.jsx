@@ -9,10 +9,10 @@ function App() {
   const openMenu = () => setIsMenuOpen(!isMenuOpen);
 
   return (
-    <div className="App">
+    <>
       <Header openMenu={openMenu} />
       <Nav openMenu={openMenu} isMenuOpen={isMenuOpen} />
-    </div>
+    </>
   );
 }
 

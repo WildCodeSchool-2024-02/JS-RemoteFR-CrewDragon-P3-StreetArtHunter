@@ -1,8 +1,8 @@
-import PropTypes from "prop-types";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import closePopup from "../assets/patterns/Close-Button.svg";
 
-function PopupInscription({ setShowPopupInscription }) {
+function PopupInscription() {
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
   const [pseudo, setPseudo] = useState("");
@@ -33,18 +33,11 @@ function PopupInscription({ setShowPopupInscription }) {
     setPassword(e.target.value);
   };
 
-  const close = () => {
-    setShowPopupInscription(false);
-  };
   return (
     <section id="sign-in" className="popup">
-      <input
-        type="image"
-        src={closePopup}
-        alt="Fermer"
-        onClick={() => close()}
-        className="close-btn"
-      />
+      <Link to="/" className="close-btn">
+        <img src={closePopup} alt="Fermer" />
+      </Link>
       <h2>Vous voulez vous inscrire?</h2>
       <fieldset>
         <legend>Info Perso</legend>
@@ -124,18 +117,14 @@ function PopupInscription({ setShowPopupInscription }) {
         />
       </fieldset>
 
-      <button type="submit" value="Inscription" onClick={() => close()}>
+      <button type="submit" value="Inscription">
         Soumettre
       </button>
-      <button type="button" onClick={() => close()}>
+      <Link to="/" className="home-btn">
         Fermer
-      </button>
+      </Link>
     </section>
   );
 }
 
 export default PopupInscription;
-
-PopupInscription.propTypes = {
-  setShowPopupInscription: PropTypes.func.isRequired,
-};

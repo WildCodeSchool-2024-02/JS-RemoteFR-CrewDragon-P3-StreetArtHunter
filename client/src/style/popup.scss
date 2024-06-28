@@ -10,8 +10,8 @@
 .popup .close-btn {
   position: relative;
   margin-left: calc(100% - 1.5rem);
-  width: 1.5rem;
-  height: 1.5rem;
+  width: fit-content;
+  height: 2rem;
   cursor: pointer;
   background: none;
   border: none;
@@ -49,22 +49,6 @@
 .popup input[type="email"]:focus,
 .popup input[type="number"]:focus {
   border-color: var(--darkColor);
-}
-
-.popup button {
-  justify-content: center;
-
-  padding: 0.5rem;
-  margin-top: 0.75rem;
-  background-color: #330d00;
-  color: white;
-  border: solid #bf3100;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.popup button:hover {
-  background-color: #333333;
 }
 
 .popup fieldset {
