@@ -1,9 +1,10 @@
-import { useState } from "react";
+import  { useState } from "react";
 import { Link } from "react-router-dom";
 
 import PopupConnexion from "../components/PopupConnexion";
 import PopupInscription from "../components/PopupInscription";
 import Map from "../components/Map";
+import Webcam from "../components/Webcam"; 
 
 function Home() {
   const [showPopupConnexion, setShowPopupConnexion] = useState(false);
@@ -48,6 +49,10 @@ function Home() {
           dans les rues et vous émerveiller de la créativité d&apos;artistes
           talentueux.
         </p>
+        {/* Condition pour afficher Webcam uniquement en version mobile */}
+        <div className="webcam-container">
+          <Webcam />
+        </div>
         <h2 className="title-rules">
           Suivez les règles afin d'améliorer votre expérience
         </h2>
@@ -55,7 +60,7 @@ function Home() {
           to="/instruction"
           className="home-btn"
           id="btn_rules"
-          onClick="scroll('target-rules')"
+          onClick={() => window.scroll({ top: 0, behavior: "smooth" })}
         >
           Règles
         </Link>
