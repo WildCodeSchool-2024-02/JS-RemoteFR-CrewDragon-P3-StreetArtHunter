@@ -5,7 +5,7 @@ const tables = require("../../database/tables");
 const browse = async (req, res, next) => {
   try {
     // Fetch all review from the database
-    const review = await tables.picture.readAll();
+    const review = await tables.review.readAll();
 
     // Respond with the review in JSON format
     res.json(review);
@@ -18,15 +18,15 @@ const browse = async (req, res, next) => {
 // The R of BREAD - Read operation
 const read = async (req, res, next) => {
   try {
-    // Fetch a specific picture from the database based on the provided ID
-    const picture = await tables.picture.read(req.params.id);
+    // Fetch a specific review from the database based on the provided ID
+    const review = await tables.review.read(req.params.id);
 
-    // If the picture is not found, respond with HTTP 404 (Not Found)
-    // Otherwise, respond with the picture in JSON format
-    if (picture == null) {
+    // If the review is not found, respond with HTTP 404 (Not Found)
+    // Otherwise, respond with the review in JSON format
+    if (review == null) {
       res.sendStatus(404);
     } else {
-      res.json(picture);
+      res.json(review);
     }
   } catch (err) {
     // Pass any errors to the error-handling middleware
@@ -39,14 +39,14 @@ const read = async (req, res, next) => {
 
 // The A of BREAD - Add (Create) operation
 const add = async (req, res, next) => {
-  // Extract the picture data from the request body
-  const picture = req.body;
+  // Extract the review data from the request body
+  const review = req.body;
 
   try {
-    // Insert the picture into the database
-    const insertId = await tables.picture.create(picture);
+    // Insert the review into the database
+    const insertId = await tables.review.create(review);
 
-    // Respond with HTTP 201 (Created) and the ID of the newly inserted picture
+    // Respond with HTTP 201 (Created) and the ID of the newly inserted review
     res.status(201).json({ insertId });
   } catch (err) {
     // Pass any errors to the error-handling middleware
