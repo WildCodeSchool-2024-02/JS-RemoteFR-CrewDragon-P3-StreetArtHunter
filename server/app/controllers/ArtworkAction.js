@@ -50,11 +50,14 @@ const edit = async (req, res, next) => {
 const add = async (req, res, next) => {
   // Extract the artwork data from the request body
   const artwork = req.body;
+  if(artwork.lattitude!==+(artwork.lattitude) || artwork.longitude!==+(artwork.longitude)){
+    res.status(404);
+  }
 
   try {
     // Insert the artwork into the database
     const insertId = await tables.artwork.create(artwork);
-
+    
     // Respond with HTTP 201 (Created) and the ID of the newly inserted artwork
     res.status(201).json({ insertId });
   } catch (err) {
