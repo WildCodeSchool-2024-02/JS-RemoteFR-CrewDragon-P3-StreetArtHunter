@@ -54,7 +54,7 @@ const add = async (req, res, next) => {
   try {
     // Insert the artwork into the database
     const insertId = await tables.artwork.create(artwork);
-
+    
     // Respond with HTTP 201 (Created) and the ID of the newly inserted artwork
     res.status(201).json({ insertId });
   } catch (err) {
