@@ -1,10 +1,11 @@
-import { useRef, useState, useEffect } from "react";
+/* eslint-disable jsx-a11y/media-has-caption */
+import { useRef, useEffect } from "react";
 import "../style/Webcam.scss";
 
-function Webcam() {
+// eslint-disable-next-line react/prop-types
+function Webcam({ addPhoto }) {
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
-  const [photo, setPhoto] = useState(null);
 
   useEffect(() => {
     const getUserMedia = async () => {
@@ -34,40 +35,19 @@ function Webcam() {
 
       context.drawImage(videoRef.current, 0, 0, width, height);
       const dataUrl = canvasRef.current.toDataURL("image/png");
-      setPhoto(dataUrl);
+      addPhoto(dataUrl);
     }
-  };
-
-  const savePhoto = () => {
-    if (photo) {
-      const link = document.createElement("a");
-      link.href = photo;
-      link.download = "photo.png";
-      link.click();
-    }
-  };
-
-  const deletePhoto = () => {
-    setPhoto(null);
   };
 
   return (
     <div className="video-container">
-      {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
       <video ref={videoRef} autoPlay playsInline />
       <canvas ref={canvasRef} style={{ display: "none" }} />
       <div className="buttons">
         <button type="button" onClick={takePhoto}>
           SNAP
         </button>
-        <button type="button" onClick={savePhoto}>
-          SAVE
-        </button>
-        <button type="button" onClick={deletePhoto}>
-          DELETE
-        </button>
       </div>
-      {photo && <img src={photo} alt="Captured" />}
     </div>
   );
 }
