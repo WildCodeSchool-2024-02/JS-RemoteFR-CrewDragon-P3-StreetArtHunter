@@ -51,22 +51,6 @@
   border-color: var(--darkColor);
 }
 
-.popup button {
-  justify-content: center;
-
-  padding: 0.5rem;
-  margin-top: 0.75rem;
-  background-color: #330d00;
-  color: white;
-  border: solid #bf3100;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.popup button:hover {
-  background-color: #333333;
-}
-
 .popup fieldset {
   width: 100%;
   padding: 0;
