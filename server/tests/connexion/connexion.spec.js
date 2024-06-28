@@ -13,7 +13,7 @@ describe('Test de connexion utilisateur', () => {
 
   it('doit répondre avec un statut HTTP 404 pour une connexion échouée', async () => {
     const response = await request(app)
-      .post('/login') 
+      .post('/api/auths/login') 
       .send({
         pseudo: 'wronguser', 
         password: 'wrongpassword' 
