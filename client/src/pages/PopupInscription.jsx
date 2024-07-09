@@ -1,36 +1,35 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 import closePopup from "../assets/patterns/Close-Button.svg";
 
 function PopupInscription() {
-  const [firstname, setFirstname] = useState("");
-  const [lastname, setLastname] = useState("");
-  const [pseudo, setPseudo] = useState("");
-  const [mail, setMail] = useState("");
-  const [postal, setPostal] = useState("");
-  const [city, setCity] = useState("");
-  const [password, setPassword] = useState("");
+  const [formData, setFormData] = useState({
+    firstname: "",
+    lastname: "",
+    pseudo: "",
+    email: "",
+    postal_code: "",
+    city: "",
+    password: "",
+  });
 
-  const firstnameChange = (e) => {
-    setFirstname(e.target.value);
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: value,
+    }));
   };
-  const lastnameChange = (e) => {
-    setLastname(e.target.value);
-  };
-  const pseudoChange = (e) => {
-    setPseudo(e.target.value);
-  };
-  const mailChange = (e) => {
-    setMail(e.target.value);
-  };
-  const postalChange = (e) => {
-    setPostal(e.target.value);
-  };
-  const cityChange = (e) => {
-    setCity(e.target.value);
-  };
-  const passwordChange = (e) => {
-    setPassword(e.target.value);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      await axios.post(`${import.meta.env.VITE_API_URL}/api/persons`, formData);
+    } catch (error) {
+      console.error(error.message);
+    }
   };
 
   return (
@@ -39,90 +38,81 @@ function PopupInscription() {
         <img src={closePopup} alt="Fermer" />
       </Link>
       <h2>Vous voulez vous inscrire?</h2>
-      <fieldset>
-        <legend>Info Perso</legend>
-        <label htmlFor="firstname">Entrer votre prenom:</label>
-        <input
-          type="text"
-          id="firstname"
-          name="name"
-          required
-          onChange={firstnameChange}
-          value={firstname}
-        />
+      <form onSubmit={handleSubmit}>
+        <fieldset>
+          <legend>Info Perso</legend>
+          <label htmlFor="firstname">Entrer votre prenom:</label>
+          <input
+            type="text"
+            id="firstname"
+            name="firstname"
+            value={formData.firstname}
+            onChange={handleChange}
+          />
 
-        <label htmlFor="lastname">Entrer votre nom de famille:</label>
-        <input
-          type="text"
-          id="lastname"
-          name="name"
-          required
-          onChange={lastnameChange}
-          value={lastname}
-        />
+          <label htmlFor="lastname">Entrer votre nom de famille:</label>
+          <input
+            type="text"
+            id="lastname"
+            name="lastname"
+            value={formData.lastname}
+            onChange={handleChange}
+          />
 
-        <label htmlFor="email">Entrer votre email:</label>
-        <input
-          type="email"
-          id="email"
-          pattern=".+@example\.com"
-          required
-          onChange={mailChange}
-          value={mail}
-        />
-      </fieldset>
-      <fieldset>
-        <legend>Adresse</legend>
-        <label htmlFor="postalcode">Code postal:</label>
-        <input
-          type="number"
-          id="postalcode"
-          name="name"
-          required
-          onChange={postalChange}
-          value={postal}
-        />
+          <label htmlFor="email">Entrer votre email:</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+          />
+        </fieldset>
+        <fieldset>
+          <legend>Adresse</legend>
+          <label htmlFor="postal_code">Code postal:</label>
+          <input
+            type="text"
+            id="postal_code"
+            name="postal_code"
+            value={formData.postal_code}
+            onChange={handleChange}
+          />
 
-        <label htmlFor="city">Ville:</label>
-        <input
-          type="text"
-          id="city"
-          name="name"
-          required
-          onChange={cityChange}
-          value={city}
-        />
-      </fieldset>
-      <fieldset>
-        <legend>Perso</legend>
-        <label htmlFor="pseudo">Choissisez un pseudo:</label>
-        <input
-          type="text"
-          id="pseudo"
-          name="name"
-          required
-          minLength="4"
-          maxLength="15"
-          onChange={pseudoChange}
-          value={pseudo}
-        />
-        <label htmlFor="pass">Password (8 characters minimum):</label>
-        <input
-          type="password"
-          id="pass"
-          name="password"
-          required
-          onChange={passwordChange}
-          value={password}
-        />
-      </fieldset>
+          <label htmlFor="city">Ville:</label>
+          <input
+            type="text"
+            id="city"
+            name="city"
+            value={formData.city}
+            onChange={handleChange}
+          />
+        </fieldset>
+        <fieldset>
+          <legend>Perso</legend>
+          <label htmlFor="pseudo">Choisissez un pseudo:</label>
+          <input
+            type="text"
+            id="pseudo"
+            name="pseudo"
+            value={formData.pseudo}
+            onChange={handleChange}
+          />
+          <label htmlFor="password">Password (8 characters minimum):</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            value={formData.password}
+            onChange={handleChange}
+          />
+        </fieldset>
 
-      <button type="submit" value="Inscription">
-        Soumettre
-      </button>
-      <Link to="/" className="home-btn">
-        Fermer
-      </Link>
+        <button type="submit">Soumettre</button>
+        <Link to="/" className="home-btn">
+          Fermer
+        </Link>
+      </form>
     </section>
   );
 }

@@ -21,10 +21,11 @@ function PopupConnexion() {
   const submit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(`${url}/api/auths/login`, {
+      const user = await axios.post(`${url}/api/auths/login`, {
         pseudo,
         password,
       });
+      console.info(user.data);
       setPassword("");
       setPseudo("");
     } catch (error) {
