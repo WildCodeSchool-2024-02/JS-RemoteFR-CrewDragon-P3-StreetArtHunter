@@ -18,7 +18,7 @@ class PersonRepository extends AbstractRepository {
         person.pseudo,
         person.postal_code,
         person.city,
-        person.role_id,
+        3,
       ]
     );
     // Retourner l'ID de la personne nouvellement inséré
