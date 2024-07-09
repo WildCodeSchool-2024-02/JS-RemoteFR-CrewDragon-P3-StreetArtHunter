@@ -35,7 +35,6 @@ function Home() {
           to="/instruction"
           className="home-btn"
           id="btn_rules"
-          onClick={() => window.scroll({ top: 0, behavior: "smooth" })}
         >
           Règles
         </Link>
