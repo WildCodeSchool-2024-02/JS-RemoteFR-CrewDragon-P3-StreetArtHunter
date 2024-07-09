@@ -1,4 +1,9 @@
+import { useEffect } from "react";
+
 function Inscruction() {
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
   return (
     <>
       <section>
