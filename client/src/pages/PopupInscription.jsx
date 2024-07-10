@@ -29,7 +29,7 @@ function PopupInscription() {
     e.preventDefault();
     try {
       await axios.post(`${url}/api/persons`, formData);
-      navigate("/"); // Redirige l'utilisateur vers la page d'accueil après une inscription réussie
+      navigate("/connexion"); // Redirige l'utilisateur vers la page d'accueil après une inscription réussie
     } catch (error) {
       console.error(error.message);
     }
