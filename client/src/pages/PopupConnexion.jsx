@@ -48,7 +48,7 @@ function PopupConnexion() {
           id="pseudo"
           name="name"
           required
-          minLength="4"
+          minLength="3"
           maxLength="15"
           onChange={pseudoChange}
           value={pseudo}
