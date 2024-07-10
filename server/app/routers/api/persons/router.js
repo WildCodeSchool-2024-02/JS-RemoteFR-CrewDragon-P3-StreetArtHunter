@@ -10,6 +10,7 @@ const router = express.Router();
 const {
   browse,
   read,
+  edit,
   add,
   destroy,
 } = require("../../../controllers/personActions");
@@ -20,6 +21,8 @@ const { hashPassword } = require("../../../services/auth");
 router.get("/", browse);
 // Route to get a specific person by ID
 router.get("/:id", read);
+// Route to update data
+router.post("/:id", hashPassword, edit);
 // Route to add a new person
 router.post("/", hashPassword, add);
 // Route to delete a person
