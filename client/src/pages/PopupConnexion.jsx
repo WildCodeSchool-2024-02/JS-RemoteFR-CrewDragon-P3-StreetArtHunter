@@ -53,7 +53,7 @@ function PopupConnexion() {
           onChange={pseudoChange}
           value={pseudo}
         />
-        <label htmlFor="pass">Password:</label>
+        <label htmlFor="pass"> Password:</label>
         <input
           type="password"
           id="pass"
