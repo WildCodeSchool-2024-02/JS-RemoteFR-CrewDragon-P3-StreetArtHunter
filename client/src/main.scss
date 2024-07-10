@@ -46,18 +46,18 @@
   color: var(--darkColor);
 }
 
-.App {
+#root {
   width: 100vw;
-  height: calc(100vh - 4rem);
-  padding: 2rem 0;
+  height: calc(100% - 7rem);
+  padding: 3.5rem 0;
   position: absolute;
   display: flex;
   flex-direction: column-reverse;
   justify-content: center;
   gap: 1rem;
   background-color: #f4ac45;
-  background-image: url("./assets/Blue-Gradient.svg"),
-    url("./assets/Orange-Gradient.svg");
+  background-image: url("./assets/patterns/Blue-Gradient.svg"),
+    url("./assets/patterns/Orange-Gradient.svg");
   background-repeat: repeat-x;
   background-position:
     left 0 bottom 0,
@@ -93,7 +93,7 @@ button,
 }
 button::before,
 .home-btn::before {
-  content: url(./assets/Light-Button.svg);
+  content: url(./assets/patterns/Light-Button.svg);
   padding-top: 0.5rem;
   padding-right: 0.25rem;
 }
@@ -101,14 +101,12 @@ button:hover:before,
 .home-btn:hover:before,
 button:focus:before,
 .home-btn:focus:before {
-  content: url(./assets/Light-Button_hover.svg);
+  content: url(./assets/patterns/Light-Button_hover.svg);
   padding-top: 0.5rem;
   padding-right: 0.25rem;
 }
 
 h1 {
-  display: flex;
-  flex-direction: column;
   text-align: left;
   font-family: "Press Start 2P", monospace;
   font-size: 0.9rem;
@@ -133,7 +131,6 @@ p {
   display: flex;
   flex-direction: column;
   text-align: center;
-  padding: 20px 100px;
   color: white;
 }
 
@@ -157,17 +154,6 @@ textarea,
 [tabindex] {
   outline: none;
 }
-input:focus,
-textarea:focus,
-select:focus {
-  border-color: #bf3100;
-  box-shadow: 0 0 0 2px #bf3100;
-}
-
-.nav-button:focus {
-  background-color: #bf3100;
-  color: white;
-}
 
 :focus {
   border: 4px solid var(--blueColor);
@@ -175,7 +161,7 @@ select:focus {
 }
 
 @media screen and (min-width: 768px) {
-  .App {
+  #root {
     flex-direction: column;
   }
 

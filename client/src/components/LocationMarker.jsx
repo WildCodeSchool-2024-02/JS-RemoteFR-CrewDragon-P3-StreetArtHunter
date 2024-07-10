@@ -4,7 +4,7 @@ import L from "leaflet";
 import icon from "./IconMap";
 
 function LocationMarker() {
-  const [position, setPosition] = useState([50.0, 20.0]);
+  const [position, setPosition] = useState([48.8566, 2.3522]);
   const map = useMap();
 
   useEffect(() => {
@@ -18,7 +18,7 @@ function LocationMarker() {
   }, [map]);
 
   return position === null ? (
-    <Marker position={[50.0, 5.0]} icon={icon}>
+    <Marker position={[48.8566, 2.3522]} icon={icon}>
       <Popup>I'm here </Popup>
     </Marker>
   ) : (

@@ -1,32 +1,12 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 
-import PopupConnexion from "../components/PopupConnexion";
-import PopupInscription from "../components/PopupInscription";
 import Map from "../components/Map";
 
 function Home() {
-  const [showPopupConnexion, setShowPopupConnexion] = useState(false);
-  const [showPopupInscription, setShowPopupInscription] = useState(false);
-
-  const inscription = () => {
-    setShowPopupInscription(true);
-  };
-
-  const connexion = () => {
-    setShowPopupConnexion(true);
-  };
-
   return (
     <>
-      <section
-        className={
-          showPopupConnexion || showPopupInscription
-            ? "hide-home"
-            : "intro-section"
-        }
-      >
-        <h2>
+      <section className="intro-section">
+        <h2 className="title-map">
           Partez à l&apos;aventure pour découvrir les œuvres d&apos;art autour
           de chez vous !
         </h2>
@@ -48,43 +28,40 @@ function Home() {
           dans les rues et vous émerveiller de la créativité d&apos;artistes
           talentueux.
         </p>
+        <h2 className="title-rules">
+          Suivez les règles afin d'améliorer votre expérience
+        </h2>
         <Link
           to="/instruction"
           className="home-btn"
-          onClick="scroll('target-rules')"
+          id="btn_rules"
         >
           Règles
         </Link>
       </section>
-      <section
-        className={
-          showPopupConnexion || showPopupInscription ? "hide-home" : "show-home"
-        }
-      >
-        <h2>
+      <section>
+        <h2 className="title-connect">
           Connectez-vous pour scanner de nouvelles œuvres et gagner des points !
         </h2>
         <div className="log-buttons">
-          <a href="#log-in" className="home-btn" onClick={() => connexion()}>
-            {" "}
+          <Link
+            to="/connexion"
+            className="home-btn"
+            id="btn_log"
+            onClick="scroll('log-in')"
+          >
             Connexion
-          </a>
-          <a href="#sign-in" className="home-btn" onClick={() => inscription()}>
-            {" "}
-            S'inscrire
-          </a>
+          </Link>
+          <Link
+            to="/inscription"
+            className="home-btn"
+            id="btn_sign"
+            onClick="scroll('sign-in')"
+          >
+            Inscription
+          </Link>
         </div>
       </section>
-      {showPopupInscription ? (
-        <PopupInscription setShowPopupInscription={setShowPopupInscription} />
-      ) : (
-        ""
-      )}
-      {showPopupConnexion ? (
-        <PopupConnexion setShowPopupConnexion={setShowPopupConnexion} />
-      ) : (
-        ""
-      )}
     </>
   );
 }

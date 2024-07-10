@@ -1,11 +1,12 @@
-import PropTypes from "prop-types";
 import { useState } from "react";
-import closePopup from "../assets/Close-Button.svg";
+import { Link } from "react-router-dom";
+import axios from "axios";
 
-function PopupConnexion({ setShowPopupConnexion }) {
-  const close = () => {
-    setShowPopupConnexion(false);
-  };
+import closePopup from "../assets/patterns/Close-Button.svg";
+
+const url = import.meta.env.VITE_API_URL;
+
+function PopupConnexion() {
   const [pseudo, setPseudo] = useState("");
   const [password, setPassword] = useState("");
 
@@ -17,15 +18,26 @@ function PopupConnexion({ setShowPopupConnexion }) {
     setPassword(e.target.value);
   };
 
+  const submit = async (e) => {
+    e.preventDefault();
+    try {
+      const user = await axios.post(`${url}/api/auths/login`, {
+        pseudo,
+        password,
+      });
+      console.info(user.data);
+      setPassword("");
+      setPseudo("");
+    } catch (error) {
+      console.error(error.message);
+    }
+  };
+
   return (
     <section id="log-in" className="popup">
-      <input
-        type="image"
-        src={closePopup}
-        alt="Fermer"
-        onClick={() => close()}
-        className="close-btn"
-      />
+      <Link to="/" className="close-btn">
+        <img src={closePopup} alt="Fermer" />
+      </Link>
       <h2>Vous voulez vous connecter?</h2>
       <label htmlFor="pseudo">Rentrez votre pseudo:</label>
       <input
@@ -48,18 +60,14 @@ function PopupConnexion({ setShowPopupConnexion }) {
         value={password}
       />
 
-      <button type="submit" value="Connexion" onClick={() => close()}>
+      <button type="submit" value="Connexion" onClick={submit}>
         Soumettre
       </button>
-      <button type="button" onClick={() => close()}>
+      <Link to="/" className="home-btn">
         Fermer
-      </button>
+      </Link>
     </section>
   );
 }
 
 export default PopupConnexion;
-
-PopupConnexion.propTypes = {
-  setShowPopupConnexion: PropTypes.bool.isRequired,
-};

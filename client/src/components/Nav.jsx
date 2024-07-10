@@ -1,5 +1,5 @@
-import PropTypes from "prop-types";
 import { Link, Outlet } from "react-router-dom";
+import PropTypes from "prop-types";
 import Footer from "./Footer";
 
 function Nav({ openMenu, isMenuOpen }) {
@@ -10,31 +10,28 @@ function Nav({ openMenu, isMenuOpen }) {
         aria-label="Navigation"
       >
         <ul>
-          <Link
-            to="/"
-            tabIndex={isMenuOpen ? -1 : 0}
-            onClick={() => openMenu()}
-          >
-            <button type="button">Accueil</button>
+          <Link to="/" onClick={openMenu}>
+            Accueil
           </Link>
-          <Link
-            to="/galery"
-            tabIndex={isMenuOpen ? -1 : 0}
-            onClick={() => openMenu()}
-          >
-            <button type="button">Galerie</button>
+          <Link to="/galery" onClick={openMenu}>
+            Galerie
           </Link>
-          <Link
-            to="/instruction"
-            tabIndex={isMenuOpen ? -1 : 0}
-            onClick={() => openMenu()}
-          >
-            <button type="button">Règles</button>
+          <Link to="/instruction" onClick={openMenu}>
+            Règles
           </Link>
         </ul>
         <ul className="log-nav">
-          <button type="button">Connexion</button>
-          <button type="button">Inscription</button>
+          <Link to="/connexion" onClick={openMenu}>
+            Connexion
+          </Link>
+          <Link to="/inscription" onClick={openMenu}>
+            Inscription
+          </Link>
+        </ul>
+        <ul>
+          <Link to="/user" onClick={openMenu}>
+            Dashboard
+          </Link>
         </ul>
       </nav>
       <section className={isMenuOpen ? "hide-content" : "show-content"}>
@@ -44,6 +41,7 @@ function Nav({ openMenu, isMenuOpen }) {
     </main>
   );
 }
+
 Nav.propTypes = {
   isMenuOpen: PropTypes.bool.isRequired,
   openMenu: PropTypes.func.isRequired,

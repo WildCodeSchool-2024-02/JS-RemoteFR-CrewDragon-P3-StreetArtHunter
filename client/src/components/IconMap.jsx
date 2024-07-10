@@ -1,5 +1,5 @@
 import L from "leaflet";
-import markerIcon from "../assets/Logo_SAH_P3_IF.png";
+import markerIcon from "../assets/icons/marker_sah.png";
 
 export default L.icon({
   iconUrl: `${markerIcon}`,

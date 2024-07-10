@@ -6,23 +6,16 @@ const router = express.Router();
 // Define Your API Routes Here
 /* ************************************************************************* */
 
-// Import person-related actions
-const {
-  browse,
-  read,
-  add,
-  destroy,
-} = require("../../../controllers/personActions");
+// Import review-related actions
+const { browse, read, add, destroy } = require("../../../controllers/reviewActions");
 
-const { hashPassword } = require("../../../services/auth");
-
-// Route to get a list of persons
+// Route to get a list of reviews
 router.get("/", browse);
-// Route to get a specific person by ID
+// Route to get a specific review by ID
 router.get("/:id", read);
-// Route to add a new person
-router.post("/", hashPassword, add);
-// Route to delete a person
+// Route to add a new review
+router.post("/", add);
+// Route to delete a review by id
 router.delete("/:id", destroy);
 
 /* ************************************************************************* */

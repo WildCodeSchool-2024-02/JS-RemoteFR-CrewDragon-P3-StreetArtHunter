@@ -1,14 +1,12 @@
 import PropTypes from "prop-types";
-import graffiti from "../assets/graffiti.2.png";
+import graffiti from "../assets/icons/logo_sah.png";
 import Burger from "./Burger";
 
 function Header({ openMenu }) {
   return (
     <header className="header">
-      <div className="logo">
-        <img src={graffiti} alt="Logo" />
-        <h1>Street Art Hunter</h1>
-      </div>
+      <img src={graffiti} alt="Logo street art hunter" />
+      <h1>Street Art Hunter</h1>
       <Burger openMenu={openMenu} />
     </header>
   );

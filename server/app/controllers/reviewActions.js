@@ -1,15 +1,14 @@
 // Import access to database tables
 const tables = require("../../database/tables");
 
-
 // The B of BREAD - Browse (Read All) operation
 const browse = async (req, res, next) => {
   try {
-    // Fetch all persons from the database
-    const persons = await tables.person.readAll();
+    // Fetch all review from the database
+    const review = await tables.review.readAll();
 
-    // Respond with the persons in JSON format
-    res.json(persons);
+    // Respond with the review in JSON format
+    res.json(review);
   } catch (err) {
     // Pass any errors to the error-handling middleware
     next(err);
@@ -19,15 +18,15 @@ const browse = async (req, res, next) => {
 // The R of BREAD - Read operation
 const read = async (req, res, next) => {
   try {
-    // Fetch a specific person from the database based on the provided ID
-    const person = await tables.person.read(req.params.id);
+    // Fetch a specific review from the database based on the provided ID
+    const review = await tables.review.read(req.params.id);
 
-    // If the item is not found, respond with HTTP 404 (Not Found)
-    // Otherwise, respond with the person in JSON format
-    if (person == null) {
+    // If the review is not found, respond with HTTP 404 (Not Found)
+    // Otherwise, respond with the review in JSON format
+    if (review == null) {
       res.sendStatus(404);
     } else {
-      res.json(person);
+      res.json(review);
     }
   } catch (err) {
     // Pass any errors to the error-handling middleware
@@ -40,14 +39,14 @@ const read = async (req, res, next) => {
 
 // The A of BREAD - Add (Create) operation
 const add = async (req, res, next) => {
-  // Extract the person data from the request body
-  const person = req.body;
+  // Extract the review data from the request body
+  const review = req.body;
 
   try {
-    // Insert the person into the database
-    const insertId = await tables.person.create(person);
+    // Insert the review into the database
+    const insertId = await tables.review.create(review);
 
-    // Respond with HTTP 201 (Created) and the ID of the newly inserted person
+    // Respond with HTTP 201 (Created) and the ID of the newly inserted review
     res.status(201).json({ insertId });
   } catch (err) {
     // Pass any errors to the error-handling middleware
@@ -56,14 +55,14 @@ const add = async (req, res, next) => {
 };
 
 // The D of BREAD - Destroy (Delete) operation
-const destroy = async (req, res, next) => {
-  try {
-    await tables.person.delete(req.params.id);
-    res.status(200);
-  } catch (error) {
-    next(error);
-  }
-};
+const destroy = async(req, res, next) => {
+    try {
+        await tables.artist.delete(req.params.id);
+        res.status(200);
+    } catch (error) {
+        next(error)
+    }
+}
 
 // Ready to export the controller functions
 module.exports = {

@@ -6,7 +6,7 @@ function Galery() {
       <h2>Les oeuvres trouvées par la communauté !</h2>
       <div className="galery">
         {workArt.map((art) => (
-          <div key={art.id} className="cardGalery">
+          <article key={art.id} className="cardGalery">
             <h3 className="name">{art.name}</h3>
             <img
               src={art.picture}
@@ -14,7 +14,7 @@ function Galery() {
               className="picture"
             />
             <p className="city">{art.city}</p>
-          </div>
+          </article>
         ))}
       </div>
     </section>

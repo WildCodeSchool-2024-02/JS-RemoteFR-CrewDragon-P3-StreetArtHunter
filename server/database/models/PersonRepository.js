@@ -14,11 +14,11 @@ class PersonRepository extends AbstractRepository {
         person.firstname,
         person.lastname,
         person.email,
-        person.password,
+        person.hashedPassword,
         person.pseudo,
         person.postal_code,
         person.city,
-        person.role_id,
+        3,
       ]
     );
     // Retourner l'ID de la personne nouvellement inséré
@@ -42,6 +42,17 @@ class PersonRepository extends AbstractRepository {
     const [rows] = await this.database.query(`SELECT * FROM ${this.table}`);
     // Retourner toute la liste des personnes
     return rows;
+  }
+
+  async readLogin(pseudo) {
+    // readOne
+    // Execute the SQL SELECT query to retrieve a specific person by its ID
+    const [rows] = await this.database.query(
+      `select * from ${this.table} where pseudo = ?`,
+      [pseudo]
+    );
+    // Return the first row of the result, which represents the item
+    return rows[0];
   }
 
   // Opération U de CRUD - Mettre à jour
