@@ -1,7 +1,9 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import closePopup from "../assets/patterns/Close-Button.svg";
+
+const url = import.meta.env.VITE_API_URL;
 
 function PopupInscription() {
   const [formData, setFormData] = useState({
@@ -13,6 +15,7 @@ function PopupInscription() {
     city: "",
     password: "",
   });
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -24,9 +27,9 @@ function PopupInscription() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     try {
-      await axios.post(`${import.meta.env.VITE_API_URL}/api/persons`, formData);
+      await axios.post(`${url}/api/persons`, formData);
+      navigate("/"); // Redirige l'utilisateur vers la page d'accueil après une inscription réussie
     } catch (error) {
       console.error(error.message);
     }
@@ -49,7 +52,6 @@ function PopupInscription() {
             value={formData.firstname}
             onChange={handleChange}
           />
-
           <label htmlFor="lastname">Entrer votre nom de famille:</label>
           <input
             type="text"
@@ -58,7 +60,6 @@ function PopupInscription() {
             value={formData.lastname}
             onChange={handleChange}
           />
-
           <label htmlFor="email">Entrer votre email:</label>
           <input
             type="email"
@@ -78,7 +79,6 @@ function PopupInscription() {
             value={formData.postal_code}
             onChange={handleChange}
           />
-
           <label htmlFor="city">Ville:</label>
           <input
             type="text"
@@ -107,12 +107,11 @@ function PopupInscription() {
             onChange={handleChange}
           />
         </fieldset>
-
         <button type="submit">Soumettre</button>
-        <Link to="/" className="home-btn">
-          Fermer
-        </Link>
       </form>
+      <Link to="/" className="home-btn">
+        Fermer
+      </Link>
     </section>
   );
 }
