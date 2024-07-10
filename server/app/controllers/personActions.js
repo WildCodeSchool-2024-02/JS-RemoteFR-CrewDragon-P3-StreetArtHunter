@@ -1,7 +1,6 @@
 // Import access to database tables
 const tables = require("../../database/tables");
 
-
 // The B of BREAD - Browse (Read All) operation
 const browse = async (req, res, next) => {
   try {
@@ -36,7 +35,19 @@ const read = async (req, res, next) => {
 };
 
 // The E of BREAD - Edit (Update) operation
-// This operation is not yet implemented
+const edit = async (req, res, next) => {
+  try {
+    const person = await tables.person.update(req.body);
+    console.info(person);
+    if (person == null) {
+      res.sendStatus(404);
+    } else {
+      res.status(200).json(person);
+    }
+  } catch (error) {
+    next(error);
+  }
+};
 
 // The A of BREAD - Add (Create) operation
 const add = async (req, res, next) => {
@@ -58,8 +69,12 @@ const add = async (req, res, next) => {
 // The D of BREAD - Destroy (Delete) operation
 const destroy = async (req, res, next) => {
   try {
-    await tables.person.delete(req.params.id);
-    res.status(200);
+    const row = await tables.person.delete(req.params.id);
+    if (row.affectedRows === 1) {
+      res.sendStatus(200);
+    } else {
+      res.sendStatus(404);
+    }
   } catch (error) {
     next(error);
   }
@@ -69,7 +84,7 @@ const destroy = async (req, res, next) => {
 module.exports = {
   browse,
   read,
-  // edit,
+  edit,
   add,
   destroy,
 };
