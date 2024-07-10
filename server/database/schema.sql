@@ -20,7 +20,7 @@ CREATE TABLE person (
   lastname VARCHAR(50) NOT NULL,
   email VARCHAR(100) NOT NULL UNIQUE,  
   password VARCHAR(255) NOT NULL,
-  pseudo VARCHAR(20) NOT NULL,
+  pseudo VARCHAR(20) NOT NULL UNIQUE,
   postal_code INT NULL,
   city VARCHAR(50) NOT NULL,
   role_id INT UNSIGNED,
