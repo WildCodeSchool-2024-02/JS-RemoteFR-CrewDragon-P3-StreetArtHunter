@@ -2,11 +2,14 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
+import { useAuth } from "../context/AuthContext";
+
 import closePopup from "../assets/patterns/Close-Button.svg";
 
 const url = import.meta.env.VITE_API_URL;
 
 function PopupConnexion() {
+  const { login } = useAuth();
   const [pseudo, setPseudo] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -26,7 +29,9 @@ function PopupConnexion() {
         pseudo,
         password,
       });
+      
       console.info(user.data);
+      login(user.data);
       setPassword("");
       setPseudo("");
       navigate("/"); // Redirige l'utilisateur vers la page d'accueil après une connexion réussie
