@@ -1,5 +1,7 @@
 const argon2 = require("argon2");
 
+const jwt = require("jsonwebtoken");
+
 // Import access to database tables
 const tables = require("../../database/tables");
 
@@ -13,16 +15,17 @@ const login = async (req, res, next) => {
       return;
     }
 
-    const verified = await argon2.verify(
-      person.password,
-      req.body.password
-    );
+    const verified = await argon2.verify(person.password, req.body.password);
 
     if (verified) {
+      const { pseudo } = person;
       // Respond with the user in JSON format (but without the hashed password)
       delete person.password;
-
-      res.json(person);
+      const jwtToken = jwt.sign({ pseudo }, process.env.JWT_SECRET, {
+        expiresIn: "1h",
+      });
+      res.cookie("jwtToken", jwtToken, { httpOnly: true, secure: true });
+      res.json({ jwtToken, user: person });
     } else {
       res.sendStatus(403);
     }
