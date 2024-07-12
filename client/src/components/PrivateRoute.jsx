@@ -4,14 +4,17 @@ import { useAuth } from "../context/AuthContext";
 
 function PrivateRoute({ children, requiredRole }) {
   const { isAuthenticated, person } = useAuth();
-  const {user}= person; // Je destructure person pour ne plus avoir le token
+  const { user } = person;
 
   if (!isAuthenticated) {
     return <Navigate to="/connexion" />;
   }
+
+  // Vérifie si l'utilisateur a un rôle qui permet d'accéder à la route
   if (user.role_id !== requiredRole) {
     return <Navigate to="/" />;
   }
+
   return children;
 }
 
