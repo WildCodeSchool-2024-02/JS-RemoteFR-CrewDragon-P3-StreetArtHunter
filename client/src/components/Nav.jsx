@@ -1,4 +1,3 @@
-/* eslint-disable react/button-has-type */
 import { Link, Outlet } from "react-router-dom";
 import PropTypes from "prop-types";
 import Footer from "./Footer";
