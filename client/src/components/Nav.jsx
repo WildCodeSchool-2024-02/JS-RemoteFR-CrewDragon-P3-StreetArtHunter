@@ -5,7 +5,7 @@ import Footer from "./Footer";
 import { useAuth } from "../context/AuthContext"; 
 
 function Nav({ openMenu, isMenuOpen }) {
-  const { isAuthenticated, person, logout } = useAuth(); 
+  const { isAuthenticated, person } = useAuth(); 
   const { user } = person; 
 
   return (
