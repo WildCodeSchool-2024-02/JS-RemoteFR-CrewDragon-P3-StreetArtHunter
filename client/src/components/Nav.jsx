@@ -5,8 +5,8 @@ import Footer from "./Footer";
 import { useAuth } from "../context/AuthContext"; 
 
 function Nav({ openMenu, isMenuOpen }) {
-  const { isAuthenticated, person, logout } = useAuth(); // Obtenez l'état d'authentification et les données de l'utilisateur
-  const { user } = person; // Déstructuration pour obtenir les données de l'utilisateur
+  const { isAuthenticated, person, logout } = useAuth(); 
+  const { user } = person; 
 
   return (
     <main className={isMenuOpen ? "order-end" : "order-start"}>
@@ -48,8 +48,8 @@ function Nav({ openMenu, isMenuOpen }) {
               </Link>
               <button
                 onClick={() => {
-                  logout(); // Appelle la fonction de déconnexion
-                  openMenu(); // Optionnel: fermer le menu après déconnexion
+                  logout(); 
+                  openMenu(); 
                 }}
                 className="home-btn"
               >
