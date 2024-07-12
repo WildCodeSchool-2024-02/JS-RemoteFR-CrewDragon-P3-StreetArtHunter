@@ -25,7 +25,7 @@ export function AuthProvider({ children }) {
 
   const logout = async () => {
     try {
-      await axios.post("/api/auth/logout");
+      await axios.post(`${import.meta.env.VITE_API_URL}/api/auth/logout`);
       setIsAuthenticated(false);
       setPerson(null);
     } catch (error) {
