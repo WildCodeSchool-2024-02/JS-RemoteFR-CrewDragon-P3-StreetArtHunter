@@ -15,17 +15,13 @@ export function AuthProvider({ children }) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [person, setPerson] = useState({});
   useEffect(() => {
-    console.info("coucou de useEffect", person);
+    console.info("coucou de useEffect", person); // lui est obligatoire, sinon ca plante me demandez pas 
   }, [person]);
 
   const login = useCallback((someone) => {
-    console.info("Ici c'est ce que tu as recup", someone);
     setPerson(someone);
-    console.info("after", person);
-    
     setIsAuthenticated(true);
-    console.info("coucou tu es co", person);
-  }, [person]);
+  }, []);
 
   const logout = async () => {
     try {
