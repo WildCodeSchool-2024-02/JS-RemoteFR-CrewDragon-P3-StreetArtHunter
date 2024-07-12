@@ -14,12 +14,8 @@ const login = async (req, res, next) => {
       res.sendStatus(422);
       return;
     }
-    console.info(person);
-    console.info(person.password);
-    console.info(req.body.password);
 
     const verified = await argon2.verify(person.password, req.body.password);
-    console.info(verified);
 
     if (verified) {
       const { pseudo } = person;
