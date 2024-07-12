@@ -30,7 +30,6 @@ function PopupConnexion() {
         password,
       });
       
-      console.info(user.data);
       login(user.data);
       setPassword("");
       setPseudo("");

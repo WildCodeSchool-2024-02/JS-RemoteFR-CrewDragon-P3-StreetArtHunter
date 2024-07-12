@@ -46,15 +46,9 @@ function Nav({ openMenu, isMenuOpen }) {
               <Link to="/user" onClick={openMenu}>
                 Dashboard
               </Link>
-              <button
-                onClick={() => {
-                  logout(); 
-                  openMenu(); 
-                }}
-                className="home-btn"
-              >
-                Déconnexion
-              </button>
+              <Link to="/deconnexion" onClick={openMenu}>
+            Deconnexion
+          </Link>
             </>
           )}
         </ul>

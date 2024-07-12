@@ -7,9 +7,10 @@ const router = express.Router();
 /* ************************************************************************* */
 
 // Import authActions module for handling auth-related operations
-const { login } = require("../../../controllers/authActions");
+const { login, logout } = require("../../../controllers/authActions");
 
 router.post("/login", login);
+router.post("/logout", logout);
 
 /* ************************************************************************* */
 

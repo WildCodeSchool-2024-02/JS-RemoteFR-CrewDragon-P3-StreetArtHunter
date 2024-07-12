@@ -53,6 +53,14 @@ function Home() {
             Connexion
           </Link>
           <Link
+            to="/deconnexion"
+            className="home-btn"
+            id="btn_log"
+            onClick="scroll('log-out')"
+          >
+            Deconnexion
+          </Link>
+          <Link
             to="/inscription"
             className="home-btn"
             id="btn_sign"

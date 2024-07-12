@@ -30,11 +30,20 @@ const login = async (req, res, next) => {
       res.sendStatus(403).json({ message: "Accès refusé mon reuf" });
     }
   } catch (err) {
-    // Pass any errors to the error-handling middleware
     next(err);
   }
 };
 
+const logout = async (req, res, next) => {
+  try {
+    res.clearCookie("jwtToken");
+    res.json({message: "La deco est un succes"});
+  } catch (error) {
+    next(error);
+  }
+}
+
 module.exports = {
   login,
+  logout,
 };
