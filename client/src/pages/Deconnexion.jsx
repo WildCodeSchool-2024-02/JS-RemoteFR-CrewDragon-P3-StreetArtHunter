@@ -21,7 +21,7 @@ function Deconnexion() {
   };
 
   return (
-    <>
+    <section id="log-out" className="popup">
       <Link to="/" className="close-btn">
         <img src={closePopup} alt="Fermer" />
       </Link>
@@ -32,7 +32,7 @@ function Deconnexion() {
       <Link to="/" className="home-btn">
         Fermer
       </Link>
-    </>
+    </section>
   );
 }
 
