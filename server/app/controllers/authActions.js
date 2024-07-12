@@ -14,8 +14,12 @@ const login = async (req, res, next) => {
       res.sendStatus(422);
       return;
     }
+    console.info(person);
+    console.info(person.password);
+    console.info(req.body.password);
 
     const verified = await argon2.verify(person.password, req.body.password);
+    console.info(verified);
 
     if (verified) {
       const { pseudo } = person;
@@ -27,7 +31,7 @@ const login = async (req, res, next) => {
       res.cookie("jwtToken", jwtToken, { httpOnly: true, secure: true });
       res.json({ jwtToken, user: person });
     } else {
-      res.sendStatus(403);
+      res.sendStatus(403).json({ message: "Accès refusé mon reuf" });
     }
   } catch (err) {
     // Pass any errors to the error-handling middleware
