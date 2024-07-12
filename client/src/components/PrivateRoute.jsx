@@ -3,7 +3,10 @@ import { Navigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 
 function PrivateRoute({ children, requiredRole }) {
-  const { isAuthenticated, user } = useAuth();
+  const { isAuthenticated, person } = useAuth();
+  console.info(person);
+  const {user}= person;
+  console.info("SUPER RAH", user);
 
   if (!isAuthenticated) {
     return <Navigate to="/connexion" />;
