@@ -19,7 +19,9 @@ function Nav({ openMenu, isMenuOpen }) {
           <Link to="/instruction" onClick={openMenu}>
             Règles
           </Link>
-          <Link to="/admin" onClick={openMenu}>Admin</Link>
+          <Link to="/admin" onClick={openMenu}>
+            Admin
+          </Link>
         </ul>
         <ul className="log-nav">
           <Link to="/connexion" onClick={openMenu}>
@@ -27,6 +29,9 @@ function Nav({ openMenu, isMenuOpen }) {
           </Link>
           <Link to="/inscription" onClick={openMenu}>
             Inscription
+          </Link>
+          <Link to="/deconnexion" onClick={openMenu}>
+            Deconnexion
           </Link>
         </ul>
         <ul>
