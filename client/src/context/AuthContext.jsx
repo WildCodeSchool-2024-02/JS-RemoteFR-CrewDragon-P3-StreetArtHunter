@@ -24,7 +24,7 @@ export function AuthProvider({ children }) {
   }, []);
 
   const logout = useCallback(() => {
-    setPerson(null);
+    setPerson({});
     setIsAuthenticated(false);
   }, []);
 
