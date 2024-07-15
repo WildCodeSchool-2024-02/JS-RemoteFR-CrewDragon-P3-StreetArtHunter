@@ -4,12 +4,15 @@ const jwt = require("jsonwebtoken");
 const isAuth = async (req, res, next) => {
   try {
     const token = req.cookies.jwtToken;
+    console.info({token})
     if (!token) {
+      console.info("le token", token);
       return res.status(401).json({ message: "Non autorisé" });
     }
+
     jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
       if (err) {
-        return res.status(403).json({ message: "Accès refusé" });
+        return res.status(403).json({ message: "Accès refusé !" });
       }
       req.user = user;
       next();
