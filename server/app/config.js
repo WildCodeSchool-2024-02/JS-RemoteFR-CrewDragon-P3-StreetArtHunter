@@ -108,8 +108,11 @@ app.use("/api", apiRouter);
 const reactBuildPath = path.join(__dirname, "/../../client/dist");
 const publicFolderPath = path.join(__dirname, "/../public");
 
-// Serve react resources
+const upload = path.join(__dirname, "../uploads");
 
+app.use("/uploads", express.static(upload));
+
+// Serve react resources
 app.use(express.static(reactBuildPath));
 
 // Serve server resources
