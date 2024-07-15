@@ -12,7 +12,7 @@ class reviewRepository extends AbstractRepository {
   async create(review) {
     // Execute the SQL INSERT query to add a new review to the "review" table
     const [result] = await this.database.query(
-      `insert into ${this.table} (picture, person_id, lattitude, longitue) values (?, ?, ?, ?)`,
+      `insert into ${this.table} (picture, person_id, lattitude, longitude) values (?, ?, ?, ?)`,
       [review.picture, review.person_id, review.lattitude, review.longitude]
     );
 

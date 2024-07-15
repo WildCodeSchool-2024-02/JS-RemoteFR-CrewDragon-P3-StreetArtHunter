@@ -25,17 +25,16 @@ const path = require("path");
 // 4. Be sure to only have URLs in the array with domains from which you want to allow requests.
 // For example: ["http://mysite.com", "http://another-domain.com"]
 
-
 const cors = require("cors");
 
 app.use(
   cors({
     origin: [
       process.env.CLIENT_URL, // keep this one, after checking the value in `server/.env`
-    ]
+    ],
+    credentials: true,
   })
 );
-
 
 /* ************************************************************************* */
 
@@ -83,7 +82,6 @@ app.use(cookieParser());
 
 /* ************************************************************************* */
 
-
 // Import the API router
 const apiRouter = require("./routers/api/router");
 
@@ -107,12 +105,14 @@ app.use("/api", apiRouter);
 // 1. Uncomment the lines related to serving static files and redirecting unhandled requests.
 // 2. Ensure that the `reactBuildPath` points to the correct directory where your client's build artifacts are located.
 
-
 const reactBuildPath = path.join(__dirname, "/../../client/dist");
 const publicFolderPath = path.join(__dirname, "/../public");
 
-// Serve react resources
+const upload = path.join(__dirname, "../uploads");
 
+app.use("/uploads", express.static(upload));
+
+// Serve react resources
 app.use(express.static(reactBuildPath));
 
 // Serve server resources

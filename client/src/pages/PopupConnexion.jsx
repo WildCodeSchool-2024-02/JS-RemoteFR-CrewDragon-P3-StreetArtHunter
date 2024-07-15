@@ -28,8 +28,10 @@ function PopupConnexion() {
       const user = await axios.post(`${url}/api/auths/login`, {
         pseudo,
         password,
+      }, {
+        withCredentials: true
       });
-      
+
       login(user.data);
       setPassword("");
       setPseudo("");

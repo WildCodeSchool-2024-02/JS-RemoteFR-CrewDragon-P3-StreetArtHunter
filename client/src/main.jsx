@@ -6,6 +6,7 @@ import Galery from "./pages/Galery";
 import Map from "./components/Map";
 import Instruction from "./pages/Insctruction";
 import PopupConnexion from "./pages/PopupConnexion";
+import Deconnexion from "./pages/Deconnexion";
 import PopupInscription from "./pages/PopupInscription";
 import User from "./pages/User";
 import Admin from "./pages/Admin";
@@ -22,6 +23,7 @@ const router = createBrowserRouter([
       { path: "/instruction", element: <Instruction /> },
       { path: "/connexion", element: <PopupConnexion /> },
       { path: "/inscription", element: <PopupInscription /> },
+      { path: "/deconnexion", element: <Deconnexion />},
       { path: "/user", element: <User /> },
       {
         path: "/admin",
