@@ -35,19 +35,158 @@ function Admin() {
       });
   }, [url]);
 
-  console.info("review", review);
+  const handleModifyUser = () =>
+    // eslint-disable-next-line no-alert
+    alert('En cours de developpement');
 
+  const handleDelete = ( endpoint) => {
+    console.info("Delete", `${url}/api/${endpoint}`);
+    axios
+      .delete(`${url}/api/${endpoint}`, { withCredentials: true })
+      .then((response) => {console.info({REPONSE : response})})
+      .catch((error) => {
+        console.error("une erreur est survenu lors du delete", error);
+      });
+  };
+
+  const handleModify = () => {}
+
+  const handleAccept = (tac) =>{
+    console.info(tac);
+   /* axios
+    .post(`${url}/api/picture`) */
+}
   return (
     <>
-    <div>
       <h1>Admin Page</h1>
-      {users && users.map((user) => <p key={user.id}>{user.pseudo}</p>)}
-    </div>
-    <div>
-      {review && review.map((tac, index) => <img key={index} src={`${import.meta.env.VITE_API_URL}/uploads/${tac.picture}`} alt="img"/>)}    
+      <div className="block">
+        <table>
+          <thead>
+            <tr>
+              <th>pseudo</th>
+              <th>modifier</th>
+              <th>supprimer</th>
+            </tr>
+          </thead>
+          <tbody>
+            {users &&
+              users.map((user, index) => (
+                <tr key={index}>
+                  <td>{user.pseudo}</td>
+                  <td>
+                    <button
+                      type="button"
+                      className="adminButton"
+                      onClick={() => handleModifyUser()}
+                    >
+                      Modify
+                    </button>
+                  </td>
+                  <td>
+                    <button
+                      type="button"
+                      className="adminButton"
+                      onClick={() => handleDelete( `persons/${user.id}`)}
+                    >
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              ))}
+          </tbody>
+        </table>
+
+        <table>
+          <thead>
+            <tr>
+              <th>image</th>
+              <th>modifier</th>
+              <th>supprimer</th>
+            </tr>
+          </thead>
+          <tbody>
+            {review &&
+              review.map((tac, index) => (
+                <tr key={index}>
+                  <td>
+                    <img
+                      key={index}
+                      src={`${import.meta.env.VITE_API_URL}/uploads/${tac.picture}`}
+                      alt="img"
+                      className="imgAdmin"
+                    />
+                  </td>
+                  <td>
+                    <button
+                      type="button"
+                      className="adminButton"
+                      onClick={() => handleAccept(tac)}
+                    >
+                      Accept
+                    </button>
+                  </td>
+                  <td>
+                    <button
+                      type="button"
+                      className="adminButton"
+                      onClick={() => handleDelete(`review/${tac.id}`)}
+                    >
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              ))}
+          </tbody>
+        </table>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>modifier</th>
+              <th>supprimer</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Name</td>
+              <td>
+                <button
+                  type="button"
+                  className="adminButton"
+                  onClick={() => handleModify}
+                >
+                  Modify
+                </button>
+              </td>
+              <td>
+                <button
+                  type="button"
+                  className="adminButton"
+                  onClick={() => handleDelete}
+                >
+                  Delete
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </>
   );
 }
 
 export default Admin;
+
+/*
+
+{review &&
+          review.map((tac, index) => (
+            <img
+              key={index}
+              src={`${import.meta.env.VITE_API_URL}/uploads/${tac.picture}`}
+              alt="img"
+            />
+          ))}
+
+          */
