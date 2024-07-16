@@ -12,6 +12,7 @@ import User from "./pages/User";
 import Admin from "./pages/Admin";
 import PrivateRoute from "./components/PrivateRoute";
 import { AuthProvider } from "./context/AuthContext";
+import Profil from "./pages/Profil";
 
 const router = createBrowserRouter([
   {
@@ -23,7 +24,15 @@ const router = createBrowserRouter([
       { path: "/instruction", element: <Instruction /> },
       { path: "/connexion", element: <PopupConnexion /> },
       { path: "/inscription", element: <PopupInscription /> },
-      { path: "/deconnexion", element: <Deconnexion />},
+      { path: "/deconnexion", element: <Deconnexion /> },
+      {
+        path: "/profil",
+        element: (
+          <PrivateRoute>
+            <Profil />
+          </PrivateRoute>
+        ),
+      },
       { path: "/user", element: <User /> },
       {
         path: "/admin",

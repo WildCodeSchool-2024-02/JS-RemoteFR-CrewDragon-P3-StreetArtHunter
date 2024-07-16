@@ -1,11 +1,11 @@
 import { Link, Outlet } from "react-router-dom";
 import PropTypes from "prop-types";
 import Footer from "./Footer";
-import { useAuth } from "../context/AuthContext"; 
+import { useAuth } from "../context/AuthContext";
 
 function Nav({ openMenu, isMenuOpen }) {
-  const { isAuthenticated, person } = useAuth(); 
-  const { user } = person; 
+  const { isAuthenticated, person } = useAuth();
+  const user = person?.user;
 
   return (
     <main className={isMenuOpen ? "order-end" : "order-start"}>
@@ -23,12 +23,16 @@ function Nav({ openMenu, isMenuOpen }) {
           <Link to="/instruction" onClick={openMenu}>
             Règles
           </Link>
-          {isAuthenticated &&
-            user.role_id === 1 && ( // Affiche "Admin" seulement pour les admins
-              <Link to="/admin" onClick={openMenu}>
-                Admin
-              </Link>
-            )}
+          {isAuthenticated && (
+            <Link to="/profil" onClick={openMenu}>
+              Profil
+            </Link>
+          )}
+          {isAuthenticated && user?.role_id === 1 && (
+            <Link to="/admin" onClick={openMenu}>
+              Admin
+            </Link>
+          )}
         </ul>
         <ul className="log-nav">
           {!isAuthenticated ? (
@@ -46,8 +50,8 @@ function Nav({ openMenu, isMenuOpen }) {
                 Dashboard
               </Link>
               <Link to="/deconnexion" onClick={openMenu}>
-            Deconnexion
-          </Link>
+                Déconnexion
+              </Link>
             </>
           )}
         </ul>
