@@ -12,8 +12,8 @@ class pictureRepository extends AbstractRepository {
   async create(picture) {
     // Execute the SQL INSERT query to add a new picture to the "picture" table
     const [result] = await this.database.query(
-      `insert into ${this.table} (title, user_id) values (?, ?)`,
-      [picture.title, picture.user_id]
+      `insert into ${this.table} (picture, person_id, artwork_id) values (?, ?, ?)`,
+      [picture.picture, picture.person_id, picture.artwork_id]
     );
 
     // Return the ID of the newly inserted picture
