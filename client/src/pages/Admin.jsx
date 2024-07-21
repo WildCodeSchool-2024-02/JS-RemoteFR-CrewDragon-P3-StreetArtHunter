@@ -78,8 +78,10 @@ function Admin() {
 
   const handleAccept = (review) =>{
     const artwork_id = findArtwork(review.lattitude, review.longitude, artworks);
+    console.info({artwork_id});
     
     if(artwork_id===-1){
+      console.info("dans le if");
       const idCreate = async() => axios.post(`${url}/api/artworks`, {
         title: "",
         city: "",
@@ -90,26 +92,29 @@ function Admin() {
         withCredentials: true
       });
 
-      const temp = async () => axios.post(`${url}/api/pictures`, {
+       axios.post(`${url}/api/pictures`, {
         picture: review.picture,
         person_id: review.person_id,
         artwork_id: idCreate,
       }, {
         withCredentials: true
       });
-      console.info({temp});
+      
     }else{
-      const temp = async () => axios.post(`${url}/api/pictures`, {
+      console.info("dans le else");
+
+       axios.post(`${url}/api/pictures`, {
         picture: review.picture,
         person_id: review.person_id,
         artwork_id,
       }, {
         withCredentials: true
       });
-      console.info({temp});
+      
     }
    
 }
+console.info(artworks);
   return (
     <>
       <h1>Admin Page</h1>
