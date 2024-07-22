@@ -5,13 +5,22 @@ import axios from "axios";
 
 function findArtwork(lat, long, artworks) {
   for (let i = 0; i < artworks.length; i += 1) {
-   
     if (lat === artworks[i].lattitude && long === artworks[i].longitude) {
-    
       return artworks[i].id;
     }
   }
 
+  return -1;
+}
+
+function trouve(id, pictures) {
+  for (let i = 0; i < pictures.length; i += 1) {
+    if (pictures[i].artwork_id === id) {
+      console.info( pictures[i].picture );
+      return pictures[i].picture;
+    }
+  }
+  console.info("je n'ai rien trouve: ", -1);
   return -1;
 }
 
@@ -20,6 +29,21 @@ function Admin() {
   const [users, setUsers] = useState(null);
   const [reviews, setReviews] = useState(null);
   const [artworks, setArtworks] = useState([]);
+  const [pictures, setPictures] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`${url}/api/pictures`)
+      .then((response) => {
+        setPictures(response.data);
+      })
+      .catch((error) => {
+        console.error(
+          "Erreur lors de la récupération des pictures :",
+          error
+        );
+      });
+  }, [url]);
 
   useEffect(() => {
     axios
@@ -60,8 +84,7 @@ function Admin() {
       });
   }, [url]);
 
-  const handleModifyUser = () =>
-    alert("En cours de developpement");
+  const handleModifyUser = () => alert("En cours de developpement");
 
   const handleDelete = (endpoint) => {
     axios
@@ -74,8 +97,6 @@ function Admin() {
       });
   };
 
-  const handleModify = () => {};
-
   const handleAccept = async (review) => {
     const artwork_id = findArtwork(
       review.lattitude,
@@ -83,7 +104,7 @@ function Admin() {
       artworks
     );
 
-    console.info({review})
+    console.info({ review });
 
     if (artwork_id === -1) {
       const idCreate = async () =>
@@ -101,7 +122,6 @@ function Admin() {
         );
 
       const idPicture = await idCreate();
-
 
       axios.post(
         `${url}/api/pictures`,
@@ -217,32 +237,32 @@ function Admin() {
           <thead>
             <tr>
               <th>Name</th>
-              <th>modifier</th>
+
               <th>supprimer</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Name</td>
-              <td>
-                <button
-                  type="button"
-                  className="adminButton"
-                  onClick={() => handleModify}
-                >
-                  Modify
-                </button>
-              </td>
-              <td>
-                <button
-                  type="button"
-                  className="adminButton"
-                  onClick={() => handleDelete}
-                >
-                  Delete
-                </button>
-              </td>
-            </tr>
+            {artworks &&
+              artworks.map((artwork) => (
+                <tr key={artwork.id}>
+                  <td>
+                    <img
+                      src={`${import.meta.env.VITE_API_URL}/uploads/${trouve(artwork.id, pictures)}`}
+                      alt="artwork visuel"
+                      className="imgAdmin"
+                    />
+                  </td>
+                  <td>
+                    <button
+                      type="button"
+                      className="adminButton"
+                      onClick={() => handleDelete(`artworks/${artwork.id}`)}
+                    >
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              ))}
           </tbody>
         </table>
       </div>
@@ -251,3 +271,5 @@ function Admin() {
 }
 
 export default Admin;
+
+// 
