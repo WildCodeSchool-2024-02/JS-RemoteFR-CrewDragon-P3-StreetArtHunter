@@ -16,11 +16,9 @@ function findArtwork(lat, long, artworks) {
 function trouve(id, pictures) {
   for (let i = 0; i < pictures.length; i += 1) {
     if (pictures[i].artwork_id === id) {
-      console.info( pictures[i].picture );
       return pictures[i].picture;
     }
   }
-  console.info("je n'ai rien trouve: ", -1);
   return -1;
 }
 
