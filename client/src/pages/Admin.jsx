@@ -36,10 +36,7 @@ function Admin() {
         setPictures(response.data);
       })
       .catch((error) => {
-        console.error(
-          "Erreur lors de la récupération des pictures :",
-          error
-        );
+        console.error("Erreur lors de la récupération des pictures :", error);
       });
   }, [url]);
 
@@ -243,32 +240,32 @@ function Admin() {
             <thead>
               <tr>
                 <th>Name</th>
-                <th>modifier</th>
+
                 <th>supprimer</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>Name</td>
-                <td>
-                  <button
-                    type="button"
-                    className="adminButton"
-                    onClick={() => handleModify}
-                  >
-                    Modify
-                  </button>
-                </td>
-                <td>
-                  <button
-                    type="button"
-                    className="adminButton"
-                    onClick={() => handleDelete}
-                  >
-                    Delete
-                  </button>
-                </td>
-              </tr>
+              {artworks &&
+                artworks.map((artwork) => (
+                  <tr key={artwork.id}>
+                    <td>
+                      <img
+                        src={`${import.meta.env.VITE_API_URL}/uploads/${trouve(artwork.id, pictures)}`}
+                        alt="artwork visuel"
+                        className="imgAdmin"
+                      />
+                    </td>
+                    <td>
+                      <button
+                        type="button"
+                        className="adminButton"
+                        onClick={() => handleDelete(`artworks/${artwork.id}`)}
+                      >
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                ))}
             </tbody>
           </table>
         </article>
@@ -279,4 +276,4 @@ function Admin() {
 
 export default Admin;
 
-// 
+//
