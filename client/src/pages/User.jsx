@@ -1,4 +1,3 @@
-/* eslint-disable react/button-has-type */
 import { useState } from "react";
 import axios from "axios";
 
@@ -17,8 +16,6 @@ function User() {
   const sendPhotoToGallery = async (e) => {
     e.preventDefault();
     const fd = new FormData();
-
-    console.info({ coord });
 
     fd.append("picture", photos);
     fd.append("longitude", coord.lon);
@@ -74,7 +71,7 @@ function User() {
       <div className="photos-container">
         <form onSubmit={sendPhotoToGallery}>
           <input type="file" name="picture" onChange={handleChange} />
-          <button>Submit</button>
+          <button type="button">Submit</button>
         </form>
       </div>
     </section>

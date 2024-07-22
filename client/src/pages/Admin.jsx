@@ -1,15 +1,17 @@
 /* eslint-disable camelcase */
-/* eslint-disable react/no-array-index-key */
+
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-function findArtwork(lat, long, artworks){
-  // eslint-disable-next-line no-plusplus
-  for(let i=0; i<artworks.length; i++){
-    if(lat===artworks[i].lattitude && long===artworks[i].longitude){
+function findArtwork(lat, long, artworks) {
+  for (let i = 0; i < artworks.length; i += 1) {
+   
+    if (lat === artworks[i].lattitude && long === artworks[i].longitude) {
+    
       return artworks[i].id;
     }
   }
+
   return -1;
 }
 
@@ -54,67 +56,80 @@ function Admin() {
         setReviews(response.data);
       })
       .catch((error) => {
-        console.error(
-          "Erreur lors de la récupération des reviews :",
-          error
-        );
+        console.error("Erreur lors de la récupération des reviews :", error);
       });
   }, [url]);
 
   const handleModifyUser = () =>
-    // eslint-disable-next-line no-alert
-    alert('En cours de developpement');
+    alert("En cours de developpement");
 
-  const handleDelete = ( endpoint) => {
+  const handleDelete = (endpoint) => {
     axios
       .delete(`${url}/api/${endpoint}`, { withCredentials: true })
-      .then((response) => {console.info({REPONSE : response})})
+      .then((response) => {
+        console.info({ REPONSE: response });
+      })
       .catch((error) => {
         console.error("une erreur est survenu lors du delete", error);
       });
   };
 
-  const handleModify = () => {}
+  const handleModify = () => {};
 
-  const handleAccept = (review) =>{
-    const artwork_id = findArtwork(review.lattitude, review.longitude, artworks);
-    console.info({artwork_id});
-    
-    if(artwork_id===-1){
-      console.info("dans le if");
-      const idCreate = async() => axios.post(`${url}/api/artworks`, {
-        title: "",
-        city: "",
-        lattitude: review.lattitude,
-        longitude: review.longitude,
-        desc: null,
-      }, {
-        withCredentials: true
-      });
+  const handleAccept = async (review) => {
+    const artwork_id = findArtwork(
+      review.lattitude,
+      review.longitude,
+      artworks
+    );
 
-       axios.post(`${url}/api/pictures`, {
-        picture: review.picture,
-        person_id: review.person_id,
-        artwork_id: idCreate,
-      }, {
-        withCredentials: true
-      });
-      
-    }else{
-      console.info("dans le else");
+    console.info({review})
 
-       axios.post(`${url}/api/pictures`, {
-        picture: review.picture,
-        person_id: review.person_id,
-        artwork_id,
-      }, {
-        withCredentials: true
-      });
-      
+    if (artwork_id === -1) {
+      const idCreate = async () =>
+        axios.post(
+          `${url}/api/artworks`,
+          {
+            title: "",
+            lattitude: review.lattitude,
+            longitude: review.longitude,
+            desc: null,
+          },
+          {
+            withCredentials: true,
+          }
+        );
+
+      const idPicture = await idCreate();
+
+
+      axios.post(
+        `${url}/api/pictures`,
+        {
+          picture: review.picture,
+          person_id: review.person_id,
+          artwork_id: idPicture.data.insertId,
+        },
+        {
+          withCredentials: true,
+        }
+      );
+    } else {
+      axios.post(
+        `${url}/api/pictures`,
+        {
+          picture: review.picture,
+          person_id: review.person_id,
+          artwork_id,
+        },
+        {
+          withCredentials: true,
+        }
+      );
     }
-   
-}
-console.info(artworks);
+    handleDelete(`review/${review.id}`);
+  };
+
   return (
     <>
       <h1>Admin Page</h1>
@@ -129,8 +144,8 @@ console.info(artworks);
           </thead>
           <tbody>
             {users &&
-              users.map((user, index) => (
-                <tr key={index}>
+              users.map((user) => (
+                <tr key={user.id}>
                   <td>{user.pseudo}</td>
                   <td>
                     <button
@@ -145,7 +160,7 @@ console.info(artworks);
                     <button
                       type="button"
                       className="adminButton"
-                      onClick={() => handleDelete( `persons/${user.id}`)}
+                      onClick={() => handleDelete(`persons/${user.id}`)}
                     >
                       Delete
                     </button>
@@ -165,11 +180,11 @@ console.info(artworks);
           </thead>
           <tbody>
             {reviews &&
-              reviews.map((review, index) => (
-                <tr key={index}>
+              reviews.map((review) => (
+                <tr key={review.id}>
                   <td>
                     <img
-                      key={index}
+                      key={review.id}
                       src={`${import.meta.env.VITE_API_URL}/uploads/${review.picture}`}
                       alt="img"
                       className="imgAdmin"
@@ -236,16 +251,3 @@ console.info(artworks);
 }
 
 export default Admin;
-
-/*
-
-{review &&
-          review.map((tac, index) => (
-            <img
-              key={index}
-              src={`${import.meta.env.VITE_API_URL}/uploads/${tac.picture}`}
-              alt="img"
-            />
-          ))}
-
-          */
