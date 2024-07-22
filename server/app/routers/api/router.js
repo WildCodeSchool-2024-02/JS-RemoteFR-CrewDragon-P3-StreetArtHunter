@@ -15,6 +15,7 @@ const artistsRouter = require("./artists/router");
 const artistArtworkRouter = require("./artistArtwork/router");
 const authRouter = require("./auths/router");
 const reviewRouter = require("./review/router");
+const pictureRouter = require("./pictures/router");
 
 // Utilisation des routeurs importés
 router.use("/items", itemsRouter);
@@ -24,6 +25,7 @@ router.use("/artists", artistsRouter);
 router.use("/persons", personsRouter);
 router.use("/artistArtwork", artistArtworkRouter);
 router.use("/auths", authRouter);
-router.use("/review", isAuth, roleControle, reviewRouter)
+router.use("/review", isAuth, roleControle, reviewRouter);
+router.use("/pictures", pictureRouter);
 
 module.exports = router;

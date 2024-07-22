@@ -57,7 +57,6 @@ class PersonRepository extends AbstractRepository {
 
   // Opération U de CRUD - Mettre à jour
   async update(person) {
-    console.info("Ici c'est person: ", person);
     const {
       id,
       firstname,

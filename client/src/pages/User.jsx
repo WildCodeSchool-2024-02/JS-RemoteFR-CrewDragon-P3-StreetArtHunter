@@ -1,8 +1,11 @@
-/* eslint-disable react/button-has-type */
 import { useState } from "react";
 import axios from "axios";
 
+import { useAuth } from "../context/AuthContext";
+
 function User() {
+  const { person } = useAuth();
+  const { user } = person;
   const [photos, setPhotos] = useState("");
   const [address, setAddress] = useState("");
   const [coord, setCoord] = useState({
@@ -14,11 +17,10 @@ function User() {
     e.preventDefault();
     const fd = new FormData();
 
-    console.info({ coord });
-
     fd.append("picture", photos);
     fd.append("longitude", coord.lon);
     fd.append("lattitude", coord.lat);
+    fd.append("person_id", user.id);
 
     try {
       await axios.post(`${import.meta.env.VITE_API_URL}/api/review`, fd, {
@@ -69,7 +71,7 @@ function User() {
       <div className="photos-container">
         <form onSubmit={sendPhotoToGallery}>
           <input type="file" name="picture" onChange={handleChange} />
-          <button>Submit</button>
+          <button type="button">Submit</button>
         </form>
       </div>
     </section>
