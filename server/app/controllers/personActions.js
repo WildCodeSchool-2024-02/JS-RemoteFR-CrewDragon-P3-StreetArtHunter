@@ -38,7 +38,6 @@ const read = async (req, res, next) => {
 const edit = async (req, res, next) => {
   try {
     const person = await tables.person.update(req.body);
-    console.info(person);
     if (person == null) {
       res.sendStatus(404);
     } else {
