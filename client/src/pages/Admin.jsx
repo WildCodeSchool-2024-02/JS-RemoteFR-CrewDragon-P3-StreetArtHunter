@@ -5,9 +5,7 @@ import axios from "axios";
 
 function findArtwork(lat, long, artworks) {
   for (let i = 0; i < artworks.length; i += 1) {
-   
     if (lat === artworks[i].lattitude && long === artworks[i].longitude) {
-    
       return artworks[i].id;
     }
   }
@@ -60,8 +58,7 @@ function Admin() {
       });
   }, [url]);
 
-  const handleModifyUser = () =>
-    alert("En cours de developpement");
+  const handleModifyUser = () => alert("En cours de developpement");
 
   const handleDelete = (endpoint) => {
     axios
@@ -83,7 +80,7 @@ function Admin() {
       artworks
     );
 
-    console.info({review})
+    console.info({ review });
 
     if (artwork_id === -1) {
       const idCreate = async () =>
@@ -101,7 +98,6 @@ function Admin() {
         );
 
       const idPicture = await idCreate();
-
 
       axios.post(
         `${url}/api/pictures`,
@@ -134,117 +130,126 @@ function Admin() {
     <>
       <h1>Admin Page</h1>
       <div className="block">
-        <table>
-          <thead>
-            <tr>
-              <th>pseudo</th>
-              <th>modifier</th>
-              <th>supprimer</th>
-            </tr>
-          </thead>
-          <tbody>
-            {users &&
-              users.map((user) => (
-                <tr key={user.id}>
-                  <td>{user.pseudo}</td>
-                  <td>
-                    <button
-                      type="button"
-                      className="adminButton"
-                      onClick={() => handleModifyUser()}
-                    >
-                      Modify
-                    </button>
-                  </td>
-                  <td>
-                    <button
-                      type="button"
-                      className="adminButton"
-                      onClick={() => handleDelete(`persons/${user.id}`)}
-                    >
-                      Delete
-                    </button>
-                  </td>
-                </tr>
-              ))}
-          </tbody>
-        </table>
+        <article>
+          <h2>Utilisateurs</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>pseudo</th>
+                <th>modifier</th>
+                <th>supprimer</th>
+              </tr>
+            </thead>
+            <tbody>
+              {users &&
+                users.map((user) => (
+                  <tr key={user.id}>
+                    <td>{user.pseudo}</td>
+                    <td>
+                      <button
+                        type="button"
+                        className="adminButton"
+                        onClick={() => handleModifyUser()}
+                      >
+                        Modify
+                      </button>
+                    </td>
+                    <td>
+                      <button
+                        type="button"
+                        className="adminButton"
+                        onClick={() => handleDelete(`persons/${user.id}`)}
+                      >
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+            </tbody>
+          </table>
+        </article>
 
-        <table>
-          <thead>
-            <tr>
-              <th>image</th>
-              <th>modifier</th>
-              <th>supprimer</th>
-            </tr>
-          </thead>
-          <tbody>
-            {reviews &&
-              reviews.map((review) => (
-                <tr key={review.id}>
-                  <td>
-                    <img
-                      key={review.id}
-                      src={`${import.meta.env.VITE_API_URL}/uploads/${review.picture}`}
-                      alt="img"
-                      className="imgAdmin"
-                    />
-                  </td>
-                  <td>
-                    <button
-                      type="button"
-                      className="adminButton"
-                      onClick={() => handleAccept(review)}
-                    >
-                      Accept
-                    </button>
-                  </td>
-                  <td>
-                    <button
-                      type="button"
-                      className="adminButton"
-                      onClick={() => handleDelete(`review/${review.id}`)}
-                    >
-                      Delete
-                    </button>
-                  </td>
-                </tr>
-              ))}
-          </tbody>
-        </table>
+        <article>
+          <h2>Review</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>image</th>
+                <th>modifier</th>
+                <th>supprimer</th>
+              </tr>
+            </thead>
+            <tbody>
+              {reviews &&
+                reviews.map((review) => (
+                  <tr key={review.id}>
+                    <td>
+                      <img
+                        key={review.id}
+                        src={`${import.meta.env.VITE_API_URL}/uploads/${review.picture}`}
+                        alt="img"
+                        className="imgAdmin"
+                      />
+                    </td>
+                    <td>
+                      <button
+                        type="button"
+                        className="adminButton"
+                        onClick={() => handleAccept(review)}
+                      >
+                        Accept
+                      </button>
+                    </td>
+                    <td>
+                      <button
+                        type="button"
+                        className="adminButton"
+                        onClick={() => handleDelete(`review/${review.id}`)}
+                      >
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+            </tbody>
+          </table>
+        </article>
 
-        <table>
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>modifier</th>
-              <th>supprimer</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Name</td>
-              <td>
-                <button
-                  type="button"
-                  className="adminButton"
-                  onClick={() => handleModify}
-                >
-                  Modify
-                </button>
-              </td>
-              <td>
-                <button
-                  type="button"
-                  className="adminButton"
-                  onClick={() => handleDelete}
-                >
-                  Delete
-                </button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <article>
+          <h2>Galerie</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>modifier</th>
+                <th>supprimer</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Name</td>
+                <td>
+                  <button
+                    type="button"
+                    className="adminButton"
+                    onClick={() => handleModify}
+                  >
+                    Modify
+                  </button>
+                </td>
+                <td>
+                  <button
+                    type="button"
+                    className="adminButton"
+                    onClick={() => handleDelete}
+                  >
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </article>
       </div>
     </>
   );

@@ -4,8 +4,10 @@
 }
 
 .block {
+  width: 100%;
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 table {
@@ -13,23 +15,45 @@ table {
   padding: 5px;
   thead {
     th {
-      border: solid 1px black;
+      border: solid 2px var(--darkColor);
+      padding: 0.5rem;
     }
   }
   tbody {
     td {
-      border: solid 1px black;
-      width: 100%;
-      height: 100%;
+      border: solid 2px var(--darkColor);
+      padding: 0.5rem;
     }
   }
 }
 
 .adminButton {
-  background-color: #bf3100;
-  color: black;
+  background-color: transparent;
+  border: none;
+  color: var(--darkColor);
   font-size: 1.25rem;
   content: none;
   padding: 5px;
   margin: 0 10px;
+}
+
+.adminButton::before {
+  content: url(./src/assets/patterns/Dark-button.svg);
+  padding-top: 0.25rem;
+  padding-left: 0.25rem;
+}
+
+.adminButton:hover:before,
+.adminButton:focus:before {
+  content: url(./src/assets/patterns/Dark-Button_hover.svg);
+  padding-top: 0.25rem;
+  padding-left: 0.25rem;
+}
+
+@media screen and (min-width: 1024px) {
+  .block {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }
