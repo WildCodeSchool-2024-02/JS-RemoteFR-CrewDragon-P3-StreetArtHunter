@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
-
 import Map from "../components/Map";
+import { useAuth } from "../context/AuthContext"; 
 
 function Home() {
+  const { isAuthenticated, logout } = useAuth(); 
+
   return (
     <>
       <section className="intro-section">
@@ -31,11 +33,7 @@ function Home() {
         <h2 className="title-rules">
           Suivez les règles afin d'améliorer votre expérience
         </h2>
-        <Link
-          to="/instruction"
-          className="home-btn"
-          id="btn_rules"
-        >
+        <Link to="/instruction" className="home-btn" id="btn_rules">
           Règles
         </Link>
       </section>
@@ -44,22 +42,21 @@ function Home() {
           Connectez-vous pour scanner de nouvelles œuvres et gagner des points !
         </h2>
         <div className="log-buttons">
-          <Link
-            to="/connexion"
-            className="home-btn"
-            id="btn_log"
-            onClick="scroll('log-in')"
-          >
-            Connexion
-          </Link>
-          <Link
-            to="/inscription"
-            className="home-btn"
-            id="btn_sign"
-            onClick="scroll('sign-in')"
-          >
-            Inscription
-          </Link>
+          {!isAuthenticated ? (
+            <>
+              <Link to="/connexion" className="home-btn" id="btn_log">
+                Connexion
+              </Link>
+              <Link to="/inscription" className="home-btn" id="btn_sign">
+                Inscription
+              </Link>
+            </>
+          ) : (
+            // eslint-disable-next-line react/button-has-type
+            <button onClick={logout} className="home-btn">
+              Déconnexion
+            </button>
+          )}
         </div>
       </section>
     </>

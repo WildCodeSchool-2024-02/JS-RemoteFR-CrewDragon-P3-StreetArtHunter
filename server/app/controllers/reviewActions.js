@@ -42,6 +42,8 @@ const add = async (req, res, next) => {
   // Extract the review data from the request body
   const review = req.body;
 
+  review.picture = req.imgUrl;
+
   try {
     // Insert the review into the database
     const insertId = await tables.review.create(review);

@@ -1,48 +1,52 @@
 /* eslint-disable react/button-has-type */
-import  { useEffect, useState } from "react";
-import Webcam from "../components/Webcam";
-
+import { useState } from "react";
+import axios from "axios";
 
 function User() {
-  const [photos, setPhotos] = useState([]);
+  const [photos, setPhotos] = useState("");
+  const [address, setAddress] = useState("");
+  const [coord, setCoord] = useState({
+    lat: 0,
+    lon: 0,
+  });
 
-  useEffect(() => {
-    const storedPhotos = JSON.parse(localStorage.getItem("photos")) || [];
-    setPhotos(storedPhotos);
-  }, []);
+  const sendPhotoToGallery = async (e) => {
+    e.preventDefault();
+    const fd = new FormData();
 
-  const addPhoto = (photo) => {
-    const updatedPhotos = [...photos, photo];
-    setPhotos(updatedPhotos);
-    localStorage.setItem("photos", JSON.stringify(updatedPhotos));
-  };
+    console.info({ coord });
 
-  const sendPhotoToGallery = async (photo) => {
+    fd.append("picture", photos);
+    fd.append("longitude", coord.lon);
+    fd.append("lattitude", coord.lat);
+
     try {
-      const response = await fetch("https://your-api-endpoint.com/gallery", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ photo }),
+      await axios.post(`${import.meta.env.VITE_API_URL}/api/review`, fd, {
+        withCredentials: true,
       });
-
-      if (response.ok) {
-        const updatedPhotos = photos.filter((p) => p !== photo);
-        setPhotos(updatedPhotos);
-        localStorage.setItem("photos", JSON.stringify(updatedPhotos));
-      } else {
-        console.error("Failed to send photo to gallery");
-      }
     } catch (err) {
       console.error("Error sending photo to gallery:", err);
     }
   };
 
-  const deletePhoto = (photo) => {
-    const updatedPhotos = photos.filter((p) => p !== photo);
-    setPhotos(updatedPhotos);
-    localStorage.setItem("photos", JSON.stringify(updatedPhotos));
+  const handleChange = (e) => {
+    setPhotos(e.target.files[0]);
+  };
+
+  const handleAddress = (e) => {
+    setAddress(e.target.value);
+  };
+
+  const handleSubmitAddress = async (e) => {
+    e.preventDefault();
+    try {
+      const responses = await axios.get(
+        `https://us1.locationiq.com/v1/search?key=pk.3d499c46c739d29273c60d554f2ab451&q=${address}&format=json`
+      );
+      setCoord({ lat: responses.data[0].lat, lon: responses.data[0].lon });
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
@@ -55,22 +59,18 @@ function User() {
       </p>
       <h3>Prendre une photo</h3>
       <div className="webcam-container">
-        <Webcam addPhoto={addPhoto} />
+        <form onSubmit={handleSubmitAddress}>
+          <input type="text" value={address} onChange={handleAddress} />
+          <p>Les coordonnées GPS : lat : {coord.lat}, lon: {coord.lon}</p>
+          <button type="submit"> Search</button>
+        </form>
       </div>
       <h3>Photos Capturées</h3>
       <div className="photos-container">
-        {photos.map((photo, index) => (
-          // eslint-disable-next-line react/no-array-index-key
-          <div key={index} className="photo-item">
-            <img src={photo} alt={`Captured ${index}`} />
-            <div className="photo-buttons">
-              <button onClick={() => sendPhotoToGallery(photo)}>
-                Enregistrer
-              </button>
-              <button onClick={() => deletePhoto(photo)}>Supprimer</button>
-            </div>
-          </div>
-        ))}
+        <form onSubmit={sendPhotoToGallery}>
+          <input type="file" name="picture" onChange={handleChange} />
+          <button>Submit</button>
+        </form>
       </div>
     </section>
   );

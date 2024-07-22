@@ -57,39 +57,42 @@ class PersonRepository extends AbstractRepository {
 
   // Opération U de CRUD - Mettre à jour
   async update(person) {
+    console.info("Ici c'est person: ", person);
     const {
       id,
       firstname,
       lastname,
       email,
-      password,
+      hashedPassword,
       pseudo,
       postalCode,
       city,
-      roleId,
     } = person;
     // Exécuter la requête SQL UPDATE pour modifier une personne existante dans la table "person"
     await this.database.query(
       `UPDATE ${this.table} SET firstname = ?, lastname = ?, email = ?, password = ?, pseudo = ?, postal_code = ?, city = ?, role_id = ? WHERE id = ?`,
       [
-        id,
         firstname,
         lastname,
         email,
-        password,
+        hashedPassword,
         pseudo,
         postalCode,
         city,
-        roleId,
+        3,
+        id,
       ]
     );
+    return person;
   }
 
   // Opération D de CRUD - Supprimer
   async delete(id) {
     // Exécuter la requête SQL DELETE pour supprimer une personne dans la table "person"
-    await this.database.query(`DELETE FROM ${this.table} WHERE id = ?`, [id]);
+    const [row] = await this.database.query(`DELETE FROM ${this.table} WHERE id = ?`, [id]);
+    return row;
   }
+  
 }
 
 module.exports = PersonRepository;

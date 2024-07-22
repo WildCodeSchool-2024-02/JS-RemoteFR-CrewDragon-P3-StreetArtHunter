@@ -1,14 +1,18 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+
+import { useAuth } from "../context/AuthContext";
 
 import closePopup from "../assets/patterns/Close-Button.svg";
 
 const url = import.meta.env.VITE_API_URL;
 
 function PopupConnexion() {
+  const { login } = useAuth();
   const [pseudo, setPseudo] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const pseudoChange = (e) => {
     setPseudo(e.target.value);
@@ -24,10 +28,14 @@ function PopupConnexion() {
       const user = await axios.post(`${url}/api/auths/login`, {
         pseudo,
         password,
+      }, {
+        withCredentials: true
       });
-      console.info(user.data);
+
+      login(user.data);
       setPassword("");
       setPseudo("");
+      navigate("/"); // Redirige l'utilisateur vers la page d'accueil après une connexion réussie
     } catch (error) {
       console.error(error.message);
     }
@@ -39,30 +47,29 @@ function PopupConnexion() {
         <img src={closePopup} alt="Fermer" />
       </Link>
       <h2>Vous voulez vous connecter?</h2>
-      <label htmlFor="pseudo">Rentrez votre pseudo:</label>
-      <input
-        type="text"
-        id="pseudo"
-        name="name"
-        required
-        minLength="4"
-        maxLength="15"
-        onChange={pseudoChange}
-        value={pseudo}
-      />
-      <label htmlFor="pass">Password:</label>
-      <input
-        type="password"
-        id="pass"
-        name="password"
-        required
-        onChange={passwordChange}
-        value={password}
-      />
-
-      <button type="submit" value="Connexion" onClick={submit}>
-        Soumettre
-      </button>
+      <form onSubmit={submit}>
+        <label htmlFor="pseudo">Rentrez votre pseudo:</label>
+        <input
+          type="text"
+          id="pseudo"
+          name="name"
+          required
+          minLength="3"
+          maxLength="15"
+          onChange={pseudoChange}
+          value={pseudo}
+        />
+        <label htmlFor="pass"> Password:</label>
+        <input
+          type="password"
+          id="pass"
+          name="password"
+          required
+          onChange={passwordChange}
+          value={password}
+        />
+        <button type="submit">Soumettre</button>
+      </form>
       <Link to="/" className="home-btn">
         Fermer
       </Link>

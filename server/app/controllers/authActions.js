@@ -1,4 +1,7 @@
+/* eslint-disable camelcase */
 const argon2 = require("argon2");
+
+const jwt = require("jsonwebtoken");
 
 // Import access to database tables
 const tables = require("../../database/tables");
@@ -13,25 +16,35 @@ const login = async (req, res, next) => {
       return;
     }
 
-    const verified = await argon2.verify(
-      person.password,
-      req.body.password
-    );
+    const verified = await argon2.verify(person.password, req.body.password);
 
     if (verified) {
+      const { pseudo, role_id } = person;
       // Respond with the user in JSON format (but without the hashed password)
       delete person.password;
-
-      res.json(person);
+      const jwtToken = jwt.sign({ pseudo, role_id }, process.env.JWT_SECRET, {
+        expiresIn: "1h",
+      });
+      res.cookie("jwtToken", jwtToken, { httpOnly: true, secure: false });
+      res.json({ jwtToken, user: person });
     } else {
-      res.sendStatus(403);
+      res.sendStatus(403).json({ message: "Accès refusé mon reuf" });
     }
   } catch (err) {
-    // Pass any errors to the error-handling middleware
     next(err);
   }
 };
 
+const logout = async (req, res, next) => {
+  try {
+    res.clearCookie("jwtToken");
+    res.json({message: "La deco est un succes"});
+  } catch (error) {
+    next(error);
+  }
+}
+
 module.exports = {
   login,
+  logout,
 };
