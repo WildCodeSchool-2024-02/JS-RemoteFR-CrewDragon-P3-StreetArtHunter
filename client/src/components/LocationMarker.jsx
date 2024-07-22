@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
-import { useMap, Marker, Popup } from "react-leaflet";
 import L from "leaflet";
+import { useEffect, useState } from "react";
+import { Marker, Popup, useMap } from "react-leaflet";
 import icon from "./IconMap";
 
 function LocationMarker() {
@@ -12,14 +12,14 @@ function LocationMarker() {
       setPosition(loc.latlng);
       map.flyTo(loc.latlng, map.getZoom());
       const radius = loc.accuracy;
-      const circle = L.Circle(loc.latlng, radius);
+      const circle = L.Circle(loc.latlng, { radius });
       circle.addTo(map);
     });
   }, [map]);
 
   return position === null ? (
     <Marker position={[48.8566, 2.3522]} icon={icon}>
-      <Popup>I'm here </Popup>
+      <Popup>I'm in Paris in France</Popup>
     </Marker>
   ) : (
     <Marker position={position} icon={icon}>
