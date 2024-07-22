@@ -34,6 +34,15 @@ const read = async (req, res, next) => {
   }
 };
 
+const readArtwork = async (req, res, next) => {
+  try {
+    const bla = await tables.picture.readArtwork(req.params.id);
+    res.json(bla)
+  } catch (error) {
+    next(error);
+  }
+}
+
 // The E of BREAD - Edit (Update) operation
 // This operation is not yet implemented
 
@@ -68,7 +77,7 @@ const destroy = async(req, res, next) => {
 module.exports = {
   browse,
   read,
-  // edit,
+  readArtwork,
   add,
   destroy,
 };

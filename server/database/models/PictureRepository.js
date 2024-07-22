@@ -41,6 +41,14 @@ class pictureRepository extends AbstractRepository {
     return rows;
   }
 
+  async readArtwork(artworkId) {
+    const [rows] = await this.database.query(
+      `select * from ${this.table} where artwork_id = ? LIMIT 1`,
+      [artworkId]
+    );
+    return rows[0];
+  }
+
   // The U of CRUD - Update operation
   // TODO: Implement the update operation to modify an existing picture
 

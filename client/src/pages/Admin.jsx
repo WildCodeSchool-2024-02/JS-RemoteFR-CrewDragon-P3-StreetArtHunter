@@ -13,11 +13,35 @@ function findArtwork(lat, long, artworks) {
   return -1;
 }
 
+function trouve(id, pictures) {
+  for (let i = 0; i < pictures.length; i += 1) {
+    if (pictures[i].artwork_id === id) {
+      return pictures[i].picture;
+    }
+  }
+  return -1;
+}
+
 function Admin() {
   const url = import.meta.env.VITE_API_URL;
   const [users, setUsers] = useState(null);
   const [reviews, setReviews] = useState(null);
   const [artworks, setArtworks] = useState([]);
+  const [pictures, setPictures] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`${url}/api/pictures`)
+      .then((response) => {
+        setPictures(response.data);
+      })
+      .catch((error) => {
+        console.error(
+          "Erreur lors de la récupération des pictures :",
+          error
+        );
+      });
+  }, [url]);
 
   useEffect(() => {
     axios
@@ -70,8 +94,6 @@ function Admin() {
         console.error("une erreur est survenu lors du delete", error);
       });
   };
-
-  const handleModify = () => {};
 
   const handleAccept = async (review) => {
     const artwork_id = findArtwork(
@@ -256,3 +278,5 @@ function Admin() {
 }
 
 export default Admin;
+
+// 
