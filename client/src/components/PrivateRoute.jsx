@@ -4,14 +4,13 @@ import { useAuth } from "../context/AuthContext";
 
 function PrivateRoute({ children, requiredRole }) {
   const { isAuthenticated, person } = useAuth();
-  const { user } = person;
+  const user = person?.user;
 
   if (!isAuthenticated) {
     return <Navigate to="/connexion" />;
   }
 
-  // Vérifie si l'utilisateur a un rôle qui permet d'accéder à la route
-  if (user.role_id !== requiredRole) {
+  if (requiredRole && user.role_id !== requiredRole) {
     return <Navigate to="/" />;
   }
 
@@ -20,7 +19,8 @@ function PrivateRoute({ children, requiredRole }) {
 
 PrivateRoute.propTypes = {
   children: PropTypes.element.isRequired,
-  requiredRole: PropTypes.number.isRequired,
+  // eslint-disable-next-line react/require-default-props
+  requiredRole: PropTypes.number,
 };
 
 export default PrivateRoute;

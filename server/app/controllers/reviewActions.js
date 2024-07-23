@@ -59,8 +59,8 @@ const add = async (req, res, next) => {
 // The D of BREAD - Destroy (Delete) operation
 const destroy = async(req, res, next) => {
     try {
-        await tables.artist.delete(req.params.id);
-        res.status(200);
+        await tables.review.delete(req.params.id);
+        res.sendStatus(200);
     } catch (error) {
         next(error)
     }

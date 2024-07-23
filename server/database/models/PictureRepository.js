@@ -12,8 +12,8 @@ class pictureRepository extends AbstractRepository {
   async create(picture) {
     // Execute the SQL INSERT query to add a new picture to the "picture" table
     const [result] = await this.database.query(
-      `insert into ${this.table} (title, user_id) values (?, ?)`,
-      [picture.title, picture.user_id]
+      `insert into ${this.table} (picture, person_id, artwork_id) values (?, ?, ?)`,
+      [picture.picture, picture.person_id, picture.artwork_id]
     );
 
     // Return the ID of the newly inserted picture
@@ -39,6 +39,14 @@ class pictureRepository extends AbstractRepository {
 
     // Return the array of pictures
     return rows;
+  }
+
+  async readArtwork(artworkId) {
+    const [rows] = await this.database.query(
+      `select * from ${this.table} where artwork_id = ? LIMIT 1`,
+      [artworkId]
+    );
+    return rows[0];
   }
 
   // The U of CRUD - Update operation

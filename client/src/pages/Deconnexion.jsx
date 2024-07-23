@@ -13,8 +13,7 @@ function Deconnexion() {
 
   const deco = async () => {
     try {
-      const jesaispas = await axios.post(`${url}/api/auths/logout`);
-      console.info(jesaispas);
+      await axios.post(`${url}/api/auths/logout`);
       logout();
       navigate("/");
     } catch (err) {
