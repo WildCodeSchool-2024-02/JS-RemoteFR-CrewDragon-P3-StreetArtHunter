@@ -1,7 +1,7 @@
 import L from "leaflet";
-import markerIcon from "../assets/icons/marker_sah.png";
+import markerIcon from "../assets/icons/marker_sah_workart.png";
 
-const IconMap = L.icon({
+const IconWorkArt = L.icon({
   iconUrl: `${markerIcon}`,
   iconSize: [35, 60],
   iconAnchor: [-14, 55],
@@ -11,4 +11,4 @@ const IconMap = L.icon({
   shadowAnchor: [20, 46],
 });
 
-export default IconMap;
+export default IconWorkArt;

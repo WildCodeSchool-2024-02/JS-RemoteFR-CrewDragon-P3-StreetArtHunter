@@ -1,17 +1,18 @@
 import ReactDOM from "react-dom";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App";
-import Home from "./pages/Home";
-import Galery from "./pages/Galery";
 import Map from "./components/Map";
+import PrivateRoute from "./components/PrivateRoute";
+import { AuthProvider } from "./context/AuthContext";
+import Deconnexion from "./pages/Deconnexion";
+import Galery from "./pages/Galery";
+import Home from "./pages/Home";
 import Instruction from "./pages/Insctruction";
 import PopupConnexion from "./pages/PopupConnexion";
-import Deconnexion from "./pages/Deconnexion";
 import PopupInscription from "./pages/PopupInscription";
 import User from "./pages/User";
 import Admin from "./pages/Admin";
-import PrivateRoute from "./components/PrivateRoute";
-import { AuthProvider } from "./context/AuthContext";
+
 import Profil from "./pages/Profil";
 
 const router = createBrowserRouter([

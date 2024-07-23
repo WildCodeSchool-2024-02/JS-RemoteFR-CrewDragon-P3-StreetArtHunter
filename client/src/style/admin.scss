@@ -1,0 +1,59 @@
+.imgAdmin {
+  width: 50px;
+  height: auto;
+}
+
+.block {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+table {
+  border-collapse: collapse;
+  padding: 5px;
+  thead {
+    th {
+      border: solid 2px var(--darkColor);
+      padding: 0.5rem;
+    }
+  }
+  tbody {
+    td {
+      border: solid 2px var(--darkColor);
+      padding: 0.5rem;
+    }
+  }
+}
+
+.adminButton {
+  background-color: transparent;
+  border: none;
+  color: var(--darkColor);
+  font-size: 1.25rem;
+  content: none;
+  padding: 5px;
+  margin: 0 10px;
+}
+
+.adminButton::before {
+  content: url(./src/assets/patterns/Dark-button.svg);
+  padding-top: 0.25rem;
+  padding-left: 0.25rem;
+}
+
+.adminButton:hover:before,
+.adminButton:focus:before {
+  content: url(./src/assets/patterns/Dark-Button_hover.svg);
+  padding-top: 0.25rem;
+  padding-left: 0.25rem;
+}
+
+@media screen and (min-width: 1024px) {
+  .block {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}

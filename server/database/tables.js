@@ -5,6 +5,7 @@ const ArtworkRepository = require("./models/ArtworkRepository");
 const PersonRepository = require("./models/PersonRepository");
 const ArtistRepository = require("./models/ArtistRepository");
 const ReviewRepository = require('./models/ReviewRepository');
+const PictureRepository = require("./models/PictureRepository");
 // Create an empty object to hold data repositories for different tables
 const tables = {};
 
@@ -18,6 +19,7 @@ tables.artwork = new ArtworkRepository();
 tables.person = new PersonRepository();
 tables.artist = new ArtistRepository();
 tables.review = new ReviewRepository();
+tables.picture = new PictureRepository();
 /* ************************************************************************* */
 
 // Use a Proxy to customize error messages when trying to access a non-existing table
