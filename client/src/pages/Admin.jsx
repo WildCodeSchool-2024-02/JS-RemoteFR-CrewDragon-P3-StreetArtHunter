@@ -36,10 +36,7 @@ function Admin() {
         setPictures(response.data);
       })
       .catch((error) => {
-        console.error(
-          "Erreur lors de la récupération des pictures :",
-          error
-        );
+        console.error("Erreur lors de la récupération des pictures :", error);
       });
   }, [url]);
 
@@ -152,117 +149,126 @@ function Admin() {
     <>
       <h1>Admin Page</h1>
       <div className="block">
-        <table>
-          <thead>
-            <tr>
-              <th>pseudo</th>
-              <th>modifier</th>
-              <th>supprimer</th>
-            </tr>
-          </thead>
-          <tbody>
-            {users &&
-              users.map((user) => (
-                <tr key={user.id}>
-                  <td>{user.pseudo}</td>
-                  <td>
-                    <button
-                      type="button"
-                      className="adminButton"
-                      onClick={() => handleModifyUser()}
-                    >
-                      Modify
-                    </button>
-                  </td>
-                  <td>
-                    <button
-                      type="button"
-                      className="adminButton"
-                      onClick={() => handleDelete(`persons/${user.id}`)}
-                    >
-                      Delete
-                    </button>
-                  </td>
-                </tr>
-              ))}
-          </tbody>
-        </table>
+        <article>
+          <h2>Utilisateurs</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>pseudo</th>
+                <th>modifier</th>
+                <th>supprimer</th>
+              </tr>
+            </thead>
+            <tbody>
+              {users &&
+                users.map((user) => (
+                  <tr key={user.id}>
+                    <td>{user.pseudo}</td>
+                    <td>
+                      <button
+                        type="button"
+                        className="adminButton"
+                        onClick={() => handleModifyUser()}
+                      >
+                        Modify
+                      </button>
+                    </td>
+                    <td>
+                      <button
+                        type="button"
+                        className="adminButton"
+                        onClick={() => handleDelete(`persons/${user.id}`)}
+                      >
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+            </tbody>
+          </table>
+        </article>
 
-        <table>
-          <thead>
-            <tr>
-              <th>image</th>
-              <th>modifier</th>
-              <th>supprimer</th>
-            </tr>
-          </thead>
-          <tbody>
-            {reviews &&
-              reviews.map((review) => (
-                <tr key={review.id}>
-                  <td>
-                    <img
-                      key={review.id}
-                      src={`${import.meta.env.VITE_API_URL}/uploads/${review.picture}`}
-                      alt="img"
-                      className="imgAdmin"
-                    />
-                  </td>
-                  <td>
-                    <button
-                      type="button"
-                      className="adminButton"
-                      onClick={() => handleAccept(review)}
-                    >
-                      Accept
-                    </button>
-                  </td>
-                  <td>
-                    <button
-                      type="button"
-                      className="adminButton"
-                      onClick={() => handleDelete(`review/${review.id}`)}
-                    >
-                      Delete
-                    </button>
-                  </td>
-                </tr>
-              ))}
-          </tbody>
-        </table>
+        <article>
+          <h2>Review</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>image</th>
+                <th>modifier</th>
+                <th>supprimer</th>
+              </tr>
+            </thead>
+            <tbody>
+              {reviews &&
+                reviews.map((review) => (
+                  <tr key={review.id}>
+                    <td>
+                      <img
+                        key={review.id}
+                        src={`${import.meta.env.VITE_API_URL}/uploads/${review.picture}`}
+                        alt="img"
+                        className="imgAdmin"
+                      />
+                    </td>
+                    <td>
+                      <button
+                        type="button"
+                        className="adminButton"
+                        onClick={() => handleAccept(review)}
+                      >
+                        Accept
+                      </button>
+                    </td>
+                    <td>
+                      <button
+                        type="button"
+                        className="adminButton"
+                        onClick={() => handleDelete(`review/${review.id}`)}
+                      >
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+            </tbody>
+          </table>
+        </article>
 
-        <table>
-          <thead>
-            <tr>
-              <th>Name</th>
+        <article>
+          <h2>Galerie</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
 
-              <th>supprimer</th>
-            </tr>
-          </thead>
-          <tbody>
-            {artworks &&
-              artworks.map((artwork) => (
-                <tr key={artwork.id}>
-                  <td>
-                    <img
-                      src={`${import.meta.env.VITE_API_URL}/uploads/${trouve(artwork.id, pictures)}`}
-                      alt="artwork visuel"
-                      className="imgAdmin"
-                    />
-                  </td>
-                  <td>
-                    <button
-                      type="button"
-                      className="adminButton"
-                      onClick={() => handleDelete(`artworks/${artwork.id}`)}
-                    >
-                      Delete
-                    </button>
-                  </td>
-                </tr>
-              ))}
-          </tbody>
-        </table>
+                <th>supprimer</th>
+              </tr>
+            </thead>
+            <tbody>
+              {artworks &&
+                artworks.map((artwork) => (
+                  <tr key={artwork.id}>
+                    <td>
+                      <img
+                        src={`${import.meta.env.VITE_API_URL}/uploads/${trouve(artwork.id, pictures)}`}
+                        alt="artwork visuel"
+                        className="imgAdmin"
+                      />
+                    </td>
+                    <td>
+                      <button
+                        type="button"
+                        className="adminButton"
+                        onClick={() => handleDelete(`artworks/${artwork.id}`)}
+                      >
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+            </tbody>
+          </table>
+        </article>
       </div>
     </>
   );
@@ -270,4 +276,4 @@ function Admin() {
 
 export default Admin;
 
-// 
+//
