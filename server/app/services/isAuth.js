@@ -9,7 +9,7 @@ const isAuth = async (req, res, next) => {
       return res.status(401).json({ message: "Non autorisé" });
     }
 
-    jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
+    jwt.verify(token, process.env.APP_SECRET, (err, user) => {
       if (err) {
         return res.status(403).json({ message: "Accès refusé !" });
       }
