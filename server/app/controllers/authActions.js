@@ -22,7 +22,7 @@ const login = async (req, res, next) => {
       const { pseudo, role_id } = person;
       // Respond with the user in JSON format (but without the hashed password)
       delete person.password;
-      const jwtToken = jwt.sign({ pseudo, role_id }, process.env.JWT_SECRET, {
+      const jwtToken = jwt.sign({ pseudo, role_id }, process.env.APP_SECRET, {
         expiresIn: "1h",
       });
       res.cookie("jwtToken", jwtToken, { httpOnly: true, secure: false });
@@ -38,11 +38,11 @@ const login = async (req, res, next) => {
 const logout = async (req, res, next) => {
   try {
     res.clearCookie("jwtToken");
-    res.json({message: "La deco est un succes"});
+    res.json({ message: "La deco est un succes" });
   } catch (error) {
     next(error);
   }
-}
+};
 
 module.exports = {
   login,
