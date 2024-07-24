@@ -2,7 +2,7 @@ import {
   createContext,
   useContext,
   useState,
-  useEffect,
+ 
   useMemo,
   useCallback,
 } from "react";
@@ -14,9 +14,7 @@ const AuthContext = createContext();
 export function AuthProvider({ children }) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [person, setPerson] = useState({});
-  useEffect(() => {
-    console.info("coucou de useEffect", person); // lui est obligatoire, sinon ca plante me demandez pas
-  }, [person]);
+  
 
   const login = useCallback((someone) => {
     setPerson(someone);
