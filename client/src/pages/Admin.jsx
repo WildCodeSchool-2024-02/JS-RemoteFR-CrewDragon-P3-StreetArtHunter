@@ -99,8 +99,6 @@ function Admin() {
       artworks
     );
 
-    console.info({ review });
-
     if (artwork_id === -1) {
       const idCreate = async () =>
         axios.post(
@@ -143,6 +141,22 @@ function Admin() {
       );
     }
     handleDelete(`review/${review.id}`);
+  };
+  const handleDeleteArtworks = (endpoint, id, picture) => {
+    for(let i = 0; i<picture.length; i+=1){
+      if(picture[i].artwork_id===id){
+        axios
+          .delete(`${url}/api/pictures/${picture[i].id}`, { withCredentials: true })
+          .catch((error) => {
+            console.error("une erreur est survenu lors du delete", error);
+          });
+      }
+    }
+    axios
+      .delete(`${url}/api/${endpoint}`, { withCredentials: true })
+      .catch((error) => {
+        console.error("une erreur est survenu lors du delete", error);
+      });
   };
 
   return (
@@ -259,7 +273,7 @@ function Admin() {
                       <button
                         type="button"
                         className="adminButton"
-                        onClick={() => handleDelete(`artworks/${artwork.id}`)}
+                        onClick={() => handleDeleteArtworks(`artworks/${artwork.id}`, artwork.id, pictures)}
                       >
                         Delete
                       </button>
