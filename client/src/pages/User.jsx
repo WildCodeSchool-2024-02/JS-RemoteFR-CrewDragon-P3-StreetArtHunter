@@ -71,7 +71,7 @@ function User() {
       <div className="photos-container">
         <form onSubmit={sendPhotoToGallery}>
           <input type="file" name="picture" onChange={handleChange} />
-          <button type="button">Submit</button>
+          <button type="submit">Submit</button>
         </form>
       </div>
     </section>
