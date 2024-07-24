@@ -8,7 +8,7 @@ function Page404() {
       <p>Vous vous êtes égaré il me semble ?</p>
       <p>Pas de panique, suivez le guide !</p>
 
-      <p>Pour un retour à l'accueil cliquz sur le lien ci-dessous :</p>
+      <p>Pour un retour à l'accueil cliquez sur le lien ci-dessous :</p>
       <Link to="/" className="home-btn">
         Home
       </Link>
