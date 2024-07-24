@@ -4,7 +4,6 @@ const router = express.Router();
 
 // import des middleware
 const { isAuth } = require("../../services/isAuth");
-const { roleControle } = require("../../services/admin");
 
 // Import des routeurs
 const itemsRouter = require("./items/router");
@@ -25,7 +24,7 @@ router.use("/artists", artistsRouter);
 router.use("/persons", personsRouter);
 router.use("/artistArtwork", artistArtworkRouter);
 router.use("/auths", authRouter);
-router.use("/review", isAuth, roleControle, reviewRouter);
+router.use("/review", isAuth, reviewRouter);
 router.use("/pictures", pictureRouter);
 
 module.exports = router;
